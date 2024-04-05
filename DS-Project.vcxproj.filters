@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Unitarmy">
+      <UniqueIdentifier>{a39e8df2-a2ea-4e81-809c-47cd8158afe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Eartharmy">
+      <UniqueIdentifier>{75272a1a-39ec-4269-91e4-691bab1886d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Alienarmy">
+      <UniqueIdentifier>{32dc759f-6b91-414b-ad61-bee2449a9c8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stack">
+      <UniqueIdentifier>{b195e69e-aed3-44d0-9579-7980e707a872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Queue">
+      <UniqueIdentifier>{96ecb0f2-18e1-4218-a31c-0b42ac82f889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PriorityQueue">
+      <UniqueIdentifier>{50cd01aa-632d-44b6-96b7-a250e1a6bb92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{1a5a0245-f05e-40ed-9d17-d9276157d7a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Unitarmy\Unitarmy.h">
+      <Filter>Unitarmy</Filter>
+    </ClCompile>
+    <ClCompile Include="Eartharmy\Eartharmy.cpp">
+      <Filter>Eartharmy</Filter>
+    </ClCompile>
+    <ClCompile Include="Alienarmy\Alienarmy.cpp">
+      <Filter>Alienarmy</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Unitarmy\Unitarmy.cpp">
+      <Filter>Unitarmy</Filter>
+    </ClCompile>
+    <ClCompile Include="PriorityQueue\Priqueue.cpp">
+      <Filter>PriorityQueue</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Eartharmy\Eartharmy.h">
+      <Filter>Eartharmy</Filter>
+    </ClInclude>
+    <ClInclude Include="Alienarmy\Alienarmy.h">
+      <Filter>Alienarmy</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\ArrayStack.h">
+      <Filter>Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack\StackADT.h">
+      <Filter>Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue\LinkedQueue.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue\Node.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue\QueueADT.h">
+      <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue\LinkedQueue.h">
+      <Filter>PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue\priQueue.h">
+      <Filter>PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue\priNode.h">
+      <Filter>PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue\Node.h">
+      <Filter>PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue\QueueADT.h">
+      <Filter>PriorityQueue</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

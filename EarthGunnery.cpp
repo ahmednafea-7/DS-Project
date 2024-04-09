@@ -13,6 +13,6 @@ int EarthGunnery::GetPri()
     return Pri;
 }
 bool EarthGunnery::attack()
-{
+{//
     return false;
 }

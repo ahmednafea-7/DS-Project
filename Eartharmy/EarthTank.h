@@ -9,9 +9,9 @@ class EarthTank:public Unitarmy
 public:
 	EarthTank(int id, int tj, int health, int power, int attackcap, string type);
 	void print();
-	 
 	bool attack();
 };
-inline ostream& operator<<(ostream& os,const EarthTank& et) {
+inline ostream& operator<<(ostream& os,const EarthTank& et) 
+{
 	os <<"ET ID:" << et.GetID() << endl;
 }

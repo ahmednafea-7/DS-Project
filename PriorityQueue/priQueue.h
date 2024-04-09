@@ -11,32 +11,39 @@ class priQueue
 public:
     priQueue() : head(nullptr) {}
 
-    ~priQueue() {
+    ~priQueue()
+    {
         T tmp;
         int p;
         while (dequeue(tmp,p));
     }
 
     //insert the new node in its correct position according to its priority
-    void enqueue(const T& data, int priority) {
+    bool enqueue(const T& data, int priority)
+    {
         priNode<T>* newNode = new priNode<T>(data, priority);
 
-        if (head == nullptr || priority > head->getPri()) {
+        if (head == nullptr || priority > head->getPri()) 
+        {
             
             newNode->setNext(head);
             head = newNode;
-            return;
+            return true;
         }
        
         priNode<T>* current = head;        
-        while (current->getNext() && priority <= current->getNext()->getPri()) {
+        while (current->getNext() && priority <= current->getNext()->getPri())
+        {
             current = current->getNext();
         }
         newNode->setNext( current->getNext());
-        current->setNext( newNode);        
+        current->setNext( newNode);
+        return true;
+        
     }
 
-    bool dequeue(T& topEntry, int& pri) {
+    bool dequeue(T& topEntry, int& pri) 
+    {
         if (isEmpty())
             return false;
 
@@ -47,7 +54,8 @@ public:
         return true;
     }
 
-    bool peek(T& topEntry, int& pri) {
+    bool peek(T& topEntry, int& pri) 
+    {
         if (isEmpty())
             return false;
 

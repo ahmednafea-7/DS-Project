@@ -15,3 +15,7 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 	}
 	return false;
 }
+bool Eartharmy::RemoveUnit(Unitarmy* unit)
+{
+	
+}

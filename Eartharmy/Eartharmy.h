@@ -6,9 +6,11 @@
 
 class Eartharmy
 {
+	// initialize the lists of all units
 	LinkedQueue<Earthsoldier> ES_list;
-	LinkedQueue<Aliensoldier> AS_list;
+	// LinkedQueue<Aliensoldier> AS_list;
 
 public:
 	bool AddUnit(Unitarmy* unit);
+	bool RemoveUnit(Unitarmy* unit);
 };

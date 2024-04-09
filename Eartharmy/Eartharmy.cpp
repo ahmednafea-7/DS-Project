@@ -9,7 +9,7 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 	{
 		return;
 	}
-	else if (unit->GetType() == "ET")
+	else if (unit->GetType() == "AD")
 	{
 		return;
 	}
@@ -18,4 +18,9 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 bool Eartharmy::RemoveUnit(Unitarmy* unit)
 {
 	
+}
+
+void Eartharmy::printEarth()
+{
+	ES_list.print();
 }

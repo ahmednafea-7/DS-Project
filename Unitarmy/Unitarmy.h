@@ -10,7 +10,7 @@ class Unitarmy
 	string Type;
 public:
 	Unitarmy(int id, int tj, int health, int power, int attackcap, string type);
-	int GetID();
+	int GetID()const;
 	int GetHealth();
 	int GetPower();
 	int GetAttackcapacity();

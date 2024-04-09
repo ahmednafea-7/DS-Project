@@ -7,7 +7,7 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 	}
 	else if(unit->GetType() =="EG")
 	{
-		return;
+		return false;
 	}
 	else if (unit->GetType() == "AD")
 	{

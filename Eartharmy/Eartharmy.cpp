@@ -17,7 +17,7 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 }
 bool Eartharmy::RemoveUnit(Unitarmy* unit)
 {
-	
+	return false;
 }
 
 void Eartharmy::printEarth()

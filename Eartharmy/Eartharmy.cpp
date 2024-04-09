@@ -9,12 +9,21 @@ bool Eartharmy::AddUnit(Unitarmy* unit, int pri=0)
 	{
 		return EG_list.enqueue(*(dynamic_cast<EarthGunnery*>(unit)), (dynamic_cast<EarthGunnery*>(unit)->GetPri()));
 	}
-	else if (unit->GetType() == "ET")
+	else if (unit->GetType() == "AD")
 	{
 		return ET_list.push(*dynamic_cast<EarthTank*>(unit));
 	}
 	return false;
 }
+bool Eartharmy::RemoveUnit(Unitarmy* unit)
+{
+	
+}
+
+void Eartharmy::printEarth()
+{
+	ES_list.print();
+=======
 
 void Eartharmy::Print()
 {

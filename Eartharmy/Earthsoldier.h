@@ -12,6 +12,7 @@ public:
 	 
 	bool attack();
 };
-inline ostream& operator<<(ostream& os,const Earthsoldier& es) {
+inline ostream& operator<<(ostream& os,const Earthsoldier& es) 
+{
 	os <<"ES ID:" << es.GetID() << endl;
 }

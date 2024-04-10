@@ -128,7 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Alienarmy\Alienarmy.cpp" />
+    <ClCompile Include="Alienarmy\AlienDrone.cpp" />
+    <ClCompile Include="Alienarmy\Alienmonster.cpp" />
+    <ClCompile Include="Alienarmy\Aliensoldier.cpp" />
     <ClCompile Include="Eartharmy\Eartharmy.cpp" />
+    <ClCompile Include="Eartharmy\EarthGunnery.cpp" />
+    <ClCompile Include="Eartharmy\Earthsoldier.cpp" />
+    <ClCompile Include="Eartharmy\EarthTank.cpp" />
     <ClCompile Include="Game\game.cpp" />
     <ClCompile Include="PriorityQueue\Priqueue.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -137,12 +143,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alienarmy\Alienarmy.h" />
+    <ClInclude Include="Alienarmy\AlienDrone.h" />
+    <ClInclude Include="Alienarmy\Alienmonster.h" />
+    <ClInclude Include="Alienarmy\Aliensoldier.h" />
     <ClInclude Include="Eartharmy\Eartharmy.h" />
+    <ClInclude Include="Eartharmy\EarthGunnery.h" />
+    <ClInclude Include="Eartharmy\Earthsoldier.h" />
+    <ClInclude Include="Eartharmy\EarthTank.h" />
     <ClInclude Include="PriorityQueue\LinkedQueue.h" />
     <ClInclude Include="PriorityQueue\Node.h" />
     <ClInclude Include="PriorityQueue\priNode.h" />
     <ClInclude Include="PriorityQueue\priQueue.h" />
     <ClInclude Include="PriorityQueue\QueueADT.h" />
+    <ClInclude Include="Queue\DoubleQueue.h" />
     <ClInclude Include="Queue\LinkedQueue.h" />
     <ClInclude Include="Queue\Node.h" />
     <ClInclude Include="Queue\QueueADT.h" />

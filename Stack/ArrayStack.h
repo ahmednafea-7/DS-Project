@@ -56,6 +56,28 @@ public:
 		TopEntry = items[top];		 
 		return true;
 	}  // end peek
+	void PrintStack(ArrayStack<T> s)
+	{
+		// If stack is empty
+		if (s.isEmpty())
+			return;
+
+		// Extract top of the stack
+		int x = s.top();
+
+		// Pop the top element
+		s.pop();
+
+		// Print the current top
+		// of the stack i.e., x
+		cout << x << ' ';
+
+		// Proceed to print remaining stack
+		PrintStack(s);
+
+		// Push the element back
+		s.push(x);
+	}
 
 }; // end ArrayStack
 

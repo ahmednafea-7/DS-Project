@@ -67,4 +67,15 @@ public:
     bool isEmpty() const {
         return head == nullptr;
     }
+   void print()
+    {
+        Node<T>* ptr;
+        ptr = frontptr;
+        while (ptr)
+        {
+            cout << ptr->getItem();
+            ptr = ptr->getnext();
+        }
+    }
+
 };

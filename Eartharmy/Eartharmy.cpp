@@ -1,7 +1,7 @@
 #include "Eartharmy.h"
-bool Eartharmy::AddUnit(Unitarmy* unit, int pri=0)
+bool Eartharmy::AddUnit(Unitarmy* unit)
 {
-	if (unit->GetType() == "ES") 
+	if (unit->GetType() == "ES")
 	{
 		return ES_list.enqueue(*(dynamic_cast<Earthsoldier*>(unit)));
 	}
@@ -16,15 +16,8 @@ bool Eartharmy::AddUnit(Unitarmy* unit, int pri=0)
 	}
 	return false;
 }
-bool Eartharmy::RemoveUnit(Unitarmy* unit)
-{
-	return false;
-}
 
-void Eartharmy::PrintEarth()
+void Eartharmy::printEarth()
 {
 	ES_list.print();
-}
-void Eartharmy::Print()
-{
-}
+

@@ -155,6 +155,7 @@
     <ClInclude Include="PriorityQueue\priNode.h" />
     <ClInclude Include="PriorityQueue\priQueue.h" />
     <ClInclude Include="PriorityQueue\QueueADT.h" />
+    <ClInclude Include="Queue\DoubleQueue.h" />
     <ClInclude Include="Queue\LinkedQueue.h" />
     <ClInclude Include="Queue\Node.h" />
     <ClInclude Include="Queue\QueueADT.h" />

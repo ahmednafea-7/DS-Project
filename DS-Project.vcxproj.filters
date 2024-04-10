@@ -57,15 +57,6 @@
     <ClCompile Include="PriorityQueue\Priqueue.cpp">
       <Filter>PriorityQueue</Filter>
     </ClCompile>
-    <ClCompile Include="Eartharmy\EarthGunnery.cpp">
-      <Filter>Eartharmy</Filter>
-    </ClCompile>
-    <ClCompile Include="Eartharmy\EarthTank.cpp">
-      <Filter>Eartharmy</Filter>
-    </ClCompile>
-    <ClCompile Include="Eartharmy\Earthsoldier.cpp">
-      <Filter>Eartharmy</Filter>
-    </ClCompile>
     <ClCompile Include="Alienarmy\AlienDrone.cpp">
       <Filter>Alienarmy</Filter>
     </ClCompile>
@@ -74,6 +65,15 @@
     </ClCompile>
     <ClCompile Include="Alienarmy\Aliensoldier.cpp">
       <Filter>Alienarmy</Filter>
+    </ClCompile>
+    <ClCompile Include="Eartharmy\EarthGunnery.cpp">
+      <Filter>Eartharmy</Filter>
+    </ClCompile>
+    <ClCompile Include="Eartharmy\Earthsoldier.cpp">
+      <Filter>Eartharmy</Filter>
+    </ClCompile>
+    <ClCompile Include="Eartharmy\EarthTank.cpp">
+      <Filter>Eartharmy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -113,6 +113,15 @@
     <ClInclude Include="PriorityQueue\QueueADT.h">
       <Filter>PriorityQueue</Filter>
     </ClInclude>
+    <ClInclude Include="Alienarmy\AlienDrone.h">
+      <Filter>Alienarmy</Filter>
+    </ClInclude>
+    <ClInclude Include="Alienarmy\Alienmonster.h">
+      <Filter>Alienarmy</Filter>
+    </ClInclude>
+    <ClInclude Include="Alienarmy\Aliensoldier.h">
+      <Filter>Alienarmy</Filter>
+    </ClInclude>
     <ClInclude Include="Eartharmy\EarthGunnery.h">
       <Filter>Eartharmy</Filter>
     </ClInclude>
@@ -122,14 +131,8 @@
     <ClInclude Include="Eartharmy\EarthTank.h">
       <Filter>Eartharmy</Filter>
     </ClInclude>
-    <ClInclude Include="Alienarmy\Aliensoldier.h">
-      <Filter>Alienarmy</Filter>
-    </ClInclude>
-    <ClInclude Include="Alienarmy\AlienDrone.h">
-      <Filter>Alienarmy</Filter>
-    </ClInclude>
-    <ClInclude Include="Alienarmy\Alienmonster.h">
-      <Filter>Alienarmy</Filter>
+    <ClInclude Include="Queue\DoubleQueue.h">
+      <Filter>Queue</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

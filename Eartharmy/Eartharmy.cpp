@@ -1,4 +1,5 @@
 #include "Eartharmy.h"
+// to handle different Earth army units
 bool Eartharmy::AddUnit(Unitarmy* unit)
 {
 	if (unit->GetType() == "ES") 

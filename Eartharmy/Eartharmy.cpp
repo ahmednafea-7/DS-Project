@@ -23,8 +23,4 @@ bool Eartharmy::RemoveUnit(Unitarmy* unit)
 void Eartharmy::printEarth()
 {
 	ES_list.print();
-=======
-
-void Eartharmy::Print()
-{
 }

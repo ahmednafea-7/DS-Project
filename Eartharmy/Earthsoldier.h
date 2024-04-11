@@ -1,13 +1,13 @@
 #pragma once
-#include"../Queue/LinkedQueue.h"
+
 #include"../Unitarmy/Unitarmy.h"
 
 class Earthsoldier:public Unitarmy
 {
-	int count;
+	int count = 0;
 	
 public:
-	Earthsoldier(int id, int tj, int health, int power, int attackcap, string type);
+	Earthsoldier(int id = 0, int tj = 0, int health = 0, int power = 0, int attackcap = 0, string type = "ES");
 	void print();
 	 
 	bool attack();

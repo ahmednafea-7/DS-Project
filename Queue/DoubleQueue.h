@@ -33,11 +33,11 @@ Empty Case:
 #define Double_Queue
 
 
-#include "../Queue/Node.h"
-#include "../Queue/QueueADT.h"
+//#include "Node.h"
+#include "LinkedQueue.h"
 
 template <typename T>
-class DoubleQueue :public QueueADT<T>
+class DoubleQueue :public LinkedQueue<T>
 {
 private:
 	Node<T>* backPtr;
@@ -45,10 +45,10 @@ private:
 public:
 	DoubleQueue();
 	bool isEmpty() const;
-	bool enqueue(const T& newEntry);
-	bool dequeue(T& frntEntry) {};
+	//bool enqueue(const T& newEntry);
+	// bool dequeue(T& frntEntry) {};
 	bool dequeue(T& frntEntry, T& bckEntry);
-	bool peek(T& frntEntry)  const;
+	//bool peek(T& frntEntry)  const;
 	void print();
 	~DoubleQueue();
 
@@ -92,19 +92,19 @@ Input: newEntry .
 Output: True if the operation is successful; otherwise false.
 */
 
-template <typename T>
-bool DoubleQueue<T>::enqueue(const T& newEntry)
-{
-	Node<T>* newNodePtr = new Node<T>(newEntry);
-	// Insert the new node
-	if (isEmpty())	//special case if this is the first node to insert
-		frontPtr = newNodePtr; // The queue is empty
-	else
-		backPtr->setNext(newNodePtr); // The queue was not empty
-
-	backPtr = newNodePtr; // New node is the last node now
-	return true;
-} // end enqueue
+//template <typename T>
+//bool DoubleQueue<T>::enqueue(const T& newEntry)
+//{
+//	Node<T>* newNodePtr = new Node<T>(newEntry);
+//	// Insert the new node
+//	if (isEmpty())	//special case if this is the first node to insert
+//		frontPtr = newNodePtr; // The queue is empty
+//	else
+//		backPtr->setNext(newNodePtr); // The queue was not empty
+//
+//	backPtr = newNodePtr; // New node is the last node now
+//	return true;
+//} // end enqueue
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -120,7 +120,7 @@ Output: True if the operation is successful; otherwise false.
 template <typename T>
 bool DoubleQueue<T>::dequeue(T& frntEntry, T& bckEntry)
 {
-	if ((isEmpty()) || (frontptr == backptr))
+	if ((isEmpty()) || (frontPtr == backPtr))
 		return false;
 	else {
 		Node<T>* nodeToDeletePtr = frontPtr;
@@ -128,7 +128,7 @@ bool DoubleQueue<T>::dequeue(T& frntEntry, T& bckEntry)
 		frontPtr = frontPtr->getNext();
 
 		Node<T>* nodeToDeletePtr1 = backPtr;
-		bckEntry = bckPtr->getItem();
+		bckEntry = backPtr->getItem();
 		Node<T>* Temp = frontPtr;
 		while (Temp->getNext() != backPtr)
 			Temp = Temp->getNext();
@@ -138,8 +138,8 @@ bool DoubleQueue<T>::dequeue(T& frntEntry, T& bckEntry)
 
 
 	// Free memory reserved for the dequeued node
-	delete nodeToDeletePtr;
-	delete nodeToDeletePtr1;
+	/*delete nodeToDeletePtr;
+	delete nodeToDeletePtr1;*/
 
 
 	return true;
@@ -157,16 +157,16 @@ Input: None.
 Output: The front of the queue.
 */
 
-template <typename T>
-bool DoubleQueue<T>::peek(T& frntEntry) const
-{
-	if (isEmpty())
-		return false;
-
-	frntEntry = frontPtr->getItem();
-	return true;
-
-}
+//template <typename T>
+//bool DoubleQueue<T>::peek(T& frntEntry) const
+//{
+//	if (isEmpty())
+//		return false;
+//
+//	frntEntry = frontPtr->getItem();
+//	return true;
+//
+//}
 ///////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
@@ -179,7 +179,8 @@ DoubleQueue<T>::~DoubleQueue()
 
 	//Free all nodes in the queue
 	T temp;
-	while (dequeue(temp));
+	T temp2;
+	while (dequeue(temp,temp2));
 
 	cout << "\n Is LinkedQueue Empty now?? ==> " << boolalpha << isEmpty();
 	cout << "\nEnding LinkedQueue destructor..." << endl;
@@ -188,11 +189,11 @@ template <typename T>
 void DoubleQueue<T>::print()
 {
 	Node<T>* ptr;
-	ptr = frontptr;
+	ptr = frontPtr;
 	while (ptr)
 	{
 		cout << ptr->getItem();
-		ptr = ptr->getnext();
+		ptr = ptr->getNext();
 	}
 }
 

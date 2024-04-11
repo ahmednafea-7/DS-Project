@@ -7,7 +7,7 @@ class AlienDrone:public Unitarmy
 	int count;
 
 public:
-	AlienDrone(int id, int tj, int health, int power, int attackcap, string type);
+	AlienDrone(int id = 0, int tj = 0, int health = 0, int power = 0, int attackcap = 0, string type = "AD");
 	void print();
 	bool attack();
 };

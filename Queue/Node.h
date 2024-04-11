@@ -13,7 +13,7 @@ public :
 	Node(const T & r_Item, Node<T>* nextNodePtr);
 	void setItem(const T & r_Item);
 	void setNext(Node<T>* nextNodePtr);
-	T getItem() const ;
+	T getItem() const;
 	Node<T>* getNext() const ;
 }; // end Node
 #endif

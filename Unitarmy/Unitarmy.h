@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 
 using namespace std;
@@ -10,7 +11,7 @@ class Unitarmy
 	string Type;
 public:
 	Unitarmy(int id, int tj, int health, int power, int attackcap, string type);
-	int GetID()const;
+	int GetID() const;
 	int GetHealth();
 	int GetPower();
 	int GetAttackcapacity();

@@ -137,9 +137,9 @@
     <ClCompile Include="Eartharmy\EarthTank.cpp" />
     <ClCompile Include="Game\game.cpp" />
     <ClCompile Include="PriorityQueue\Priqueue.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="RandGen\RandGen.cpp" />
+    <ClCompile Include="testcode.cpp" />
     <ClCompile Include="Unitarmy\Unitarmy.cpp" />
-    <ClCompile Include="Unitarmy\Unitarmy.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alienarmy\Alienarmy.h" />
@@ -150,6 +150,7 @@
     <ClInclude Include="Eartharmy\EarthGunnery.h" />
     <ClInclude Include="Eartharmy\Earthsoldier.h" />
     <ClInclude Include="Eartharmy\EarthTank.h" />
+    <ClInclude Include="Game\game.h" />
     <ClInclude Include="PriorityQueue\LinkedQueue.h" />
     <ClInclude Include="PriorityQueue\Node.h" />
     <ClInclude Include="PriorityQueue\priNode.h" />
@@ -159,8 +160,10 @@
     <ClInclude Include="Queue\LinkedQueue.h" />
     <ClInclude Include="Queue\Node.h" />
     <ClInclude Include="Queue\QueueADT.h" />
+    <ClInclude Include="RandGen\RandGen.h" />
     <ClInclude Include="Stack\ArrayStack.h" />
     <ClInclude Include="Stack\StackADT.h" />
+    <ClInclude Include="Unitarmy\Unitarmy.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

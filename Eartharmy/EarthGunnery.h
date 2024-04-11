@@ -1,13 +1,13 @@
 #pragma once
-#include "../PriorityQueue/priQueue.h"
 #include "../Unitarmy/Unitarmy.h"
+
 class EarthGunnery :public Unitarmy
 {
-	int count;
+	int count = 0;
 	int Pri;
 
 public:
-	EarthGunnery(int id, int tj, int health, int power, int attackcap, string type);
+	EarthGunnery(int id = 0, int tj = 0, int health = 0, int power = 0, int attackcap = 0, string type ="EG");
 	void print();
 	int GetPri();
 	bool attack();

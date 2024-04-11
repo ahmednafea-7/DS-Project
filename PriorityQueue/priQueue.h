@@ -70,7 +70,7 @@ public:
    void print()
     {
         Node<T>* ptr;
-        ptr = frontptr;
+        ptr = head;
         while (ptr)
         {
             cout << ptr->getItem();

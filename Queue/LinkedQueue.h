@@ -41,9 +41,10 @@ Single Node Case:
 #ifndef LINKED_QUEUE_
 #define LINKED_QUEUE_
 
-
+#include <iostream>
 #include "Node.h"
 #include "QueueADT.h"
+using namespace std;
 
 template <typename T>
 class LinkedQueue:public QueueADT<T>
@@ -173,25 +174,25 @@ LinkedQueue<T>::~LinkedQueue()
 {
 	//Note that the cout statements here is just for learning purpose
 	//They should be normally removed from the destructor
-	cout<<"\nStarting LinkedQueue destructor...";
-	cout<<"\nFreeing all nodes in the queue...";
+	//cout<<"\nStarting LinkedQueue destructor...";
+	//cout<<"\nFreeing all nodes in the queue...";
 
-	//Free all nodes in the queue
-	T temp;
-	while(dequeue(temp));
-	
-	cout<<"\n Is LinkedQueue Empty now?? ==> "<<boolalpha<<isEmpty();
-	cout<<"\nEnding LinkedQueue destructor..."<<endl;
+	////Free all nodes in the queue
+	//T temp;
+	//while(dequeue(temp));
+	//
+	//cout<<"\n Is LinkedQueue Empty now?? ==> " <<boolalpha<<isEmpty();
+	//cout << "\n Ending LinkedQueue destructor..."<< endl;
 }
 template <typename T>
 void LinkedQueue<T>::print()
 {
 	Node<T>* ptr;
-	ptr = frontptr;
+	ptr = frontPtr;
 	while(ptr)
 	{
 		cout << ptr->getItem();
-		ptr = ptr->getnext();
+		ptr = ptr->getNext();
 	}
 }
 

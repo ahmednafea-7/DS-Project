@@ -34,14 +34,11 @@
     <Filter Include="Game">
       <UniqueIdentifier>{1a5a0245-f05e-40ed-9d17-d9276157d7a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RandGen">
+      <UniqueIdentifier>{a5b18a63-04bd-4c5d-a0c3-6c3f09e28205}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Unitarmy\Unitarmy.h">
-      <Filter>Unitarmy</Filter>
-    </ClCompile>
     <ClCompile Include="Eartharmy\Eartharmy.cpp">
       <Filter>Eartharmy</Filter>
     </ClCompile>
@@ -50,9 +47,6 @@
     </ClCompile>
     <ClCompile Include="Game\game.cpp">
       <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="Unitarmy\Unitarmy.cpp">
-      <Filter>Unitarmy</Filter>
     </ClCompile>
     <ClCompile Include="PriorityQueue\Priqueue.cpp">
       <Filter>PriorityQueue</Filter>
@@ -74,6 +68,15 @@
     </ClCompile>
     <ClCompile Include="Eartharmy\EarthTank.cpp">
       <Filter>Eartharmy</Filter>
+    </ClCompile>
+    <ClCompile Include="testcode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RandGen\RandGen.cpp">
+      <Filter>RandGen</Filter>
+    </ClCompile>
+    <ClCompile Include="Unitarmy\Unitarmy.cpp">
+      <Filter>Unitarmy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +136,15 @@
     </ClInclude>
     <ClInclude Include="Queue\DoubleQueue.h">
       <Filter>Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RandGen\RandGen.h">
+      <Filter>RandGen</Filter>
+    </ClInclude>
+    <ClInclude Include="Unitarmy\Unitarmy.h">
+      <Filter>Unitarmy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

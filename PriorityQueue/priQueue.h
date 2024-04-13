@@ -36,8 +36,8 @@ public:
         {
             current = current->getNext();
         }
-        newNode->setNext( current->getNext());
-        current->setNext( newNode);
+        newNode->setNext(current->getNext());
+        current->setNext(newNode);
         return true;
         
     }
@@ -69,12 +69,13 @@ public:
     }
    void print()
     {
-        Node<T>* ptr;
+        priNode<T>* ptr;
         ptr = head;
         while (ptr)
         {
-            cout << ptr->getItem();
-            ptr = ptr->getnext();
+            int x;
+            cout << *(ptr->getItem(x)); // x as a dummy var.
+            ptr = ptr->getNext();
         }
     }
 

@@ -19,7 +19,7 @@ class RandGen
 		return rand() % (upperb - lowerb + 1) + lowerb;
 	};
 public:
-	RandGen();//game* gptr);
+	RandGen(game* gptr);
 	void setN_Prob(int n, int P);  // sets N and Prob
 	void setE_per(int es, int et, int eg); // set earth units' percentages
 	void setA_per(int as, int am, int ad); // set Alien units' percentages

@@ -127,7 +127,7 @@ Output: True if the operation is successful; otherwise false.
 */
 
 template <typename T>
-bool LinkedQueue<T>:: dequeue(T& frntEntry)  
+bool LinkedQueue<T>:: dequeue(T& const frntEntry)  
 {
 	if(isEmpty())
 		return false;
@@ -191,7 +191,7 @@ void LinkedQueue<T>::print()
 	ptr = frontPtr;
 	while(ptr)
 	{
-		cout << ptr->getItem();
+		cout << *(ptr->getItem());
 		ptr = ptr->getNext();
 	}
 }

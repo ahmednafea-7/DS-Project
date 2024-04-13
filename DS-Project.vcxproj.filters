@@ -37,6 +37,9 @@
     <Filter Include="RandGen">
       <UniqueIdentifier>{a5b18a63-04bd-4c5d-a0c3-6c3f09e28205}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Array">
+      <UniqueIdentifier>{02af6764-de80-4850-aab4-2d9c4f4c9b28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Eartharmy\Eartharmy.cpp">
@@ -145,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="Unitarmy\Unitarmy.h">
       <Filter>Unitarmy</Filter>
+    </ClInclude>
+    <ClInclude Include="Array\Array.h">
+      <Filter>Array</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

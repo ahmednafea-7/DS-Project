@@ -14,5 +14,6 @@ public:
 inline ostream& operator<<(ostream& os,const EarthTank& et) 
 {
 	os <<"ET ID:" << et.GetID() << endl;
+	return os;
 }
 

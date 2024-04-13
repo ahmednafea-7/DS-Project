@@ -4,6 +4,8 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 {
 	if (unit->GetType() == "ES")
 	{
+		/*Earthsoldier a;
+		a.increment();*/
 		return ES_list.enqueue(dynamic_cast<Earthsoldier*>(unit));
 	}
 	else if (unit->GetType() == "EG")
@@ -20,4 +22,52 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 void Eartharmy::printEarth()
 {
 	ES_list.print();
+	EG_list.print();
+	//ET_list.PrintStack(ET_list);
 }
+
+//Unitarmy* Eartharmy::RemoveUnit(Unitarmy* unit)
+//{
+//	if (unit->GetType() == "ES")
+//	{
+//		Earthsoldier* a = dynamic_cast<Earthsoldier*>(unit);
+//		ES_list.dequeue(a);
+//		return a;
+//	}
+//	else if (unit->GetType() == "EG")
+//	{
+//		EarthGunnery* G = dynamic_cast<EarthGunnery*>(unit);
+//		int x = 0;
+//		EG_list.dequeue(G,x);
+//	}
+//	else if (unit->GetType() == "ET")
+//	{
+//		EarthTank* T = dynamic_cast<EarthTank*>(unit);
+//		ET_list.pop(T);
+//		return T;
+//	}
+//	return unit;
+//}
+Unitarmy* Eartharmy::RemoveUnit(string type)
+{
+	if (type == "ES")
+	{
+		Earthsoldier* a;// = dynamic_cast<Earthsoldier*>(unit);
+		ES_list.dequeue(a);
+		return a;
+	}
+	else if (type == "EG")
+	{
+		EarthGunnery* G;// = dynamic_cast<EarthGunnery*>(unit);
+		int x = 0;
+		EG_list.dequeue(G, x);
+	}
+	else if (type == "ET")
+	{
+		EarthTank* T; // = dynamic_cast<EarthTank*>(unit);
+		ET_list.pop(T);
+		return T;
+	}
+	return nullptr;
+}
+

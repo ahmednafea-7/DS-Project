@@ -13,6 +13,7 @@ class game
 	Eartharmy E_Army;
 	Alienarmy A_Army;
 	RandGen Generator;
+	LinkedQueue<Unitarmy*> Killed_list;
 	int TS; //Time step counter
 	int N; //No. of army units generated
 	int Earth_per[3];//Percentages of units for  EARTHarmy in order(ES,ET,EG)
@@ -24,7 +25,10 @@ public:
 	void Readinput();
 	void SetRandgen();
 	void createunit();
+	void Removeunit(string type);
 	Eartharmy* getEartharmy();
 	Alienarmy* getAlienarmy();
+	RandGen* getRandgen();
 	int* getRanges();
+	void PrintKilled();
 };

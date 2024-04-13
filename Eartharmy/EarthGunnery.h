@@ -14,4 +14,5 @@ public:
 };
 inline ostream& operator<<(ostream& os, const EarthGunnery& eg) {
 	os << "EG ID:" << eg.GetID() << endl;
+	return os;
 }

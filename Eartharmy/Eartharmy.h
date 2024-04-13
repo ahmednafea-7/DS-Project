@@ -16,6 +16,7 @@ class Eartharmy
 public:
 	bool AddUnit(Unitarmy* unit);
 	void printEarth();
-
+	Unitarmy* RemoveUnit(string type);
+	// Unitarmy* RemoveUnit(Unitarmy* unit);
 	//Eartharmy() = default;
 };

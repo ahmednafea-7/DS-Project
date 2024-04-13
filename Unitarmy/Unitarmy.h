@@ -21,3 +21,8 @@ public:
 	virtual void print() = 0;
 	~Unitarmy();
 };
+inline ostream& operator<<(ostream& os, const Unitarmy& U)
+{
+	os << "Unit ID" << U.GetID() << endl;
+	return os;
+}

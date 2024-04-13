@@ -14,3 +14,5 @@ bool Earthsoldier::attack()
 {
     return false;
 }
+
+

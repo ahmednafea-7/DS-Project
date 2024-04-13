@@ -1,6 +1,6 @@
 #include "game.h"
 
-game::game()
+game::game():Generator(this)
 {
 }
 
@@ -9,15 +9,6 @@ void game::Readinput()
 	ifstream myfile("inputfile.txt");
 	if (myfile.is_open())
 	{
-		//	int i = 0;
-		//	//getline(myfile, parameters);
-		//	// N = myfile.get();
-		//	while (myfile) {
-		//		getline(myfile, parameters[i]);
-		//		// cout << parameters[i] << endl;
-		//		i++;
-		//	}
-		//}
 		myfile >> N;
 		myfile >> Earth_per[0];
 		myfile >> Earth_per[1];
@@ -59,6 +50,11 @@ void game::createunit()
 {
 	Generator.generateUnit();
 }
+void game::Removeunit(string type)
+{
+	//getEartharmy()->RemoveUnit(type);
+	Killed_list.enqueue(getEartharmy()->RemoveUnit(type));
+}
 Eartharmy* game::getEartharmy()
 {
 	return &E_Army;
@@ -68,8 +64,18 @@ Alienarmy* game::getAlienarmy()
 	return &A_Army;
 }
 
+RandGen* game::getRandgen()
+{
+	return &Generator;
+}
+
 int* game::getRanges() // to test
 {
 	return Earth_Ranges;
+}
+
+void game::PrintKilled()
+{
+	Killed_list.print();
 }
 

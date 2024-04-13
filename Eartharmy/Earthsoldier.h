@@ -12,6 +12,6 @@ public:
 };
 inline ostream& operator<<(ostream& os,const Earthsoldier& es) 
 {
-	os <<"ES ID:" << es.GetID() << endl;
+	os << es.GetID() << " , ";
 	return os;
 }

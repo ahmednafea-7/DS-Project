@@ -21,6 +21,5 @@ class Alienarmy
 	int AMcount;
 public:
 	bool AddUnit(Unitarmy* unit);
-	//bool RemoveUnit(Unitarmy* unit);
 	void PrintAlien();
 };

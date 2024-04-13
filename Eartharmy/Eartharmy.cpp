@@ -21,11 +21,13 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 
 void Eartharmy::printEarth()
 {
-	ES_list.print();
-	EG_list.print();
-	//ET_list.PrintStack(ET_list);
+	cout << ES_list.GetCount() << " ES ["; ES_list.print();
+	cout << endl;
+	cout << EG_list.GetCount() << " EG ["; EG_list.print();
+	cout << endl;
+	cout << ET_list.GetCount() << " ET ["; ET_list.print();
+	cout << endl;
 }
-
 //Unitarmy* Eartharmy::RemoveUnit(Unitarmy* unit)
 //{
 //	if (unit->GetType() == "ES")

@@ -1,13 +1,11 @@
 #include "RandGen.h"
 #include "../Game/game.h"
-//RandGen::RandGen(game* gptr)
-//{
-//	gameptr = gptr;
-//}
-
-RandGen::RandGen()
+RandGen::RandGen(game* gptr)
 {
+	gameptr = gptr;
 }
+
+
 
 void RandGen::setN_Prob(int n, int P)
 {
@@ -49,8 +47,9 @@ void RandGen::setA_Ranges(int* Aranges) //, int* Health, int* Attackcap)
 void RandGen::generateUnit()
 {
 	srand(time(0));
-	int A = rand() % 100 + 1;
-	cout << "A = " << A;
+	/*int A = rand() % 100 + 1;*/
+	int A = 15;
+	cout << "A = " << A << endl;
 	int B;
 	if (A < Prob)
 	{
@@ -60,18 +59,23 @@ void RandGen::generateUnit()
 			int Health = gen_random(E_HealthRa[0], E_HealthRa[1]);
 			int Attackcap = gen_random(E_HealthRa[0], E_HealthRa[1]);
 			if (B < ES)
-				gameptr->getEartharmy()->AddUnit(new Earthsoldier(Earth_id++, power, Health, Attackcap));
+			{
+				Earthsoldier* E = new Earthsoldier(Earth_id++, 0, Health, power, Attackcap);
+				gameptr->getEartharmy()->AddUnit(E);
+			}
 			else if (B < ES + ET)
-				gameptr->getEartharmy()->AddUnit(new EarthTank(Earth_id++, power, Health, Attackcap));
+				gameptr->getEartharmy()->AddUnit(new EarthTank(Earth_id++, 0, Health, power, Attackcap));
 			else
-				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, power, Health, Attackcap));
-			B = rand() % 100 + 1;
-			//if (B < AS)
-			//	// gameptr->getEartharmy()->AddUnit(new Aliensoldier(Alien_id++, power, Health, Attackcap));
-			////else if (B < AS + AM)
-			//	//gameptr->getEartharmy()->AddUnit(new AlienMonster(Alien_id++, power, Health, Attackcap));
-			//else
-			//	gameptr->getEartharmy()->AddUnit(new AlienDrone(Alien_id++, power, Health, Attackcap));
+				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, 0, Health, power, Attackcap));
+
+
+			B = 10;
+			if (B < AS)
+			    gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++,0,Health, power, Attackcap));
+		  /*else if (B < AS + AM)
+            	gameptr->getAlienarmy()->AddUnit(new AlienMonster(Alien_id++,0, power, Health, Attackcap));*/
+			else
+				gameptr->getAlienarmy()->AddUnit(new AlienDrone(Alien_id++,0,Health, power, Attackcap));
 		}
 	}
 	else 

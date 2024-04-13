@@ -13,7 +13,7 @@ public:
 };
 inline ostream& operator<<(ostream& os,const EarthTank& et) 
 {
-	os <<"ET ID:" << et.GetID() << endl;
+	os << et.GetID() <<" , ";
 	return os;
 }
 

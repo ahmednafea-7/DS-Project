@@ -8,12 +8,12 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 	}
 	else if (unit->GetType() == "AD")
 	{
-		return AD_list.enqueue((dynamic_cast<AlienDrone*>(unit)));
+		  return AD_list.enqueue((dynamic_cast<AlienDrone*>(unit)));
 	}
 	else if (unit->GetType() == "AM")
 	{
 		// return AM_list.insertitem((dynamic_cast<Alienmonster*>(unit)));
-		AM_list[AMcount++] = dynamic_cast<Alienmonster*>(unit);
+		//AM_list[AMcount++] = dynamic_cast<Alienmonster*>(unit);
 		return true;
 	}
 	return false;
@@ -32,4 +32,8 @@ void Alienarmy::PrintAlien()
 		}
 	}
 	std:: cout << "]" << endl;
+	cout << AS_list.GetCount() << " AS ["; AS_list.print(); 
+	cout << endl;
+	cout << AD_list.GetCount() << " AD ["; AD_list.print();
+	cout << endl;
 }

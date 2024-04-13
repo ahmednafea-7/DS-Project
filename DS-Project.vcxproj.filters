@@ -37,6 +37,9 @@
     <Filter Include="RandGen">
       <UniqueIdentifier>{a5b18a63-04bd-4c5d-a0c3-6c3f09e28205}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TestCode">
+      <UniqueIdentifier>{a22bbc25-04d1-4f0a-9c83-6dc0ea3409d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Eartharmy\Eartharmy.cpp">

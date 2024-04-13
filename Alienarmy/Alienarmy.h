@@ -11,13 +11,12 @@
 class Alienarmy
 {
 	// initialize the lists of all units
-	/*LinkedQueue<Aliensoldier> AS_list;*/
+	LinkedQueue<Aliensoldier*> AS_list;
 	DoubleQueue<AlienDrone*> AD_list;
 
 	// LinkedQueue<Aliensoldier> AS_list;
 
 public:
 	bool AddUnit(Unitarmy* unit);
-	//bool RemoveUnit(Unitarmy* unit);
 	void PrintAlien();
 };

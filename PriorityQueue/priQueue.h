@@ -8,6 +8,7 @@ template <typename T>
 class priQueue
 {
     priNode<T>* head;
+    int count;
 public:
     priQueue() : head(nullptr) {}
 
@@ -28,6 +29,7 @@ public:
             
             newNode->setNext(head);
             head = newNode;
+            count++;
             return true;
         }
        
@@ -38,8 +40,8 @@ public:
         }
         newNode->setNext( current->getNext());
         current->setNext( newNode);
+        count++;
         return true;
-        
     }
 
     bool dequeue(T& topEntry, int& pri) 
@@ -47,10 +49,11 @@ public:
         if (isEmpty())
             return false;
 
-        topEntry = head->getItem(pri);
+        topEntry = head->getItem();
         priNode<T>* temp = head;
         head = head->getNext();
         delete temp;
+        count--;
         return true;
     }
 
@@ -69,13 +72,18 @@ public:
     }
    void print()
     {
-        Node<T>* ptr;
+        priNode<T>* ptr;
         ptr = head;
         while (ptr)
         {
-            cout << ptr->getItem();
-            ptr = ptr->getnext();
+            cout << *(ptr->getItem());
+            ptr =ptr->getNext();
         }
+        cout << "] There are " << count << " Of this list" << endl;
     }
+   int GetCount()
+   {
+       return count;
+   }
 
 };

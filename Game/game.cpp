@@ -1,7 +1,7 @@
 #include "game.h"
 
-game::game()
-{
+game::game():Generator(this)
+{	
 }
 
 void game::Readinput()

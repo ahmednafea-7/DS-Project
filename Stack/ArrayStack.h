@@ -18,6 +18,7 @@ class ArrayStack : public StackADT<T>
 private:
 	T items[MAX_SIZE];		// Array of stack items
 	int top;                   // Index to top of stack
+	int count;
 	
 public:
 
@@ -36,7 +37,8 @@ public:
 		if( top == MAX_SIZE-1 ) return false;	//Stack is FULL
 
 		top++;
-		items[top] = newEntry;   
+		items[top] = newEntry;
+		count++;
 		return true;
 	}  // end push
 
@@ -46,6 +48,7 @@ public:
 		
 		TopEntry = items[top];		 
 		top--;
+		count--;
 		return true;
 	}  // end pop
 	
@@ -56,27 +59,15 @@ public:
 		TopEntry = items[top];		 
 		return true;
 	}  // end peek
-	void PrintStack(ArrayStack<T> s)
+	void print()
 	{
-		// If stack is empty
-		if (s.isEmpty())
-			return;
-
-		// Extract top of the stack
-		int x = s.top();
-
-		// Pop the top element
-		s.pop();
-
-		// Print the current top
-		// of the stack i.e., x
-		cout << x << ' ';
-
-		// Proceed to print remaining stack
-		PrintStack(s);
-
-		// Push the element back
-		s.push(x);
+		for (int i = 0;i < count;i++)
+			cout << *(items[i]);
+		cout << "] There are " << count << " Of this list" << endl;
+	}
+	int GetCount()
+	{
+		return count;
 	}
 
 }; // end ArrayStack

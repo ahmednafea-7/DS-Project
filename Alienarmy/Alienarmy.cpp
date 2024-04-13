@@ -4,11 +4,11 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 {
 	if (unit->GetType() == "AS")
 	{
-		 // return AS_list.enqueue((dynamic_cast<Earthsoldier*>(unit)));
+		  return AS_list.enqueue((dynamic_cast<Aliensoldier*>(unit)));
 	}
 	else if (unit->GetType() == "AD")
 	{
-		return AD_list.enqueue((dynamic_cast<AlienDrone*>(unit)));
+		  return AD_list.enqueue((dynamic_cast<AlienDrone*>(unit)));
 	}
 	else if (unit->GetType() == "AM")
 	{
@@ -17,7 +17,12 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 	return false;
 }
 
+
+
 void Alienarmy::PrintAlien()
 {
-	AD_list.print();
+	cout << AS_list.GetCount() << " AS ["; AS_list.print(); 
+	cout << endl;
+	cout << AD_list.GetCount() << " AD ["; AD_list.print();
+	cout << endl;
 }

@@ -19,5 +19,10 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 
 void Eartharmy::printEarth()
 {
-	ES_list.print();
+	cout << ES_list.GetCount() << " ES ["; ES_list.print();
+	cout << endl;
+	cout << EG_list.GetCount() << " EG ["; EG_list.print();
+	cout << endl;
+	cout << ET_list.GetCount() << " ET ["; ET_list.print();
+	cout << endl;
 }

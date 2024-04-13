@@ -42,13 +42,14 @@ class DoubleQueue :public LinkedQueue<T>
 private:
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
+	int count;
 public:
 	DoubleQueue();
 	bool isEmpty() const;
-	//bool enqueue(const T& newEntry);
-	// bool dequeue(T& frntEntry) {};
+	bool enqueue(const T& newEntry);
+	int GetCount();
 	bool dequeue(T& frntEntry, T& bckEntry);
-	//bool peek(T& frntEntry)  const;
+	bool peek(T& frntEntry, T&bckEntry)  const;
 	void print();
 	~DoubleQueue();
 
@@ -92,19 +93,20 @@ Input: newEntry .
 Output: True if the operation is successful; otherwise false.
 */
 
-//template <typename T>
-//bool DoubleQueue<T>::enqueue(const T& newEntry)
-//{
-//	Node<T>* newNodePtr = new Node<T>(newEntry);
-//	// Insert the new node
-//	if (isEmpty())	//special case if this is the first node to insert
-//		frontPtr = newNodePtr; // The queue is empty
-//	else
-//		backPtr->setNext(newNodePtr); // The queue was not empty
-//
-//	backPtr = newNodePtr; // New node is the last node now
-//	return true;
-//} // end enqueue
+template <typename T>
+bool DoubleQueue<T>::enqueue(const T& newEntry)
+{
+	Node<T>* newNodePtr = new Node<T>(newEntry);
+	// Insert the new node
+	if (isEmpty())	//special case if this is the first node to insert
+		frontPtr = newNodePtr; // The queue is empty
+	else
+		backPtr->setNext(newNodePtr); // The queue was not empty
+
+	backPtr = newNodePtr; // New node is the last node now
+	count++;
+	return true;
+} // end enqueue
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -141,7 +143,7 @@ bool DoubleQueue<T>::dequeue(T& frntEntry, T& bckEntry)
 	/*delete nodeToDeletePtr;
 	delete nodeToDeletePtr1;*/
 
-
+	count = count - 2;
 	return true;
 }
 
@@ -157,16 +159,17 @@ Input: None.
 Output: The front of the queue.
 */
 
-//template <typename T>
-//bool DoubleQueue<T>::peek(T& frntEntry) const
-//{
-//	if (isEmpty())
-//		return false;
-//
-//	frntEntry = frontPtr->getItem();
-//	return true;
-//
-//}
+template <typename T>
+bool DoubleQueue<T>::peek(T& frntEntry, T&bckEntry) const
+{
+	if (isEmpty())
+		return false;
+
+	frntEntry = frontPtr->getItem();
+	bckEntry = backPtr->getItem();
+	return true;
+
+}
 ///////////////////////////////////////////////////////////////////////////////////
 
 template <typename T>
@@ -182,8 +185,8 @@ DoubleQueue<T>::~DoubleQueue()
 	T temp2;
 	while (dequeue(temp,temp2));
 
-	cout << "\n Is LinkedQueue Empty now?? ==> " << boolalpha << isEmpty();
-	cout << "\nEnding LinkedQueue destructor..." << endl;
+	cout << "\n Is DoubleQueue Empty now?? ==> " << boolalpha << isEmpty();
+	cout << "\nEnding DoubleQueue destructor..." << endl;
 }
 template <typename T>
 void DoubleQueue<T>::print()
@@ -195,6 +198,12 @@ void DoubleQueue<T>::print()
 		cout << ptr->getItem();
 		ptr = ptr->getNext();
 	}
+	cout << "] There are " << count << " Of this list" << endl;
+}
+template <typename T>
+int DoubleQueue<T>::GetCount()
+{
+	return count;
 }
 
 #endif

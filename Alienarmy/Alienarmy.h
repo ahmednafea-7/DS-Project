@@ -18,7 +18,7 @@ class Alienarmy
 	DoubleQueue<AlienDrone*> AD_list;
 	//Array<Alienmonster*> AM_list;
 	Alienmonster* AM_list[MAX];
-	int AMcount;
+	int AMcount = 0;
 public:
 	bool AddUnit(Unitarmy* unit);
 	void PrintAlien();

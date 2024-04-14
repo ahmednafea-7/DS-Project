@@ -2,6 +2,11 @@
 #include "Game/game.h"
 using namespace std;
 
+int* Arr(int x, int y)
+{
+	int* A[] = { &x,&y };
+	return *A+1;
+}
 int main()
 {
 	game g1;
@@ -20,4 +25,8 @@ int main()
 	g1.Removeunit("ES");
 	g1.getEartharmy()->printEarth();
 	g1.PrintKilled();
+	/*int x = 1, y = 2;
+	int* z = Arr(x, y);
+	cout <<"z = " << *z << "  z+1 = " << * (z + 1) << endl;*/
 }
+

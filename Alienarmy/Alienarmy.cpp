@@ -13,7 +13,7 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 	else if (unit->GetType() == "AM")
 	{
 		// return AM_list.insertitem((dynamic_cast<Alienmonster*>(unit)));
-		//AM_list[AMcount++] = dynamic_cast<Alienmonster*>(unit);
+		AM_list[AMcount++] = dynamic_cast<Alienmonster*>(unit);
 		return true;
 	}
 	return false;
@@ -21,8 +21,8 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 
 void Alienarmy::PrintAlien()
 {
-	AS_list.print();
-	AD_list.print();
+	//AS_list.print();
+	//AD_list.print();
 	//AM_list.print();
 	std::cout << AMcount << " AM" << "[";
 	for(int i = 0;i < AMcount;i++) {

@@ -47,7 +47,10 @@ public:
     bool dequeue(T& topEntry, int& pri) 
     {
         if (isEmpty())
+        {
+            topEntry = nullptr;
             return false;
+        }
         int x = 0;
         topEntry = head->getItem(x);
         priNode<T>* temp = head;

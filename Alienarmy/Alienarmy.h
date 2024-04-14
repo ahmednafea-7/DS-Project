@@ -8,6 +8,7 @@
 #include "../PriorityQueue/priQueue.h"
 #include "../Queue/DoubleQueue.h"
 #include <iostream>
+#include <random> // to pick mosnters randomly
 
 #define MAX 1000
 

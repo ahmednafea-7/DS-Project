@@ -123,13 +123,21 @@ Output: True if the operation is successful; otherwise false.
 template <typename T>
 bool DoubleQueue<T>::dequeue(T& frntEntry, T& bckEntry)
 {
-	if ((isEmpty()) || (frontPtr == backPtr))
+	if ((isEmpty()) || (frontPtr == backPtr)) {
+		frntEntry = nullptr;
+		bckEntry = nullptr;
 		return false;
+	}
 	else {
 		Node<T>* nodeToDeletePtr = frontPtr;
 		frntEntry = frontPtr->getItem();
 		frontPtr = frontPtr->getNext();
-
+		if (frontPtr == backPtr)
+		{
+			bckEntry = backPtr->getItem();
+			frontPtr = backPtr;
+			return true;
+		}
 		Node<T>* nodeToDeletePtr1 = backPtr;
 		bckEntry = backPtr->getItem();
 		Node<T>* Temp = frontPtr;

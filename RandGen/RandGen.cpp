@@ -47,16 +47,21 @@ void RandGen::setA_Ranges(int* Aranges) //, int* Health, int* Attackcap)
 void RandGen::generateUnit()
 {
 	gameptr->getTimestep();
-	srand(time(0));
-	/*int A = rand() % 100 + 1;*/
-	int A = 15;
+	/*srand(time(0));
+	int A = rand() % 100 + 1;*/
+	std::random_device rd;
+	std::uniform_int_distribution<int> random(1, 100);
+	int A = random(rd);
+	//int A = 15;
 	cout << "A = " << A << endl;
 	int B;
 	if (A < Prob)
 	{
 		for (int i = 0; i < N; i++) {
 			//B = rand() % 100 + 1;
-			B = 75;
+			B = 95;
+			//B = random(rd);
+			//cout << "Earth B = " << B << endl;
 			int power = gen_random(E_PowerRa[0], E_PowerRa[1]);
 			int Health = gen_random(E_HealthRa[0], E_HealthRa[1]);
 			int Attackcap = gen_random(E_HealthRa[0], E_HealthRa[1]);
@@ -69,8 +74,9 @@ void RandGen::generateUnit()
 				gameptr->getEartharmy()->AddUnit(new EarthTank(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap));
 			else
 				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap));
-			//B = rand() % 100 + 1;
-			B = 1000;
+			//B = random(rd);
+			//cout << "Alien B = " << B << endl;
+			B = 10;
 			if (B < AS)
 			    gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++, gameptr->getTimestep(),Health, power, Attackcap));
 		  else if (B < AS + AM)

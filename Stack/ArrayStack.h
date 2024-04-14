@@ -44,8 +44,11 @@ public:
 
 	bool pop(T& TopEntry)
 	{
-		if (isEmpty()) return false;
-		
+		if (isEmpty())
+		{
+			TopEntry = nullptr;
+			return false;
+		}
 		TopEntry = items[top];		 
 		top--;
 		count--;

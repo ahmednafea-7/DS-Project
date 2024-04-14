@@ -2,6 +2,8 @@
 
 bool Alienarmy::AddUnit(Unitarmy* unit)
 {
+	if (!unit)
+		return false;
 	if (unit->GetType() == "AS")
 	{
 		return AS_list.enqueue((dynamic_cast<Aliensoldier*>(unit)));
@@ -25,8 +27,10 @@ void Alienarmy::PrintAlien()
 	cout << endl;
 	cout << AD_list.GetCount() << " AD "; AD_list.print();
 	cout << endl;
-	if (AMcount == 0)
-		cout << "0" << " AM [ ]" << endl; return;
+	if (AMcount == 0) {
+		cout << "0" << " AM [ ]" << endl;
+		return;
+	}
 	std::cout << AMcount << " AM [  ";
 	for (int i = 0;i < AMcount;i++) {
 		if (AM_list[i]) {
@@ -57,7 +61,11 @@ Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U)
 	}
 	else if (type == "AM")
 	{
-		int x = rand() % AMcount;
+		if (AMcount == 0)
+			return U;
+		std::random_device rd;
+		std::uniform_int_distribution<int> random(0, AMcount);
+		int x = random(rd);
 		Alienmonster* temp = AM_list[x];
 		AM_list[x] = AM_list[(AMcount--)-1]; // to swap between last element and the random one and decrement the count at the same time
 		return temp; 

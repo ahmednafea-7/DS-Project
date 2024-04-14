@@ -14,7 +14,14 @@ void Unitarmy::SetID(int id)
 	ID = id;
 }
 void Unitarmy::SetTj(int tj) {Tj = tj;}
-void Unitarmy::SetHealth(int health) { Health = health;}
+void Unitarmy::SetHealth(int health) {
+	if (health < 0)
+	{
+		Health = 0;
+		return;
+	}
+	Health = health;
+}
 void Unitarmy::SetPower(int power) {Power = power;}
 void Unitarmy::SetAttackCapacity(int attackcap) {AttackCapacity = attackcap;}
 

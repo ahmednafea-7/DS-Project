@@ -8,7 +8,7 @@ game::game():Generator(this)
 
 void game::Simulate()
 {
-	cout << "Current Timestep " << TS << endl;
+	cout << " ====================Current Timestep " << TS << "====================" << endl;
 	Generator.generateUnit();
 	getEartharmy()->printEarth();
 	getAlienarmy()->PrintAlien();

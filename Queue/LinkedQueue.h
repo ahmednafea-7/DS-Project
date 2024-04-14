@@ -107,6 +107,8 @@ Output: True if the operation is successful; otherwise false.
 template <typename T>
 bool LinkedQueue<T>::enqueue( const T& newEntry)
 {
+	if (!newEntry)
+		return false;
 	Node<T>* newNodePtr = new Node<T>(newEntry);
 	// Insert the new node
 	if (isEmpty())	//special case if this is the first node to insert
@@ -133,8 +135,10 @@ Output: True if the operation is successful; otherwise false.
 template <typename T>
 bool LinkedQueue<T>:: dequeue(T& const frntEntry)  
 {
-	if (isEmpty())
-		frntEntry = nullptr;  return false;
+	if (isEmpty()) {
+		frntEntry = nullptr;
+		return false;
+	}
 
 	Node<T>* nodeToDeletePtr = frontPtr;
 	frntEntry = frontPtr->getItem();

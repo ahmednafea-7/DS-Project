@@ -133,9 +133,8 @@ Output: True if the operation is successful; otherwise false.
 template <typename T>
 bool LinkedQueue<T>:: dequeue(T& frntEntry)  
 {
-	if(isEmpty())
+	if (isEmpty())
 		return false;
-
 	Node<T>* nodeToDeletePtr = frontPtr;
 	frntEntry = frontPtr->getItem();
 	frontPtr = frontPtr->getNext();

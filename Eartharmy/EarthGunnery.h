@@ -13,6 +13,6 @@ public:
 	bool attack();
 };
 inline ostream& operator<<(ostream& os, const EarthGunnery& eg) {
-	os << eg.GetID() <<" , ";
+	os << eg.GetID() <<", ";
 	return os;
 }

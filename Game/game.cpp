@@ -2,6 +2,18 @@
 
 game::game():Generator(this)
 {
+	Readinput();
+	SetRandgen();
+}
+
+void game::Simulate()
+{
+	cout << "Current Timestep " << TS << endl;
+	Generator.generateUnit();
+	getEartharmy()->printEarth();
+	getAlienarmy()->PrintAlien();
+	PrintKilled();
+	TS++;
 }
 
 void game::Readinput()
@@ -46,13 +58,19 @@ void game::SetRandgen()
 	Generator.setA_Ranges(Alien_Ranges);
 	Generator.setE_Ranges(Earth_Ranges);
 }
-void game::createunit()
+
+void game::Kill(string type)
 {
-	Generator.generateUnit();
-}
-void game::Removeunit(string type)
-{
-	//getEartharmy()->RemoveUnit(type);
+	Unitarmy* U = nullptr;
+	if (type == "AD")
+	{
+		Killed_list.enqueue(getAlienarmy()->RemoveUnit(type,U));
+		Killed_list.enqueue(U);
+		return;
+	}
+	else if(type == "AS" || type == "AM")
+	Killed_list.enqueue(getAlienarmy()->RemoveUnit(type,U));
+	else if(type == "ES" || type == "EG" || type == "ET")
 	Killed_list.enqueue(getEartharmy()->RemoveUnit(type));
 }
 Eartharmy* game::getEartharmy()
@@ -69,13 +87,19 @@ RandGen* game::getRandgen()
 	return &Generator;
 }
 
-int* game::getRanges() // to test
+//int* game::getRanges() // to test
+//{
+//	return Earth_Ranges;
+//}
+
+int game::getTimestep()
 {
-	return Earth_Ranges;
+	return TS;
 }
 
 void game::PrintKilled()
 {
+	cout<<Killed_list.GetCount() << " Killed units ";
 	Killed_list.print();
 }
 

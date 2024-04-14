@@ -136,7 +136,6 @@
     <ClCompile Include="Eartharmy\Earthsoldier.cpp" />
     <ClCompile Include="Eartharmy\EarthTank.cpp" />
     <ClCompile Include="Game\game.cpp" />
-    <ClCompile Include="PriorityQueue\Priqueue.cpp" />
     <ClCompile Include="RandGen\RandGen.cpp" />
     <ClCompile Include="testcode.cpp" />
     <ClCompile Include="Unitarmy\Unitarmy.cpp" />

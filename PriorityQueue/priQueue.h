@@ -72,8 +72,14 @@ public:
     }
    void print()
     {
+       if (isEmpty())
+       {
+           cout << "[ ]";
+           return;
+       }
         priNode<T>* ptr;
         ptr = head;
+        cout << "[";
         while (ptr)
         {
             int x = 0;

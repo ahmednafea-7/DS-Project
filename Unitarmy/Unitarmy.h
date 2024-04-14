@@ -10,12 +10,18 @@ class Unitarmy
 	int Health, Power, AttackCapacity;// att. cap. is the maximum no. of units could be attacked at 1 time step
 	string Type;
 public:
-	Unitarmy(int id, int tj, int health, int power, int attackcap, string type);
+	Unitarmy(int id, int tj, int health , int power , int attackcap, string type );
+	void SetID(int id);
+	void SetTj(int tj);
+	void SetHealth(int health);
+	void SetPower(int power);
+	void SetAttackCapacity(int arrackcap);
+
 	int GetID() const;
 	int GetHealth();
 	int GetPower();
 	int GetAttackcapacity();
-	string GetType();
+	string GetType() const;
 
 	virtual bool attack() = 0;
 	virtual void print() = 0;
@@ -23,6 +29,6 @@ public:
 };
 inline ostream& operator<<(ostream& os, const Unitarmy& U)
 {
-	os << "Unit ID" << U.GetID() << endl;
+	os << U.GetID() << " , ";
 	return os;
 }

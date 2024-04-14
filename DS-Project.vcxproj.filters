@@ -51,9 +51,6 @@
     <ClCompile Include="Game\game.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="PriorityQueue\Priqueue.cpp">
-      <Filter>PriorityQueue</Filter>
-    </ClCompile>
     <ClCompile Include="Alienarmy\AlienDrone.cpp">
       <Filter>Alienarmy</Filter>
     </ClCompile>

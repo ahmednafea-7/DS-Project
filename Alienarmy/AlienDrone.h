@@ -12,6 +12,6 @@ public:
 };
 inline ostream& operator<<(ostream& os, const AlienDrone& ad)
 {
-	os << "AD ID:" << ad.GetID() << endl;
+	os<< ad.GetID() <<" , ";
 	return os;
 }

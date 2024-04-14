@@ -42,7 +42,7 @@ class DoubleQueue :public LinkedQueue<T>
 private:
 	Node<T>* backPtr;
 	Node<T>* frontPtr;
-	int count;
+	int count=0;
 public:
 	DoubleQueue();
 	bool isEmpty() const;
@@ -67,6 +67,7 @@ DoubleQueue<T>::DoubleQueue()
 {
 	backPtr = nullptr;
 	frontPtr = nullptr;
+	count = 0;
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -135,16 +136,17 @@ bool DoubleQueue<T>::dequeue(T& frntEntry, T& bckEntry)
 		while (Temp->getNext() != backPtr)
 			Temp = Temp->getNext();
 		backPtr = Temp;
+		backPtr->setNext(nullptr);
+		count = count - 2;
+		delete nodeToDeletePtr;
+		delete nodeToDeletePtr1;
+		return true;
 		// Queue is not empty; remove front and back
 	}
 
 
 	// Free memory reserved for the dequeued node
-	/*delete nodeToDeletePtr;
-	delete nodeToDeletePtr1;*/
-
-	count = count - 2;
-	return true;
+	
 }
 
 
@@ -177,27 +179,31 @@ DoubleQueue<T>::~DoubleQueue()
 {
 	//Note that the cout statements here is just for learning purpose
 	//They should be normally removed from the destructor
-	cout << "\nStarting LinkedQueue destructor...";
-	cout << "\nFreeing all nodes in the queue...";
-
 	//Free all nodes in the queue
 	T temp;
 	T temp2;
 	while (dequeue(temp,temp2));
 
-	cout << "\n Is DoubleQueue Empty now?? ==> " << boolalpha << isEmpty();
-	cout << "\nEnding DoubleQueue destructor..." << endl;
+	/*cout << "\n Is DoubleQueue Empty now?? ==> " << boolalpha << isEmpty();
+	cout << "\nEnding DoubleQueue destructor..." << endl;*/
 }
 template <typename T>
 void DoubleQueue<T>::print()
 {
+	if (isEmpty())
+	{
+		cout << "[ ]";
+		return;
+	}
 	Node<T>* ptr;
 	ptr = frontPtr;
+	cout << "[  ";
 	while (ptr)
 	{
-		cout << ptr->getItem();
+		cout << *(ptr->getItem());
 		ptr = ptr->getNext();
 	}
+	cout << '\b' << '\b' << "  ";
 	cout << "] There are " << count << " Of this list" << endl;
 }
 template <typename T>

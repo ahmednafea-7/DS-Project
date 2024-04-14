@@ -20,6 +20,7 @@ class Alienarmy
 	Alienmonster* AM_list[MAX];
 	int AMcount = 0;
 public:
-	bool AddUnit(Unitarmy* unit);
+	bool AddUnit(Unitarmy* unit);;
 	void PrintAlien();
+	Unitarmy* RemoveUnit(string type, Unitarmy*& U);
 };

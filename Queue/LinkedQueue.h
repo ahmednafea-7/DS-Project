@@ -133,8 +133,8 @@ Output: True if the operation is successful; otherwise false.
 template <typename T>
 bool LinkedQueue<T>:: dequeue(T& const frntEntry)  
 {
-	if(isEmpty())
-		return false;
+	if (isEmpty())
+		frntEntry = nullptr;  return false;
 
 	Node<T>* nodeToDeletePtr = frontPtr;
 	frntEntry = frontPtr->getItem();
@@ -181,25 +181,31 @@ LinkedQueue<T>::~LinkedQueue()
 	//cout<<"\nStarting LinkedQueue destructor...";
 	//cout<<"\nFreeing all nodes in the queue...";
 
-	////Free all nodes in the queue
-	//T temp;
-	//while(dequeue(temp));
-	//
+	//Free all nodes in the queue
+	T temp;
+	while(dequeue(temp));
+	
 	//cout<<"\n Is LinkedQueue Empty now?? ==> " <<boolalpha<<isEmpty();
 	//cout << "\n Ending LinkedQueue destructor..."<< endl;
 }
 template <typename T>
 void LinkedQueue<T>::print()
 {
+	if(isEmpty())
+	{
+		cout << "[ ]";
+		return;
+	}
 	Node<T>* ptr;
 	ptr = frontPtr;
+	cout << "[  ";
 	while(ptr)
 	{
 		cout << *(ptr->getItem());
 		ptr = ptr->getNext();
 	}
-	cout << "] There are " << count <<" Of this list" << endl;
-	
+	cout << '\b' << '\b' << "  ";
+	cout << "] There are " << count << " Of this list" << endl;
 }
 template <typename T>
 int LinkedQueue<T>::GetCount()

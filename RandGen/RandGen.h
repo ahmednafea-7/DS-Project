@@ -14,8 +14,10 @@ class RandGen
 	int Prob;
 	int E_PowerRa[2], E_HealthRa[2], E_AttackcapRa[2];//Ranges for earth army
 	int A_PowerRa[2], A_HealthRa[2], A_AttackcapRa[2];//Ranges for Alien army
-	int gen_random(int lowerb, int upperb)
+	int Timestep;
+	int gen_random(int lowerb, int upperb) // to generate a random number between two bounds
 	{
+		srand(time(0));
 		return rand() % (upperb - lowerb + 1) + lowerb;
 	};
 public:

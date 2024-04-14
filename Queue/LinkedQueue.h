@@ -134,7 +134,7 @@ template <typename T>
 bool LinkedQueue<T>:: dequeue(T& const frntEntry)  
 {
 	if (isEmpty())
-		frntEntry = nullptr;  return false;
+		 frntEntry = nullptr;  return false;
 
 	Node<T>* nodeToDeletePtr = frontPtr;
 	frntEntry = frontPtr->getItem();

@@ -2,6 +2,8 @@
 
 bool Alienarmy::AddUnit(Unitarmy* unit)
 {
+	if (!unit)
+		return false;
 	if (unit->GetType() == "AS")
 	{
 		return AS_list.enqueue((dynamic_cast<Aliensoldier*>(unit)));
@@ -57,8 +59,11 @@ Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U)
 	}
 	else if (type == "AM")
 	{
+		Alienmonster* temp = new Alienmonster();
+		if (AMcount == 0)
+			return temp;
 		int x = rand() % AMcount;
-		Alienmonster* temp = AM_list[x];
+		temp = AM_list[x];
 		AM_list[x] = AM_list[(AMcount--)-1]; // to swap between last element and the random one and decrement the count at the same time
 		return temp; 
 	}

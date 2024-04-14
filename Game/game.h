@@ -25,7 +25,8 @@ public:
 	void Readinput();
 	void SetRandgen();
 	void createunit();
-	void Removeunit(string type);
+	void RemoveEarthunit(string type);
+	void RemoveAlienunit(string type);
 	Eartharmy* getEartharmy();
 	Alienarmy* getAlienarmy();
 	RandGen* getRandgen();

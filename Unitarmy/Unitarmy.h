@@ -11,6 +11,12 @@ class Unitarmy
 	string Type;
 public:
 	Unitarmy(int id, int tj, int health, int power, int attackcap, string type);
+	void SetID(int id);
+	void SetTj(int tj);
+	void SetHealth(int health);
+	void SetPower(int power);
+	void SetAttackCapacity(int arrackcap);
+
 	int GetID() const;
 	int GetHealth();
 	int GetPower();
@@ -23,6 +29,6 @@ public:
 };
 inline ostream& operator<<(ostream& os, const Unitarmy& U)
 {
-	os << "Unit ID" << U.GetID() << endl;
+	os << U.GetID() << " , ";
 	return os;
 }

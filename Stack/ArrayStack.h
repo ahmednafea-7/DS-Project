@@ -61,6 +61,7 @@ public:
 	}  // end peek
 	void print()
 	{
+		cout << "[";
 		for (int i = 0;i < count;i++)
 			cout << *(items[i]);
 		cout << "] There are " << count << " Of this list" << endl;

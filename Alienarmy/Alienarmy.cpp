@@ -12,8 +12,7 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 	}
 	else if (unit->GetType() == "AM")
 	{
-		// return AM_list.insertitem((dynamic_cast<Alienmonster*>(unit)));
-		//AM_list[AMcount++] = dynamic_cast<Alienmonster*>(unit);
+		AM_list[AMcount++] = dynamic_cast<Alienmonster*>(unit);
 		return true;
 	}
 	return false;
@@ -21,19 +20,45 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 
 void Alienarmy::PrintAlien()
 {
-	AS_list.print();
-	AD_list.print();
+	cout << AS_list.GetCount() << " AS "; AS_list.print();
+	cout << endl;
+	cout << AD_list.GetCount() << " AD "; AD_list.print();
+	cout << endl;
+
 	//AM_list.print();
-	std::cout << AMcount << " AM" << "[";
-	for(int i = 0;i < AMcount;i++) {
+	std::cout << AMcount << " AM [";
+	for (int i = 0;i < AMcount;i++) {
 		if (AM_list[i]) {
 			AM_list[i]->print();
 			std::cout << ",";
 		}
 	}
-	std:: cout << "]" << endl;
-	cout << AS_list.GetCount() << " AS ["; AS_list.print(); 
+	cout <<" ]";
 	cout << endl;
-	cout << AD_list.GetCount() << " AD ["; AD_list.print();
-	cout << endl;
+}
+Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U)
+{
+	if (type == "AS")
+	{
+		Aliensoldier* a;
+		AS_list.dequeue(a);
+		return a;
+	}
+	else if (type == "AD")
+	{
+		AlienDrone* D_Front;
+		AlienDrone* D_Back;
+		AD_list.dequeue(D_Front,D_Back);
+		U = D_Back;
+		return D_Front;
+	}
+	else if (type == "AM")
+	{
+		int x = rand() % AMcount + 1;
+		Alienmonster* temp = AM_list[x];
+		AM_list[x] = AM_list[AMcount--];
+		
+		return temp;
+	}
+	return nullptr;
 }

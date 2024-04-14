@@ -74,6 +74,7 @@ public:
     {
         priNode<T>* ptr;
         ptr = head;
+        cout << "[";
         while (ptr)
         {
             int x = 0;

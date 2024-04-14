@@ -10,6 +10,6 @@ public:
 };
 inline ostream& operator<<(ostream& os, const Aliensoldier& as)
 {
-	os << "AS ID:" << as.GetID() << endl;
+	os <<as.GetID()<<" , ";
 	return os;
 }

@@ -193,12 +193,14 @@ void LinkedQueue<T>::print()
 {
 	Node<T>* ptr;
 	ptr = frontPtr;
+	cout << "[ ";
 	while(ptr)
 	{
 		cout << *(ptr->getItem());
 		ptr = ptr->getNext();
 	}
-	cout << "] There are " << count <<" Of this list" << endl;
+	
+	cout << "] There are " << count << " Of this list" << endl;
 	
 }
 template <typename T>

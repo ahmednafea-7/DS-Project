@@ -54,7 +54,8 @@ void RandGen::generateUnit()
 	if (A < Prob)
 	{
 		for (int i = 0; i < N; i++) {
-			B = rand() % 100 + 1;
+			//B = rand() % 100 + 1;
+			B = 95;
 			int power = gen_random(E_PowerRa[0], E_PowerRa[1]);
 			int Health = gen_random(E_HealthRa[0], E_HealthRa[1]);
 			int Attackcap = gen_random(E_HealthRa[0], E_HealthRa[1]);
@@ -69,11 +70,13 @@ void RandGen::generateUnit()
 				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, 0, Health, power, Attackcap));
 
 
-			B = 10;
+			B = 85;
 			if (B < AS)
 			    gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++,0,Health, power, Attackcap));
-		  /*else if (B < AS + AM)
-            	gameptr->getAlienarmy()->AddUnit(new AlienMonster(Alien_id++,0, power, Health, Attackcap));*/
+			else if (B < AS + AM)
+			{
+				gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, 0, Health, power, Attackcap));
+			}
 			else
 				gameptr->getAlienarmy()->AddUnit(new AlienDrone(Alien_id++,0,Health, power, Attackcap));
 		}

@@ -50,10 +50,22 @@ void game::createunit()
 {
 	Generator.generateUnit();
 }
-void game::Removeunit(string type)
+void game::RemoveEarthunit(string type)
 {
-	//getEartharmy()->RemoveUnit(type);
+
 	Killed_list.enqueue(getEartharmy()->RemoveUnit(type));
+}
+void game::RemoveAlienunit(string type)
+{
+	Unitarmy* U = nullptr;
+	if (type == "AD")
+	{
+		
+		Killed_list.enqueue(getAlienarmy()->RemoveUnit(type,U));
+		Killed_list.enqueue(U);
+		return;
+	}
+	Killed_list.enqueue(getAlienarmy()->RemoveUnit(type,U));
 }
 Eartharmy* game::getEartharmy()
 {
@@ -76,6 +88,6 @@ int* game::getRanges() // to test
 
 void game::PrintKilled()
 {
-	Killed_list.print();
+	cout<<Killed_list.GetCount() << " Killed List units ";	Killed_list.print();
 }
 

@@ -44,8 +44,8 @@ Unitarmy* Eartharmy::RemoveUnit(string type)
 
 void Eartharmy::printEarth()
 {
-	cout << endl;
-	cout << endl;
+	cout<<endl << "=========== Earth ALive Units ===========" << endl;
+
 	cout << ES_list.GetCount() << " ES "; ES_list.print();
 	cout << endl;
 	cout << EG_list.GetCount() << " EG "; EG_list.print();

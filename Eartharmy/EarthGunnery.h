@@ -3,7 +3,6 @@
 
 class EarthGunnery :public Unitarmy
 {
-	int count = 0;
 	int Pri;
 
 public:

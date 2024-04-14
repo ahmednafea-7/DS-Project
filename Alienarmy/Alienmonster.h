@@ -7,7 +7,3 @@ public:
 	void print();
 	bool attack();
 };
-//inline ostream& operator<<(ostream& os, const Alienmonster& am)
-//{
-//	os << "AM ID:" << am.GetID() << endl;
-//}

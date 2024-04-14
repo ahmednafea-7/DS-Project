@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <time.h>
+#include <random>
 class game;
 class RandGen
 {
@@ -17,8 +18,9 @@ class RandGen
 	int Timestep;
 	int gen_random(int lowerb, int upperb) // to generate a random number between two bounds
 	{
-		srand(time(0));
-		return rand() % (upperb - lowerb + 1) + lowerb;
+		std::random_device rd;
+		std::uniform_int_distribution<int> random(lowerb, upperb);
+		return random(rd);
 	};
 public:
 	RandGen(game* gptr);

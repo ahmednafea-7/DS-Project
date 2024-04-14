@@ -107,6 +107,8 @@ Output: True if the operation is successful; otherwise false.
 template <typename T>
 bool LinkedQueue<T>::enqueue( const T& newEntry)
 {
+	if (!newEntry)
+		return false;
 	Node<T>* newNodePtr = new Node<T>(newEntry);
 	// Insert the new node
 	if (isEmpty())	//special case if this is the first node to insert
@@ -133,8 +135,10 @@ Output: True if the operation is successful; otherwise false.
 template <typename T>
 bool LinkedQueue<T>:: dequeue(T& const frntEntry)  
 {
-	if (isEmpty())
-		 frntEntry = nullptr;  return false;
+	if (isEmpty()) {
+		frntEntry = nullptr;
+		return false;
+	}
 
 	Node<T>* nodeToDeletePtr = frontPtr;
 	frntEntry = frontPtr->getItem();
@@ -144,7 +148,7 @@ bool LinkedQueue<T>:: dequeue(T& const frntEntry)
 		backPtr = nullptr ;	
 		
 	// Free memory reserved for the dequeued node
-	delete nodeToDeletePtr;
+//	delete nodeToDeletePtr;
 	count--;
 	return true;
 }
@@ -204,8 +208,8 @@ void LinkedQueue<T>::print()
 		cout << *(ptr->getItem());
 		ptr = ptr->getNext();
 	}
-	cout << '\b' << '\b' << "  ";
-	cout << "] There are " << count << " Of this list" << endl;
+	cout << '\b' << '\b' << " ";
+	cout << "] There are " << count << " Of this list";
 }
 template <typename T>
 int LinkedQueue<T>::GetCount()

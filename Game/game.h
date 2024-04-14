@@ -26,13 +26,13 @@ public:
 	void Simulate();
 	void Readinput();
 	void SetRandgen();
-	void createunit();
-	//void RemoveEarthunit(string type);
 	void Kill(string type); // Remove the unit from its list and add it to killed list
+	void MoveToTemp(Unitarmy* U);
+	LinkedQueue<Unitarmy*> GetTemp();
+	//void MoveToTemp(string type); // Stores unit in a Temporary list
 	Eartharmy* getEartharmy();
 	Alienarmy* getAlienarmy();
 	RandGen* getRandgen();
-	//int* getRanges();
 	int getTimestep();
 	void PrintKilled();
 };

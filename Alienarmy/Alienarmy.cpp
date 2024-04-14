@@ -15,7 +15,6 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 	else if (unit->GetType() == "AM")
 	{
 		AM_list[AMcount++] = dynamic_cast<Alienmonster*>(unit); // to add a monster and increment the count
-		// return AM_list.insertitem((dynamic_cast<Alienmonster*>(unit)));
 		return true;
 	}
 	return false;
@@ -23,12 +22,15 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 
 void Alienarmy::PrintAlien()
 {
+	cout << "=========== Alive Alien Units ===========" << endl;
 	cout << AS_list.GetCount() << " AS "; AS_list.print();
 	cout << endl;
 	cout << AD_list.GetCount() << " AD "; AD_list.print();
 	cout << endl;
-	if (AMcount == 0)
-		cout << "0" << " AM [ ]" << endl; return;
+	if (AMcount == 0) {
+		cout << "0" << " AM [ ]" << endl;
+		return;
+	}
 	std::cout << AMcount << " AM [  ";
 	for (int i = 0;i < AMcount;i++) {
 		if (AM_list[i]) {
@@ -37,8 +39,7 @@ void Alienarmy::PrintAlien()
 		}
 	}
 	cout << '\b' << '\b' << "  ";
-	cout <<"]";
-	cout << endl;
+	cout << "] There are " << AMcount << " Of this list" << endl;
 }
 //Remove unit takes Unitarmy pointer as a reference for the Alien drone to take the Backptr drone 
 Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U) 
@@ -59,11 +60,15 @@ Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U)
 	}
 	else if (type == "AM")
 	{
-		Alienmonster* temp = new Alienmonster();
 		if (AMcount == 0)
-			return temp;
-		int x = rand() % AMcount;
-		temp = AM_list[x];
+		{
+			U = nullptr;
+			return U;
+		}
+		std::random_device rd;
+		std::uniform_int_distribution<int> random(0, AMcount);
+		int x = random(rd);
+		Alienmonster* temp = AM_list[x];
 		AM_list[x] = AM_list[(AMcount--)-1]; // to swap between last element and the random one and decrement the count at the same time
 		return temp; 
 	}

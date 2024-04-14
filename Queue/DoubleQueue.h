@@ -123,8 +123,7 @@ Output: True if the operation is successful; otherwise false.
 template <typename T>
 bool DoubleQueue<T>::dequeue(T& frntEntry, T& bckEntry)
 {
-	if ((isEmpty()) || (frontPtr == backPtr)) 
-	{
+	if ((isEmpty()) || (frontPtr == backPtr)) {
 		frntEntry = nullptr;
 		bckEntry = nullptr;
 		return false;
@@ -136,10 +135,10 @@ bool DoubleQueue<T>::dequeue(T& frntEntry, T& bckEntry)
 		if (frontPtr == backPtr)
 		{
 			bckEntry = backPtr->getItem();
-			frontPtr = backPtr;
+			frontPtr = backPtr= nullptr;
+			count = count - 2;
 			return true;
 		}
-
 		Node<T>* nodeToDeletePtr1 = backPtr;
 		bckEntry = backPtr->getItem();
 		Node<T>* Temp = frontPtr;
@@ -213,8 +212,8 @@ void DoubleQueue<T>::print()
 		cout << *(ptr->getItem());
 		ptr = ptr->getNext();
 	}
-	cout << '\b' << '\b' << "  ";
-	cout << "] There are " << count << " Of this list" << endl;
+	cout << '\b' << '\b' << " ";
+	cout << "] There are " << count << " Of this list";
 }
 template <typename T>
 int DoubleQueue<T>::GetCount()

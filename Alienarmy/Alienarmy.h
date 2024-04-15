@@ -2,7 +2,6 @@
 #include "Aliensoldier.h"
 #include "Alienmonster.h"
 #include "AlienDrone.h"
-#include "../Array/Array.h"
 #include "../Queue/LinkedQueue.h"
 #include "../Stack/ArrayStack.h"
 #include "../PriorityQueue/priQueue.h"

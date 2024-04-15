@@ -8,11 +8,11 @@ game::game():Generator(this)
 
 void game::Simulate()
 {
-	cout << "<<<<<<<<<<<<<<<<<<<<<<<<< Current Timestep " << TS+1 <<" >>>>>>>>>>>>>>>>>>>>>>>>>" << endl;
+	cout << "<<<<<<<<<<<<<<<<<<<<<<<<< Current Timestep " << TS <<" >>>>>>>>>>>>>>>>>>>>>>>>>" << endl;
 	Generator.generateUnit();
 	getEartharmy()->printEarth();
 	getAlienarmy()->PrintAlien();
-	PrintKilled();
+	PrintKilled(); cout << endl;
 	TS++;
 }
 
@@ -30,7 +30,7 @@ void game::Readinput()
 		myfile >> Alien_per[2];
 		myfile >> Prob;
 		myfile >> Earth_Ranges[0];
-		myfile.ignore();
+		myfile.ignore(); // to ignore the -
 		myfile >> Earth_Ranges[1];
 		myfile >> Earth_Ranges[2];
 		myfile.ignore();
@@ -73,14 +73,8 @@ void game::Kill(string type)
 	else if(type == "ES" || type == "EG" || type == "ET")
 	Killed_list.enqueue(getEartharmy()->RemoveUnit(type));
 }
-void game::MoveToTemp(Unitarmy* U)
-{
-	if (U->GetType() == "AS" || U->GetType() == "AM" || U->GetType() == "AD")
-		Temp_list.enqueue(U);
-	else if (U->GetType() == "ES" || U->GetType() == "EG" || U->GetType() == "ET")
-		Temp_list.enqueue(U);
-}
-LinkedQueue<Unitarmy*> game::GetTemp()
+
+LinkedQueue<Unitarmy*>& game::GetTemp()
 {
 	return Temp_list;
 }
@@ -93,10 +87,10 @@ Alienarmy* game::getAlienarmy()
 	return &A_Army;
 }
 
-RandGen* game::getRandgen()
-{
-	return &Generator;
-}
+//RandGen* game::getRandgen()
+//{
+//	return &Generator;
+//}
 int game::getTimestep()
 {
 	return TS;

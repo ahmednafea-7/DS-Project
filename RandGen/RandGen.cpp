@@ -5,8 +5,6 @@ RandGen::RandGen(game* gptr)
 	gameptr = gptr;
 }
 
-
-
 void RandGen::setN_Prob(int n, int P)
 {
 	N = n;
@@ -26,7 +24,7 @@ void RandGen::setA_per(int as, int am, int ad)
 	AM = am;
 	AD = ad;
 }
-void RandGen::setE_Ranges(int* Eranges) // Power, int* Health, int* Attackcap)
+void RandGen::setE_Ranges(int* Eranges) // Eranges is the ranges for health,power,attcap for Eartharmy
 {
 	for (int i = 0; i < 2; i++) {
 		E_PowerRa[i] = Eranges[i];
@@ -34,7 +32,7 @@ void RandGen::setE_Ranges(int* Eranges) // Power, int* Health, int* Attackcap)
 		E_AttackcapRa[i] = Eranges[i+4];
 	}
 }
-void RandGen::setA_Ranges(int* Aranges) //, int* Health, int* Attackcap)
+void RandGen::setA_Ranges(int* Aranges) // Aranges is the ranges for health,power,attcap for Eartharmy
 {
 	for (int i = 0; i < 2; i++) 
 	{
@@ -46,10 +44,11 @@ void RandGen::setA_Ranges(int* Aranges) //, int* Health, int* Attackcap)
 
 void RandGen::generateUnit()
 {
-	gameptr->getTimestep();
+	
 	std::random_device rd;
 	std::uniform_int_distribution<int> random(1, 100);
-	int A = random(rd);
+	int A = random(rd); // for Eartharmy
+	int A2 = random(rd); // for the Alienarmy
 	int B;
 	if (A < Prob)
 	{
@@ -59,20 +58,20 @@ void RandGen::generateUnit()
 			int Health = gen_random(E_HealthRa[0], E_HealthRa[1]);
 			int Attackcap = gen_random(E_HealthRa[0], E_HealthRa[1]);
 			if (B < ES)
-			{
 				gameptr->getEartharmy()->AddUnit(new Earthsoldier(Earth_id++, gameptr->getTimestep(),Health, power, Attackcap));
-			}
 			else if (B < ES + ET)
 				gameptr->getEartharmy()->AddUnit(new EarthTank(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap));
 			else
 				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap));
 			B = random(rd);
-			if (B < AS)
-			    gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++, gameptr->getTimestep(),Health, power, Attackcap));
-		  else if (B < AS + AM)
-            	gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap));
-			else
-				gameptr->getAlienarmy()->AddUnit(new AlienDrone(Alien_id++,gameptr->getTimestep(),Health, power, Attackcap));
+			if (A2 < Prob) {
+				if (B < AS)
+					gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap));
+				else if (B < AS + AM)
+					gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap));
+				else
+					gameptr->getAlienarmy()->AddUnit(new AlienDrone(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap));
+			}
 		}
 	}
 	return;

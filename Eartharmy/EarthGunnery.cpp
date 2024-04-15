@@ -1,11 +1,7 @@
 #include "EarthGunnery.h"
 EarthGunnery::EarthGunnery(int id, int tj, int health, int power, int attackcap, string type ) :Unitarmy(id, tj, health, power, attackcap, type)
 {
-    Pri = sqrt(health* power);
-}
-void EarthGunnery::print()
-{
-    cout << this->GetID();
+    Pri = sqrt(health* power); //combination for the priority
 }
 
 int EarthGunnery::GetPri()

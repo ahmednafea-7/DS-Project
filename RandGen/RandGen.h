@@ -1,7 +1,7 @@
 #pragma once
 
-#include <stdlib.h>
-#include <time.h>
+//#include <stdlib.h>
+//#include <time.h>
 #include <random>
 class game;
 class RandGen
@@ -10,8 +10,8 @@ class RandGen
 	int N;
 	int Earth_id = 1;
 	int Alien_id = 2000;
-	int ES, ET, EG;
-	int AS, AM, AD;
+	int ES, ET, EG; // Earth units percentages
+	int AS, AM, AD; // Alien units percentages
 	int Prob;
 	int E_PowerRa[2], E_HealthRa[2], E_AttackcapRa[2];//Ranges for earth army
 	int A_PowerRa[2], A_HealthRa[2], A_AttackcapRa[2];//Ranges for Alien army

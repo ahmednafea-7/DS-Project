@@ -208,8 +208,8 @@ void LinkedQueue<T>::print()
 		cout << *(ptr->getItem());
 		ptr = ptr->getNext();
 	}
-	cout << '\b' << '\b' << " ";
-	cout << "] There are " << count << " Of this list";
+	cout << '\b' << '\b' << " "; //erases the last additional comma(,)
+	cout << "]";
 }
 template <typename T>
 int LinkedQueue<T>::GetCount()

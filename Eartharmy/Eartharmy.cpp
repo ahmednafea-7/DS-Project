@@ -22,20 +22,20 @@ Unitarmy* Eartharmy::RemoveUnit(string type)
 {
 	if (type == "ES")
 	{
-		Earthsoldier* a;// = dynamic_cast<Earthsoldier*>(unit);
+		Earthsoldier* a; //= new Earthsoldier;
 		ES_list.dequeue(a);
 		return a;
 	}
 	else if (type == "EG")
 	{
-		EarthGunnery* G;// = dynamic_cast<EarthGunnery*>(unit);
+		EarthGunnery* G;
 		int x = 0;
 		EG_list.dequeue(G, x);
 		return G;
 	}
 	else if (type == "ET")
 	{
-		EarthTank* T; // = dynamic_cast<EarthTank*>(unit);
+		EarthTank* T;
 		ET_list.pop(T);
 		return T;
 	}

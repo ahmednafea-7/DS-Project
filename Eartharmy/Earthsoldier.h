@@ -5,8 +5,7 @@
 class Earthsoldier:public Unitarmy
 {	
 public:
-	Earthsoldier(int id = 0, int tj = 0, int health = 0, int power = 0, int attackcap = 0, string type = "ES");
-	void print();
+	Earthsoldier(int id , int tj , int health, int power, int attackcap, string type = "ES");
 	bool attack();
 };
 inline ostream& operator<<(ostream& os,const Earthsoldier& es) 

@@ -213,7 +213,7 @@ void DoubleQueue<T>::print()
 		ptr = ptr->getNext();
 	}
 	cout << '\b' << '\b' << " ";
-	cout << "] There are " << count << " Of this list";
+	cout << "]";
 }
 template <typename T>
 int DoubleQueue<T>::GetCount()

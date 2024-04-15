@@ -33,13 +33,11 @@ void Alienarmy::PrintAlien()
 	}
 	std::cout << AMcount << " AM [  ";
 	for (int i = 0;i < AMcount;i++) {
-		if (AM_list[i]) {
-			AM_list[i]->print();
-			std::cout << ", ";
-		}
+		/*if (AM_list[i])*/ // to check if there is a monster in that (no need as there will be no gaps inside the array)
+			std::cout << AM_list[i]->GetID() << ", ";
 	}
 	cout << '\b' << '\b' << "  ";
-	cout << "] There are " << AMcount << " Of this list" << endl;
+	cout << "]" << endl;
 }
 //Remove unit takes Unitarmy pointer as a reference for the Alien drone to take the Backptr drone 
 Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U) 
@@ -61,10 +59,7 @@ Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U)
 	else if (type == "AM")
 	{
 		if (AMcount == 0)
-		{
-			U = nullptr;
-			return U;
-		}
+			return nullptr;
 		std::random_device rd;
 		std::uniform_int_distribution<int> random(0, AMcount);
 		int x = random(rd);

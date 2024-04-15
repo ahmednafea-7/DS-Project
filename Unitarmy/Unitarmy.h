@@ -2,9 +2,10 @@
 #include<iostream>
 
 using namespace std;
-
+class game;
 class Unitarmy
 {
+	game* gameptr;
 	int ID;
 	int Tj; // time joined
 	int Health, Power, AttackCapacity;// att. cap. is the maximum no. of units could be attacked at 1 time step
@@ -14,17 +15,13 @@ public:
 	void SetID(int id);
 	void SetTj(int tj);
 	void SetHealth(int health);
-	void SetPower(int power);
-	void SetAttackCapacity(int arrackcap);
 
 	int GetID() const;
 	int GetHealth();
 	int GetPower();
 	int GetAttackcapacity();
 	string GetType() const;
-
 	virtual bool attack() = 0;
-	virtual void print() = 0;
 	~Unitarmy();
 };
 inline ostream& operator<<(ostream& os, const Unitarmy& U)

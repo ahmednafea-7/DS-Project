@@ -5,11 +5,6 @@ Earthsoldier::Earthsoldier(int id, int tj, int health, int power, int attackcap,
 {
     
 }
-void Earthsoldier::print()
-{
-    cout << this->GetID();
-}
-
 bool Earthsoldier::attack()
 {
     return false;

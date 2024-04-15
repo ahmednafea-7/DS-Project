@@ -5,11 +5,6 @@ AlienDrone::AlienDrone(int id, int tj, int health, int power, int attackcap, str
 {
 
 }
-void AlienDrone::print()
-{
-    cout << this->GetID();
-}
-
 bool AlienDrone::attack()
 {
     return false;

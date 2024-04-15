@@ -5,11 +5,6 @@ EarthTank::EarthTank(int id, int tj, int health, int power, int attackcap, strin
 {
     
 }
-void EarthTank::print()
-{
-    cout << this->GetID();
-}
-
 bool EarthTank::attack()
 {
     return false;

@@ -82,15 +82,15 @@ public:
        }
         priNode<T>* ptr;
         ptr = head;
-        cout << "[";
+        cout << "[ ";
         while (ptr)
         {
             int x = 0;
             cout << *(ptr->getItem(x));
             ptr =ptr->getNext();
         }
-        cout << '\b' << '\b' << "";
-        cout << "] There are " << count << " Of this list";
+        cout << '\b' << '\b' << " ";
+        cout << "]";
     }
    int GetCount()
    {

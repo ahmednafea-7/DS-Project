@@ -3,10 +3,6 @@ Aliensoldier::Aliensoldier(int id, int tj, int health, int power, int attackcap,
 {
 
 }
-void Aliensoldier::print()
-{
-	cout << this->GetID();
-}
 bool Aliensoldier::attack()
 {
 	return false;

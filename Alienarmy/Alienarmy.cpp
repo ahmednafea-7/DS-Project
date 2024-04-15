@@ -44,14 +44,14 @@ Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U)
 {
 	if (type == "AS")
 	{
-		Aliensoldier* a;
+		Aliensoldier* a = new Aliensoldier;
 		AS_list.dequeue(a);
 		return a;
 	}
 	else if (type == "AD")
 	{
-		AlienDrone* D_Front;
-		AlienDrone* D_Back;
+		AlienDrone* D_Front = new AlienDrone;
+		AlienDrone* D_Back  = new AlienDrone;
 		AD_list.dequeue(D_Front,D_Back);
 		U = D_Back;
 		return D_Front;
@@ -61,10 +61,10 @@ Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U)
 		if (AMcount == 0)
 			return nullptr;
 		std::random_device rd;
-		std::uniform_int_distribution<int> random(0, AMcount);
+		std::uniform_int_distribution<int> random(0, AMcount-1);
 		int x = random(rd);
 		Alienmonster* temp = AM_list[x];
-		AM_list[x] = AM_list[(AMcount--)-1]; // to swap between last element and the random one and decrement the count at the same time
+		AM_list[x] = AM_list[--AMcount]; // to swap between last element and the random one and decrement the count at the same time
 		return temp; 
 	}
 	return nullptr;

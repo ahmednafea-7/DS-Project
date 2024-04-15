@@ -147,8 +147,8 @@ bool DoubleQueue<T>::dequeue(T& frntEntry, T& bckEntry)
 		backPtr = Temp;
 		backPtr->setNext(nullptr);
 		count = count - 2;
-		/*delete nodeToDeletePtr;
-		delete nodeToDeletePtr1;*/
+		delete nodeToDeletePtr;
+		delete nodeToDeletePtr1;
 		return true;
 		// Queue is not empty; remove front and back
 	}

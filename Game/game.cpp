@@ -12,7 +12,8 @@ void game::Simulate()
 	Generator.generateUnit();
 	getEartharmy()->printEarth();
 	getAlienarmy()->PrintAlien();
-	PrintKilled(); cout << endl;
+	PrintKilled();
+	cout << endl << endl;
 	TS++;
 }
 

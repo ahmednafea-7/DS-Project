@@ -66,7 +66,7 @@ public:
 	{
 		if (isEmpty())
 		{
-			cout << "[ ]";
+			cout << "[ ]" << endl;
 			return;
 		}
 		cout << "[  ";

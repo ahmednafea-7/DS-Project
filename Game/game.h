@@ -15,7 +15,7 @@ class game
 	RandGen Generator;
 	LinkedQueue<Unitarmy*> Killed_list;
 	LinkedQueue<Unitarmy*> Temp_list;
-	int TS = 0; //Time step counter
+	int TS = 1; //Time step counter
 	int N; //No. of army units generated
 	int Earth_per[3];//Percentages of units for  Eartharmy in order(ES,ET,EG)
 	int Alien_per[3]; // Percentages of units for alienarmy in order(AS,AM,AD)

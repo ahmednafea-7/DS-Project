@@ -22,20 +22,20 @@ Unitarmy* Eartharmy::RemoveUnit(string type)
 {
 	if (type == "ES")
 	{
-		Earthsoldier* a; //= new Earthsoldier;
+		Earthsoldier* a = new Earthsoldier; //(ask about that if the new is better for memory ? )
 		ES_list.dequeue(a);
 		return a;
 	}
 	else if (type == "EG")
 	{
-		EarthGunnery* G;
+		EarthGunnery* G = new EarthGunnery;
 		int x = 0;
 		EG_list.dequeue(G, x);
 		return G;
 	}
 	else if (type == "ET")
 	{
-		EarthTank* T;
+		EarthTank* T = new EarthTank;
 		ET_list.pop(T);
 		return T;
 	}
@@ -44,7 +44,7 @@ Unitarmy* Eartharmy::RemoveUnit(string type)
 
 void Eartharmy::printEarth()
 {
-	cout<<endl << "=========== Earth ALive Units ===========" << endl;
+	cout<<endl << "=========== ALive Earth Units ===========" << endl;
 
 	cout << ES_list.GetCount() << " ES "; ES_list.print();
 	cout << endl;

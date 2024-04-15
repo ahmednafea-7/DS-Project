@@ -148,7 +148,7 @@ bool LinkedQueue<T>:: dequeue(T& const frntEntry)
 		backPtr = nullptr ;	
 		
 	// Free memory reserved for the dequeued node
-//	delete nodeToDeletePtr;
+    delete nodeToDeletePtr;
 	count--;
 	return true;
 }

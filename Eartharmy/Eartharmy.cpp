@@ -53,3 +53,10 @@ void Eartharmy::printEarth()
 	cout << ET_list.GetCount() << " ET "; ET_list.print();
 	cout << endl;
 }
+
+void Eartharmy::attack()
+{
+	Earthsoldier* a = new Earthsoldier;
+	ES_list.peek(a);
+	a->attack();
+}

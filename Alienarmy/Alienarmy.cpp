@@ -64,8 +64,14 @@ Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U)
 		std::uniform_int_distribution<int> random(0, AMcount-1);
 		int x = random(rd);
 		Alienmonster* temp = AM_list[x];
-		AM_list[x] = AM_list[--AMcount]; // to swap between last element and the random one and decrement the count at the same time
+		AM_list[x] = AM_list[--AMcount]; // to swap between last element and the random one and decrement the count
 		return temp; 
 	}
 	return nullptr;
+}
+
+LinkedQueue<Aliensoldier*>& Alienarmy::getAS_List()
+{
+	return AS_list;
+	// TODO: insert return statement here
 }

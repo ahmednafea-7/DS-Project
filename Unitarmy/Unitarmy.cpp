@@ -1,6 +1,6 @@
 #include "../Unitarmy/Unitarmy.h"
 #include "../Game/game.h"
-Unitarmy::Unitarmy(int id, int tj, int health, int power, int attackcap, string type)
+Unitarmy::Unitarmy(int id, int tj, int health, int power, int attackcap,string type, game* Gptr)
 {
 	ID = id;
 	Tj = tj;
@@ -8,6 +8,7 @@ Unitarmy::Unitarmy(int id, int tj, int health, int power, int attackcap, string 
 	Power = power;
 	AttackCapacity = attackcap;
 	Type = type;
+	gameptr = Gptr;
 }
 void Unitarmy::SetID(int id)
 {
@@ -21,6 +22,13 @@ void Unitarmy::SetHealth(int health) {
 		return;
 	}
 	Health = health;
+}
+
+int Unitarmy::CalcDmg(Unitarmy* U)
+{
+	int dmg = (Power * ((float)Health / 100)) / sqrt(U->GetHealth());
+	
+	return (Power * ((float)Health / 100)) / sqrt(U->GetHealth());
 }
 
 int Unitarmy::GetID() const { return ID; }

@@ -26,7 +26,8 @@ class game
 public:
 	game();
 	void Simulate();//it calls the Random generator then print the armies' lists and the killed list then increment timestep
-	void Kill(string type); // Remove the unit from its list and add it to killed list
+	void Pick_Kill(string type); // Remove the unit from its list and add it to killed list
+	void Kill(Unitarmy* U); //add  to killed list
 	LinkedQueue<Unitarmy*>& GetTemp();
 	Eartharmy* getEartharmy();
 	Alienarmy* getAlienarmy();

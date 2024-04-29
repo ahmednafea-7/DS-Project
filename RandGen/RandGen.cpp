@@ -58,14 +58,14 @@ void RandGen::generateUnit()
 		for (int i = 0; i < N; i++) {
 			power = gen_random(E_PowerRa[0], E_PowerRa[1]);
 			Health = gen_random(E_HealthRa[0], E_HealthRa[1]);
-			Attackcap = gen_random(E_HealthRa[0], E_HealthRa[1]);
+			Attackcap = gen_random(E_AttackcapRa[0], E_AttackcapRa[1]);
 			B = random(rd);// the time joined given to units is the time step they were added to the list
 			if (B < ES) // as there is no battle logic in this phase
-				gameptr->getEartharmy()->AddUnit(new Earthsoldier(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap));
+				gameptr->getEartharmy()->AddUnit(new Earthsoldier(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap,gameptr));
 			else if (B < ES + ET)
-				gameptr->getEartharmy()->AddUnit(new EarthTank(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap));
+				gameptr->getEartharmy()->AddUnit(new EarthTank(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
 			else
-				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap));
+				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap , gameptr));
 		}
 	}
 	if (A2 < Prob) {
@@ -73,10 +73,10 @@ void RandGen::generateUnit()
 	{
 		power = gen_random(A_PowerRa[0], A_PowerRa[1]);// Ranges for Aliens
 		Health = gen_random(A_HealthRa[0], A_HealthRa[1]);
-		Attackcap = gen_random(A_HealthRa[0], A_HealthRa[1]);
+		Attackcap = gen_random(A_AttackcapRa[0], A_AttackcapRa[1]);
 		B = random(rd);
 			if (B < AS)
-				gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap));
+				gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap , gameptr));
 			else if (B < AS + AM)
 				gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap));
 			else

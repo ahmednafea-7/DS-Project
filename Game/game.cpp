@@ -60,7 +60,7 @@ void game::SetRandgen()
 	Generator.setE_Ranges(Earth_Ranges);
 }
 
-void game::Kill(string type)
+void game::Pick_Kill(string type)
 {
 	Unitarmy* U = nullptr;
 	if (type == "AD")
@@ -103,3 +103,11 @@ void game::PrintKilled()
 	Killed_list.print();
 }
 
+void game::Kill(Unitarmy* U)
+{
+		Killed_list.enqueue(U);
+	/*else if (U->GetType() == "AS" || U->GetType() == "AM")
+		Killed_list.enqueue(getAlienarmy()->RemoveUnit(type, U));
+	else if (U->GetType() == "ES" || type == "EG" || type == "ET")
+		Killed_list.enqueue(getEartharmy()->RemoveUnit(type));*/
+}

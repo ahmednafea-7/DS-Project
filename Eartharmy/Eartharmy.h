@@ -17,4 +17,5 @@ public:
 	bool AddUnit(Unitarmy* unit);
 	Unitarmy* RemoveUnit(string type);
 	void printEarth();
+	void attack();
 };

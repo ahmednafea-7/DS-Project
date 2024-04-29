@@ -22,4 +22,5 @@ public:
 	bool AddUnit(Unitarmy* unit);;
 	void PrintAlien();
 	Unitarmy* RemoveUnit(string type, Unitarmy*& U);
+	LinkedQueue<Aliensoldier*>& getAS_List();
 };

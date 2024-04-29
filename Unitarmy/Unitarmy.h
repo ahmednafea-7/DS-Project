@@ -5,17 +5,18 @@ using namespace std;
 class game;
 class Unitarmy
 {
+protected:
 	game* gameptr;
 	int ID;
 	int Tj; // time joined
 	int Health, Power, AttackCapacity;// att. cap. is the maximum no. of units could be attacked at 1 time step
 	string Type;
 public:
-	Unitarmy(int id, int tj, int health , int power , int attackcap, string type );
+	Unitarmy(int id, int tj, int health , int power , int attackcap , string type, game* Gptr = nullptr);
 	void SetID(int id);
 	void SetTj(int tj);
 	void SetHealth(int health);
-
+	int CalcDmg(Unitarmy* U);
 	int GetID() const;
 	int GetHealth();
 	int GetPower();

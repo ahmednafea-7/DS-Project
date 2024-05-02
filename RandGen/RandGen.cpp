@@ -78,9 +78,9 @@ void RandGen::generateUnit()
 			if (B < AS)
 				gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap , gameptr));
 			else if (B < AS + AM)
-				gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap));
+				gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
 			else
-				gameptr->getAlienarmy()->AddUnit(new AlienDrone(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap));
+				gameptr->getAlienarmy()->AddUnit(new AlienDrone(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap , gameptr));
 		}
 
 	}

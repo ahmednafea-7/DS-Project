@@ -4,6 +4,7 @@ game::game():Generator(this)
 {
 	Readinput();
 	SetRandgen();
+	//WriteOutput();
 }
 
 void game::Simulate()
@@ -12,6 +13,7 @@ void game::Simulate()
 	Generator.generateUnit();
 	getEartharmy()->printEarth();
 	getAlienarmy()->PrintAlien();
+	getEartharmy()->attack();
 	PrintKilled();
 	cout << endl << endl;
 	TS++;
@@ -60,20 +62,46 @@ void game::SetRandgen()
 	Generator.setE_Ranges(Earth_Ranges);
 }
 
-void game::Pick_Kill(string type)
+void game::WriteOutput()
 {
-	Unitarmy* U = nullptr;
-	if (type == "AD")
+	ofstream Output("Outputfile.txt");
+	if(Output.is_open())
 	{
-		Killed_list.enqueue(getAlienarmy()->RemoveUnit(type,U));
-		Killed_list.enqueue(U);
-		return;
+		Unitarmy* U;
+		while(Killed_list.dequeue(U))
+		{
+			Output << "Td\tID\tTj\tDf\tDd\tDb" << endl;
+			Output << U->GetTd() << "\t";
+			Output << U->GetID() << "\t";
+			Output << U->GetTj() << "\t";
+			Output << U->GetDf() << "\t";
+			Output << U->GetDd() << "\t";
+			Output << U->GetDb() << "\t" << endl;
+		}
+		return ;
 	}
-	else if(type == "AS" || type == "AM")
-	Killed_list.enqueue(getAlienarmy()->RemoveUnit(type,U));
-	else if(type == "ES" || type == "EG" || type == "ET")
-	Killed_list.enqueue(getEartharmy()->RemoveUnit(type));
 }
+
+//void game::Pick_Kill(string type)
+//{
+//	Unitarmy* U = nullptr;
+//	if (type == "AD")
+//	{
+//		Killed_list.enqueue(getAlienarmy()->RemoveUnit(type, U));
+//		Killed_list.enqueue(U);
+//		return;
+//	}
+//	else if (type == "AM")
+//		Killed_list.enqueue(getAlienarmy()->PickAm());
+//	else if (type == "AS")
+//	{
+//		Aliensoldier* AS;
+//		getAlienarmy()->getAS_List().dequeue(AS);
+//		Killed_list.enqueue(AS);
+//	}
+//	else if(type == "ES" || type == "EG" || type == "ET")
+//	Killed_list.enqueue(getEartharmy()->RemoveUnit(type));
+//}
 
 LinkedQueue<Unitarmy*>& game::GetTemp()
 {
@@ -101,6 +129,16 @@ void game::PrintKilled()
 	cout<<endl << "=========== Killed/Destructed Units ===========" << endl;
 	cout<<Killed_list.GetCount() << " Killed units ";
 	Killed_list.print();
+}
+
+void game::SetMode(bool M)
+{
+	Mode = M;
+}
+
+bool game::GetMode()
+{
+	return Mode;
 }
 
 void game::Kill(Unitarmy* U)

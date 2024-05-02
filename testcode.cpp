@@ -12,22 +12,21 @@ int main()
 	for (int i = 0; i < 10; i++)
 		g1.Simulate();
 
-	Unitarmy* U;
-	for (int i = 0; i < 5; i++)
-	{
-		//U = g1.getAlienarmy()->RemoveUnit("AS", U);
-		Aliensoldier* as;
-		g1.getAlienarmy()->getAS_List().peek(as);
-		if (as) {
-		//	cout << "The health before:" << as->GetHealth() << endl;
-			g1.getEartharmy()->attack();
-		//	cout << "The health after:" << as->GetHealth() << endl;
-			//g1.GetTemp().enqueue(as);
-			cout << "Temp List after ADDITION: ";
-			g1.GetTemp().print();
-			cout << endl;
-		}
-	}
+	//for (int i = 0; i < 5; i++)
+	//{
+	//	//U = g1.getAlienarmy()->RemoveUnit("AS", U);
+	//	Aliensoldier* as;
+	//	g1.getAlienarmy()->getAS_List().peek(as);
+	//	if (as) {
+	//	//	cout << "The health before:" << as->GetHealth() << endl;
+	//		g1.getEartharmy()->attack();
+	//	//	cout << "The health after:" << as->GetHealth() << endl;
+	//		//g1.GetTemp().enqueue(as);
+	//	//	cout << endl;
+	//		g1.Simulate();
+	//	}
+	//}
+	g1.WriteOutput();
 	/*for (int i = 0; i < 50; i++) {
 		g1.Simulate();
 		x = random(rd);		

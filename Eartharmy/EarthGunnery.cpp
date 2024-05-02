@@ -8,7 +8,7 @@ int EarthGunnery::GetPri()
 {
     return Pri;
 }
-bool EarthGunnery::attack()
+void EarthGunnery::attack()
 {
-    return false;
+    return ;
 }

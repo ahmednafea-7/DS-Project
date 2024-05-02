@@ -3,7 +3,7 @@ Alienmonster::Alienmonster(int id, int tj, int health, int power, int attackcap,
 {
 
 }
-bool Alienmonster::attack()
+void Alienmonster::attack()
 {
-	return false;
+	return ;
 }

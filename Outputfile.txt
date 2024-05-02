@@ -1,0 +1,10 @@
+Td	ID	Tj	Df	Dd	Db
+6	2000	3	0	3	3	
+Td	ID	Tj	Df	Dd	Db
+6	2001	3	0	3	3	
+Td	ID	Tj	Df	Dd	Db
+6	2003	3	0	3	3	
+Td	ID	Tj	Df	Dd	Db
+7	2002	3	0	4	4	
+Td	ID	Tj	Df	Dd	Db
+10	2004	9	0	1	1	

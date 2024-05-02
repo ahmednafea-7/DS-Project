@@ -18,4 +18,8 @@ public:
 	Unitarmy* RemoveUnit(string type);
 	void printEarth();
 	void attack();
+	LinkedQueue<Earthsoldier*>& GetESList();
+	priQueue<EarthGunnery*>& GetEGList();
+	ArrayStack<EarthTank*>& GetETList();
+
 };

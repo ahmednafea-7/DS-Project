@@ -40,38 +40,59 @@ void Alienarmy::PrintAlien()
 	cout << "]" << endl;
 }
 //Remove unit takes Unitarmy pointer as a reference for the Alien drone to take the Backptr drone 
-Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U) 
-{
-	if (type == "AS")
-	{
-		Aliensoldier* a = new Aliensoldier;
-		AS_list.dequeue(a);
-		return a;
-	}
-	else if (type == "AD")
-	{
-		AlienDrone* D_Front = new AlienDrone;
-		AlienDrone* D_Back  = new AlienDrone;
-		AD_list.dequeue(D_Front,D_Back);
-		U = D_Back;
-		return D_Front;
-	}
-	else if (type == "AM")
-	{
-		if (AMcount == 0)
-			return nullptr;
-		std::random_device rd;
-		std::uniform_int_distribution<int> random(0, AMcount-1);
-		int x = random(rd);
-		Alienmonster* temp = AM_list[x];
-		AM_list[x] = AM_list[--AMcount]; // to swap between last element and the random one and decrement the count
-		return temp; 
-	}
-	return nullptr;
-}
+//Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U) 
+//{
+//	if (type == "AS")
+//	{
+//		Aliensoldier* a = new Aliensoldier;
+//		AS_list.dequeue(a);
+//		return a;
+//	}
+//	else if (type == "AD")
+//	{
+//		AlienDrone* D_Front = new AlienDrone;
+//		AlienDrone* D_Back  = new AlienDrone;
+//		AD_list.dequeue(D_Front,D_Back);
+//		U = D_Back;
+//		return D_Front;
+//	}
+//	else if (type == "AM")
+//	{
+//		if (AMcount == 0)
+//			return nullptr;
+//		std::random_device rd;
+//		std::uniform_int_distribution<int> random(0, AMcount-1);
+//		int x = random(rd);
+//		Alienmonster* temp = AM_list[x];
+//		AM_list[x] = AM_list[--AMcount]; // to swap between last element and the random one and decrement the count
+//		return temp; 
+//	}
+//	return nullptr;
+//}
 
 LinkedQueue<Aliensoldier*>& Alienarmy::getAS_List()
 {
 	return AS_list;
-	// TODO: insert return statement here
+}
+
+DoubleQueue<AlienDrone*>& Alienarmy::getAD_List()
+{
+	return AD_list;
+}
+
+Alienmonster** Alienarmy::getAM_List()
+{
+	return AM_list;
+}
+
+Alienmonster* Alienarmy::PickAm()
+{
+	if (AMcount == 0)
+		return nullptr;
+	std::random_device rd;
+	std::uniform_int_distribution<int> random(0, AMcount - 1);
+	int x = random(rd);
+	Alienmonster* temp = AM_list[x];
+	AM_list[x] = AM_list[--AMcount]; // to swap between last element and the random one and decrement the count
+	return temp;
 }

@@ -5,7 +5,7 @@ AlienDrone::AlienDrone(int id, int tj, int health, int power, int attackcap, gam
 {
 
 }
-bool AlienDrone::attack()
+void AlienDrone::attack()
 {
-    return false;
+    return ;
 }

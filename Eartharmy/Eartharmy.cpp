@@ -60,3 +60,15 @@ void Eartharmy::attack()
 	ES_list.peek(a);
 	a->attack();
 }
+LinkedQueue<Earthsoldier*>& Eartharmy::GetESList()
+{
+	return ES_list;
+}
+priQueue<EarthGunnery*>& Eartharmy::GetEGList()
+{
+	return EG_list;
+}
+ArrayStack<EarthTank*>& Eartharmy::GetETList()
+{
+	return ET_list;
+}

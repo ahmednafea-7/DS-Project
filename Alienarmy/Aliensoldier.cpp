@@ -3,7 +3,7 @@ Aliensoldier::Aliensoldier(int id, int tj, int health, int power, int attackcap,
 {
 
 }
-bool Aliensoldier::attack()
+void Aliensoldier::attack()
 {
-	return false;
+	return ;
 }

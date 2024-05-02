@@ -5,7 +5,7 @@ EarthTank::EarthTank(int id, int tj, int health, int power, int attackcap, game*
 {
     
 }
-bool EarthTank::attack()
+void EarthTank::attack()
 {
-    return false;
+    return ;
 }

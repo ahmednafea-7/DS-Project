@@ -22,7 +22,7 @@ void EarthTank::attack()
             am->SetHealth(am->GetHealth() - CalcDmg(am));
             cout << "========= TEST ========" << "AM health After attack: " << am->GetHealth() << endl;
             if (am->GetHealth() == 0)
-            {
+            {//
                 gameptr->Kill(am);
             }
             else

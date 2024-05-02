@@ -13,6 +13,7 @@ void game::Simulate()
 	Generator.generateUnit();
 	getEartharmy()->printEarth();
 	getAlienarmy()->PrintAlien();
+	cout << "=========== Units Attacking at Current Timestep ===========" << endl;
 	getEartharmy()->attack();
 	PrintKilled();
 	cout << endl << endl;

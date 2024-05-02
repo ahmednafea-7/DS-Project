@@ -1,40 +1,36 @@
 Td	ID	Tj	Df	Dd	Db
-4	2001	3	0	1	1	
+4	2001	2	0	2	2	
 Td	ID	Tj	Df	Dd	Db
-4	2003	3	0	1	1	
+9	2007	4	2	3	5	
 Td	ID	Tj	Df	Dd	Db
-5	2002	3	0	2	2	
+10	2000	2	8	0	8	
 Td	ID	Tj	Df	Dd	Db
-8	2007	7	0	1	1	
+10	2014	8	2	0	2	
 Td	ID	Tj	Df	Dd	Db
-9	2004	7	0	2	2	
+10	2003	2	8	0	8	
 Td	ID	Tj	Df	Dd	Db
-9	2005	7	0	2	2	
-Td	ID	Tj	Df	Dd	Db
-9	2009	8	0	1	1	
-Td	ID	Tj	Df	Dd	Db
-10	2010	8	0	2	2	
+10	2013	8	2	0	2	
 Earth army statistics:- 
-ES total units generated: 10
-ET total units generated: 4
+ES total units generated: 6
+ET total units generated: 0
 EG total units generated: 2
 Percentages of destructed to total units 
 for ES: 0%
-for ET: 0%
+for ET: -nan(ind)%
 for EG: 0%
 Df Earth average: -nan(ind)
 Dd Earth average: -nan(ind)
 Db Earth average: -nan(ind)
 Df/Db % = -nan(ind)%__ Dd/Db % = -nan(ind)%
 Alien army statistics:- 
-AS total units generated: 16
-AM total units generated: 1
-AD total units generated: 3
+AS total units generated: 11
+AM total units generated: 0
+AD total units generated: 5
 Percentages of destructed to total units
-for AS: 50%
-for AM: 0%
-for AD: 0%
-Df Alien average: 0
-Dd Alien average: 1.5
-Db Alien average: 1.5
-Df/Db % = 0%__ Dd/Db % = 100%
+for AS: 18.1818%
+for AM: -nan(ind)%
+for AD: 80%
+Df Alien average: 3.66667
+Dd Alien average: 0.833333
+Db Alien average: 4.5
+Df/Db % = 81.4815%__ Dd/Db % = 18.5185%

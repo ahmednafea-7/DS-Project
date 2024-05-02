@@ -56,9 +56,20 @@ void Eartharmy::printEarth()
 
 void Eartharmy::attack()
 {
+
 	Earthsoldier* a = new Earthsoldier;
 	ES_list.peek(a);
 	a->attack();
+	cout << endl;
+
+	EarthGunnery* EG = new EarthGunnery;
+	int pri;
+	EG_list.peek(EG, pri);
+	EG->attack();
+	cout << endl;
+
+
+
 }
 LinkedQueue<Earthsoldier*>& Eartharmy::GetESList()
 {

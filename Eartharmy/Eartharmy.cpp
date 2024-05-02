@@ -59,6 +59,12 @@ void Eartharmy::attack()
 	Earthsoldier* a = new Earthsoldier;
 	ES_list.peek(a);
 	a->attack();
+
+	EarthGunnery* EG = new EarthGunnery;
+	int pri;
+	EG_list.peek(EG, pri);
+	EG->attack();
+
 }
 LinkedQueue<Earthsoldier*>& Eartharmy::GetESList()
 {

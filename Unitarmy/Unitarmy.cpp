@@ -25,8 +25,8 @@ void Unitarmy::SetHealth(int health) {
 }
 void Unitarmy::SetTa(int TA)
 {
-	if(!Ta)
-	Ta = TA;
+	if (Ta == 0)
+		Ta = TA;
 }
 void Unitarmy::Setinfo(int TD)
 {

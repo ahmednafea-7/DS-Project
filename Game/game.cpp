@@ -67,9 +67,37 @@ void game::WriteOutput()
 	ofstream Output("Outputfile.txt");
 	if(Output.is_open())
 	{
+		int Sumearth = GetCountofUnits()[0] + GetCountofUnits()[1] + GetCountofUnits()[2];
+		int SumAlien = GetCountofUnits()[3] + GetCountofUnits()[4] + GetCountofUnits()[5];
+		float DfEarth_avg = 0,DdEarth_avg = 0,DbEarth_avg = 0;
+		float DfAlien_avg = 0, DdAlien_avg = 0, DbAlien_avg = 0;
+		int EarthKilledSum[3] = { 0,0,0 };// Total killed ES,ET,EG
+		int AlienKilledSum[3] = { 0,0,0 }; //Total killed AS,AM,AD
 		Unitarmy* U;
 		while(Killed_list.dequeue(U))
 		{
+			if (U->GetID() < 1000) {
+				DfEarth_avg += U->GetDf();
+				DdEarth_avg += U->GetDd();
+				DbEarth_avg += U->GetDb();
+				if (U->GetType() == "ES")
+					EarthKilledSum[0]++;
+				else if (U->GetType() == "ET")
+					EarthKilledSum[1]++;
+				else
+					EarthKilledSum[2]++;
+			}
+			else {
+				DfAlien_avg += U->GetDf();
+				DdAlien_avg += U->GetDd();
+				DbAlien_avg += U->GetDb();
+				if (U->GetType() == "AS")
+					AlienKilledSum[0]++;
+				else if (U->GetType() == "AM")
+					AlienKilledSum[1]++;
+				else
+					AlienKilledSum[2]++;
+			}
 			Output << "Td\tID\tTj\tDf\tDd\tDb" << endl;
 			Output << U->GetTd() << "\t";
 			Output << U->GetID() << "\t";
@@ -78,7 +106,43 @@ void game::WriteOutput()
 			Output << U->GetDd() << "\t";
 			Output << U->GetDb() << "\t" << endl;
 		}
-		return ;
+		DfEarth_avg /= (EarthKilledSum[0] + EarthKilledSum[1] + EarthKilledSum[2]);
+		DdEarth_avg /= (EarthKilledSum[0] + EarthKilledSum[1] + EarthKilledSum[2]);
+		DbEarth_avg /= (EarthKilledSum[0] + EarthKilledSum[1] + EarthKilledSum[2]);
+
+		DfAlien_avg /= (AlienKilledSum[0] + AlienKilledSum[1] + AlienKilledSum[2]);
+		DdAlien_avg /= (AlienKilledSum[0] + AlienKilledSum[1] + AlienKilledSum[2]);
+		DbAlien_avg /= (AlienKilledSum[0] + AlienKilledSum[1] + AlienKilledSum[2]);
+
+		// Output << "Earth army wins" << endl;
+		Output << "Earth army statistics:- " << endl;
+		Output << "ES total units generated: " << GetCountofUnits()[0] << endl;
+		Output << "ET total units generated: " << GetCountofUnits()[1] << endl;
+		Output << "EG total units generated: " << GetCountofUnits()[2] << endl;
+		Output << "Percentages of destructed to total units " << endl;
+		Output << "for ES: " << 100 * (float)EarthKilledSum[0] / (float)GetCountofUnits()[0] << "%" << endl;
+		Output << "for ET: " << 100 * (float)EarthKilledSum[1] / (float)GetCountofUnits()[1] << "%" << endl;
+		Output << "for EG: " << 100 * (float)EarthKilledSum[2] / (float)GetCountofUnits()[2] << "%" << endl;
+		Output << "Df Earth average: " << DfEarth_avg << endl;
+		Output << "Dd Earth average: " << DdEarth_avg << endl;
+		Output << "Db Earth average: " << DbEarth_avg << endl;
+		Output << "Df/Db % = " << (DfEarth_avg / DbEarth_avg) * 100 << "%";
+		Output << "__ Dd/Db % = " << (DdEarth_avg / DbEarth_avg) * 100 << "%" << endl;
+		// continue with other stats
+		Output << "Alien army statistics:- " << endl;
+		Output << "AS total units generated: " << GetCountofUnits()[3] << endl;
+		Output << "AM total units generated: " << GetCountofUnits()[4] << endl;
+		Output << "AD total units generated: " << GetCountofUnits()[5] << endl;
+		Output << "Percentages of destructed to total units" << endl;
+		Output << "for AS: " << 100 * (float)AlienKilledSum[0] / (float)GetCountofUnits()[3] << "%" << endl;
+		Output << "for AM: " << 100 * (float)AlienKilledSum[1] / (float)GetCountofUnits()[4] << "%" << endl;
+		Output << "for AD: " << 100 * (float)AlienKilledSum[2] / (float)GetCountofUnits()[5] << "%" << endl;
+
+		Output << "Df Alien average: " << DfAlien_avg << endl;
+		Output << "Dd Alien average: " << DdAlien_avg << endl;
+		Output << "Db Alien average: " << DbAlien_avg << endl;
+		Output << "Df/Db % = " << (DfAlien_avg / DbAlien_avg) * 100 << "%";
+		Output << "__ Dd/Db % = " << (DdAlien_avg / DbAlien_avg) * 100 << "%" << endl;
 	}
 }
 
@@ -139,6 +203,11 @@ void game::SetMode(bool M)
 bool game::GetMode()
 {
 	return Mode;
+}
+
+int* game::GetCountofUnits()
+{
+	return Generator.Passtotalcounts();
 }
 
 void game::Kill(Unitarmy* U)

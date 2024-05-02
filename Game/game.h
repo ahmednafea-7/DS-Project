@@ -24,7 +24,6 @@ class game
 	bool Mode = true; // True means Interactive, false means Silent mode
 	void Readinput();
 	void SetRandgen();
-	
 public:
 	void WriteOutput();
 	game();
@@ -39,4 +38,5 @@ public:
 	void PrintKilled();
 	void SetMode(bool M);
 	bool GetMode();
+	int* GetCountofUnits();
 };

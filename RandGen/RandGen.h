@@ -22,6 +22,7 @@ class RandGen
 		std::uniform_int_distribution<int> random(lowerb, upperb);
 		return random(rd);
 	};
+	int* Totalunits = new int[6]; // total units at each list in order (ES,ET,EG,AS,AM,AD)
 public:
 	RandGen(game* gptr);
 	void setN_Prob(int n, int P);  // sets N and Prob
@@ -30,5 +31,6 @@ public:
 	void setE_Ranges(int* Eranges);// Power, int* Health, int* Attackcap);
 	void setA_Ranges(int* Aranges);//, int* Health, int* Attackcap);
 	void generateUnit();
+	int* Passtotalcounts();
 	
 };

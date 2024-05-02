@@ -3,6 +3,9 @@
 RandGen::RandGen(game* gptr)
 {
 	gameptr = gptr;
+	for (int i = 0; i < 6; i++) {
+		Totalunits[i] = 0;
+	}
 }
 
 void RandGen::setN_Prob(int n, int P)
@@ -60,13 +63,19 @@ void RandGen::generateUnit()
 			Health = gen_random(E_HealthRa[0], E_HealthRa[1]);
 			Attackcap = gen_random(E_AttackcapRa[0], E_AttackcapRa[1]);
 			B = random(rd);// the time joined given to units is the time step they were added to the list
-			if (B < ES) // as there is no battle logic in this phase
-				gameptr->getEartharmy()->AddUnit(new Earthsoldier(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap,gameptr));
-			else if (B < ES + ET)
+			if (B < ES) { // as there is no battle logic in this phase
+				gameptr->getEartharmy()->AddUnit(new Earthsoldier(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
+				Totalunits[0]++;
+			}
+			else if (B < ES + ET) {
 				gameptr->getEartharmy()->AddUnit(new EarthTank(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
-			else
-				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap , gameptr));
-		}
+				Totalunits[1]++;
+			}
+			else {
+				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
+				Totalunits[2]++;
+			}
+			}
 	}
 	if (A2 < Prob) {
 	for (int i = 0; i < N; i++)
@@ -75,14 +84,25 @@ void RandGen::generateUnit()
 		Health = gen_random(A_HealthRa[0], A_HealthRa[1]);
 		Attackcap = gen_random(A_AttackcapRa[0], A_AttackcapRa[1]);
 		B = random(rd);
-			if (B < AS)
-				gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap , gameptr));
-			else if (B < AS + AM)
-				gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
-			else
-				gameptr->getAlienarmy()->AddUnit(new AlienDrone(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap , gameptr));
+		if (B < AS) {
+			gameptr->getAlienarmy()->AddUnit(new Aliensoldier(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
+			Totalunits[3]++;
+		}
+		else if (B < AS + AM) {
+			gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
+			Totalunits[4]++;
+		}
+		else {
+			gameptr->getAlienarmy()->AddUnit(new AlienDrone(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
+			Totalunits[5]++;
+		}
 		}
 
 	}
 	return;
+}
+
+int* RandGen::Passtotalcounts()
+{
+	return Totalunits;
 }

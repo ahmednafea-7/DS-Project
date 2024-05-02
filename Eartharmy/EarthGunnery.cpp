@@ -12,7 +12,6 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
 {
  
     //Attacking Alien Monsters
-    
     LinkedQueue<Unitarmy*>Temp_list;
     Unitarmy* U1;
     Unitarmy* U2;
@@ -42,8 +41,6 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
     {
         gameptr->getAlienarmy()->AddUnit(U1);
     }
-
-
 
     //Attacking Alien Drones
 

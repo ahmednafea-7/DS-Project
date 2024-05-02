@@ -91,4 +91,4 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
         gameptr->getAlienarmy()->AddUnit(U2);
     }
     return;
-}
+}//

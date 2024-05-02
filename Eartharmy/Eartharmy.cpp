@@ -68,6 +68,8 @@ void Eartharmy::attack()
 	EG->attack();
 	cout << endl;
 
+
+
 }
 LinkedQueue<Earthsoldier*>& Eartharmy::GetESList()
 {

@@ -10,6 +10,7 @@ void EarthTank::attack()
     Unitarmy* U1;
     Unitarmy* U2;
     Unitarmy* am;
+
     for (int i = 0; i < AttackCapacity / 2; i++)
     {
 

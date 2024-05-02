@@ -33,11 +33,11 @@ void Earthsoldier::attack()
     }
     if (gameptr && gameptr->GetMode())
     cout << '\b' << " ]";
-    cout << endl << "---------------This is for testing------------";
+   /* cout << endl << "---------------This is for testing------------";
     cout << endl << " Temp list:";
     Temp_list.print();
     cout << endl;
-    std::cout << "---------------This is for testing------------" << endl;
+    std::cout << "---------------This is for testing------------" << endl;*/
     while (Temp_list.dequeue(U))
     {
      gameptr->getAlienarmy()->AddUnit(U);

@@ -59,6 +59,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
             if (gameptr && gameptr->GetMode())
                 cout << ad1->GetID() << " ,";
             ad1->SetHealth(ad1->GetHealth() - CalcDmg(ad1));
+            c++;
             ad1->SetTa(gameptr->getTimestep());
             if (ad1->GetHealth() == 0)
             {
@@ -68,7 +69,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
             else
                 Temp_list.enqueue(ad1);
         }
-        if (ad2 && (c != AttackCapacity / 2))
+        if (ad2 && (c != AttackCapacity))
         {
             if (gameptr && gameptr->GetMode())
                 cout << ad2->GetID() << " ,";

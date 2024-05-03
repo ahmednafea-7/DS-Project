@@ -62,8 +62,11 @@ public:
 
     bool peek(T& topEntry, int& pri) 
     {
-        if (isEmpty())
+        if (isEmpty()) {
+            topEntry = nullptr;
+            pri = -1;
             return false;
+        }
 
         topEntry = head->getItem(pri);
         pri = head->getPri();
@@ -73,6 +76,7 @@ public:
     bool isEmpty() const {
         return head == nullptr;
     }
+
    void print()
     {
        if (isEmpty())

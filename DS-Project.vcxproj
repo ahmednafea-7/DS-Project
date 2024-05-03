@@ -135,6 +135,7 @@
     <ClCompile Include="Eartharmy\EarthGunnery.cpp" />
     <ClCompile Include="Eartharmy\Earthsoldier.cpp" />
     <ClCompile Include="Eartharmy\EarthTank.cpp" />
+    <ClCompile Include="Eartharmy\Healunit.cpp" />
     <ClCompile Include="Game\game.cpp" />
     <ClCompile Include="RandGen\RandGen.cpp" />
     <ClCompile Include="testcode.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="Eartharmy\EarthGunnery.h" />
     <ClInclude Include="Eartharmy\Earthsoldier.h" />
     <ClInclude Include="Eartharmy\EarthTank.h" />
+    <ClInclude Include="Eartharmy\Healunit.h" />
     <ClInclude Include="Game\game.h" />
     <ClInclude Include="PriorityQueue\LinkedQueue.h" />
     <ClInclude Include="PriorityQueue\Node.h" />

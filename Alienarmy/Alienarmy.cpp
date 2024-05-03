@@ -96,3 +96,12 @@ Alienmonster* Alienarmy::PickAm()
 	AM_list[x] = AM_list[--AMcount]; // to swap between last element and the random one and decrement the count
 	return temp;
 }
+
+void Alienarmy::attack()
+{
+	Aliensoldier* AS = new Aliensoldier;
+	AS_list.peek(AS);
+	if(AS)
+	AS->attack();
+	cout << endl;
+}

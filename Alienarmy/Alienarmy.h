@@ -26,4 +26,5 @@ public:
 	DoubleQueue<AlienDrone*>& getAD_List();
 	Alienmonster** getAM_List();
 	Alienmonster* PickAm();
+	void attack();
 };

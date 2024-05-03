@@ -57,7 +57,10 @@ public:
 	
 	bool peek(T& TopEntry) const
 	{
-		if (isEmpty()) return false;
+		if (isEmpty()) { 
+			TopEntry = nullptr;
+			return false; 
+		}
 		
 		TopEntry = items[top];		 
 		return true;

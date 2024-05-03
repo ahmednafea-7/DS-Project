@@ -1,5 +1,30 @@
 Td	ID	Tj	Df	Dd	Db
+<<<<<<< HEAD
 9	2001	8	0	1	1	
+=======
+<<<<<<< HEAD
+8	2001	3	3	2	5	
+Td	ID	Tj	Df	Dd	Db
+8	2002	3	3	2	5	
+Td	ID	Tj	Df	Dd	Db
+9	2003	3	3	3	6	
+Td	ID	Tj	Df	Dd	Db
+9	2004	5	1	3	4	
+Td	ID	Tj	Df	Dd	Db
+9	2005	5	2	2	4	
+Td	ID	Tj	Df	Dd	Db
+9	2006	5	2	2	4	
+Td	ID	Tj	Df	Dd	Db
+10	2007	5	2	3	5	
+Td	ID	Tj	Df	Dd	Db
+10	2008	6	1	3	4	
+Td	ID	Tj	Df	Dd	Db
+10	2012	8	1	1	2	
+Td	ID	Tj	Df	Dd	Db
+10	2010	6	3	1	4	
+=======
+4	2001	2	0	2	2	
+>>>>>>> 0be754a6ca85e86be24118107a8da8b56f5bf76f
 Td	ID	Tj	Df	Dd	Db
 9	2003	8	0	1	1	
 Earth army statistics:- 
@@ -21,8 +46,17 @@ AD total units generated: 2
 Percentages of destructed to total units
 for AS: 33.3333%
 for AM: -nan(ind)%
+<<<<<<< HEAD
 for AD: 0%
 Df Alien average: 0
 Dd Alien average: 1
 Db Alien average: 1
 Df/Db % = 0%__ Dd/Db % = 100%
+=======
+for AD: 80%
+Df Alien average: 3.66667
+Dd Alien average: 0.833333
+Db Alien average: 4.5
+Df/Db % = 81.4815%__ Dd/Db % = 18.5185%
+>>>>>>> 604e92be54a61782d8d752635da4ddd0c73cbf46
+>>>>>>> 0be754a6ca85e86be24118107a8da8b56f5bf76f

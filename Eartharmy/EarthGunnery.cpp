@@ -84,9 +84,8 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
     }
     if (gameptr && gameptr->GetMode())
         cout << '\b' << " ]";
-    while (!Temp_list.isEmpty())
+    while (Temp_list.dequeue(U2))
     {
-        Temp_list.dequeue(U2);
         gameptr->getAlienarmy()->AddUnit(U2);
     }
     return;

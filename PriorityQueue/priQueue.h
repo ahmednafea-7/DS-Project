@@ -76,6 +76,7 @@ public:
     bool isEmpty() const {
         return head == nullptr;
     }
+
    void print()
     {
        if (isEmpty())

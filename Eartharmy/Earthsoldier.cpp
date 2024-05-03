@@ -7,10 +7,11 @@ Earthsoldier::Earthsoldier(int id, int tj, int health, int power, int attackcap,
 }
 void Earthsoldier::attack()
 {
-    Unitarmy* U; // to to store temp list units in it
+    Unitarmy* U; //  to store temp list units in it
     LinkedQueue<Unitarmy*> Temp_list; // to store units shot but not killed
     Aliensoldier* as = new Aliensoldier; // to store attacked AS 
     int counter = 0;
+
     if (gameptr && gameptr->GetMode())
         cout << "ES " << GetID() << " shots [ ";
     for (int i = 0; i < AttackCapacity; i++)

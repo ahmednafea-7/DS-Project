@@ -10,7 +10,6 @@ int EarthGunnery::GetPri()
 }
 void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then attacks drones in pairs "If there is only 1 Drone exist, Pick it and attack"
 {
- 
     //Attacking Alien Monsters
     LinkedQueue<Unitarmy*>Temp_list;
     Unitarmy* U1;

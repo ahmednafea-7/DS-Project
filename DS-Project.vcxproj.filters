@@ -75,6 +75,9 @@
     <ClCompile Include="Unitarmy\Unitarmy.cpp">
       <Filter>Unitarmy</Filter>
     </ClCompile>
+    <ClCompile Include="Eartharmy\Healunit.cpp">
+      <Filter>Eartharmy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Eartharmy\Eartharmy.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="Unitarmy\Unitarmy.h">
       <Filter>Unitarmy</Filter>
+    </ClInclude>
+    <ClInclude Include="Eartharmy\Healunit.h">
+      <Filter>Eartharmy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

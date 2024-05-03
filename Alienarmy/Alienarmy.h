@@ -21,6 +21,7 @@ class Alienarmy
 public:
 	bool AddUnit(Unitarmy* unit);;
 	void PrintAlien();
+	void attack();
 	//Unitarmy* RemoveUnit(string type, Unitarmy*& U);
 	LinkedQueue<Aliensoldier*>& getAS_List();
 	DoubleQueue<AlienDrone*>& getAD_List();

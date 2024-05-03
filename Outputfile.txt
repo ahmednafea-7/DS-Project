@@ -1,58 +1,74 @@
 Td	ID	Tj	Df	Dd	Db
-<<<<<<< HEAD
-8	2001	3	3	2	5	
+7	2000	7	0	0	0	
 Td	ID	Tj	Df	Dd	Db
-8	2002	3	3	2	5	
+7	2001	7	0	0	0	
 Td	ID	Tj	Df	Dd	Db
-9	2003	3	3	3	6	
+8	2003	7	0	1	1	
 Td	ID	Tj	Df	Dd	Db
-9	2004	5	1	3	4	
+8	2005	7	0	1	1	
 Td	ID	Tj	Df	Dd	Db
-9	2005	5	2	2	4	
+9	17	3	4	2	6	
 Td	ID	Tj	Df	Dd	Db
-9	2006	5	2	2	4	
+10	2012	10	0	0	0	
 Td	ID	Tj	Df	Dd	Db
-10	2007	5	2	3	5	
+11	2020	11	0	0	0	
 Td	ID	Tj	Df	Dd	Db
-10	2008	6	1	3	4	
+0	2009	10	0	0	0	
 Td	ID	Tj	Df	Dd	Db
-10	2012	8	1	1	2	
+11	16	3	4	4	8	
 Td	ID	Tj	Df	Dd	Db
-10	2010	6	3	1	4	
-=======
-4	2001	2	0	2	2	
+12	2019	11	0	1	1	
 Td	ID	Tj	Df	Dd	Db
-9	2007	4	2	3	5	
+12	2015	11	0	1	1	
 Td	ID	Tj	Df	Dd	Db
-10	2000	2	8	0	8	
+12	45	8	1	3	4	
 Td	ID	Tj	Df	Dd	Db
-10	2014	8	2	0	2	
+13	35	6	2	5	7	
 Td	ID	Tj	Df	Dd	Db
-10	2003	2	8	0	8	
+13	40	7	1	5	6	
 Td	ID	Tj	Df	Dd	Db
-10	2013	8	2	0	2	
+14	2022	13	0	1	1	
+Td	ID	Tj	Df	Dd	Db
+14	2026	13	0	1	1	
+Td	ID	Tj	Df	Dd	Db
+14	3	1	6	7	13	
+Td	ID	Tj	Df	Dd	Db
+15	2034	15	0	0	0	
+Td	ID	Tj	Df	Dd	Db
+17	2035	17	0	0	0	
+Td	ID	Tj	Df	Dd	Db
+17	56	16	0	1	1	
+Td	ID	Tj	Df	Dd	Db
+19	2048	19	0	0	0	
+Td	ID	Tj	Df	Dd	Db
+0	2014	11	0	0	0	
+Td	ID	Tj	Df	Dd	Db
+20	2044	19	0	1	1	
+Td	ID	Tj	Df	Dd	Db
+20	2042	19	1	0	1	
+Td	ID	Tj	Df	Dd	Db
+20	59	18	0	2	2	
 Earth army statistics:- 
-ES total units generated: 6
-ET total units generated: 0
-EG total units generated: 2
+ES total units generated: 8
+ET total units generated: 36
+EG total units generated: 19
 Percentages of destructed to total units 
-for ES: 0%
-for ET: -nan(ind)%
+for ES: 100%
+for ET: 0%
 for EG: 0%
-Df Earth average: -nan(ind)
-Dd Earth average: -nan(ind)
-Db Earth average: -nan(ind)
-Df/Db % = -nan(ind)%__ Dd/Db % = -nan(ind)%
+Df Earth average: 2.25
+Dd Earth average: 3.625
+Db Earth average: 5.875
+Df/Db % = 38.2979%__ Dd/Db % = 61.7021%
 Alien army statistics:- 
-AS total units generated: 11
-AM total units generated: 0
-AD total units generated: 5
+AS total units generated: 33
+AM total units generated: 14
+AD total units generated: 2
 Percentages of destructed to total units
-for AS: 18.1818%
-for AM: -nan(ind)%
-for AD: 80%
-Df Alien average: 3.66667
-Dd Alien average: 0.833333
-Db Alien average: 4.5
-Df/Db % = 81.4815%__ Dd/Db % = 18.5185%
->>>>>>> 604e92be54a61782d8d752635da4ddd0c73cbf46
+for AS: 3.0303%
+for AM: 100%
+for AD: 100%
+Df Alien average: 0.0588235
+Dd Alien average: 0.411765
+Db Alien average: 0.470588
+Df/Db % = 12.5%__ Dd/Db % = 87.5%

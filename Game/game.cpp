@@ -15,6 +15,7 @@ void game::Simulate()
 	getAlienarmy()->PrintAlien();
 	cout << "=========== Units Attacking at Current Timestep ===========" << endl;
 	getEartharmy()->attack();
+	getAlienarmy()->attack();
 	PrintKilled();
 	cout << endl << endl;
 	TS++;

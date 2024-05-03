@@ -15,7 +15,7 @@ void Earthsoldier::attack()
         cout << "ES " << GetID() << " shots [ ";
     for (int i = 0; i < AttackCapacity; i++)
     {
-        gameptr->getAlienarmy()->getAS_List().dequeue(as);
+       gameptr->getAlienarmy()->getAS_List().dequeue(as);
        if (as)
        {
            if (gameptr && gameptr->GetMode())

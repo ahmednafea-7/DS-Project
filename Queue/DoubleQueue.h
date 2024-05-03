@@ -182,8 +182,10 @@ template <typename T>
 bool DoubleQueue<T>::peek(T& frntEntry, T&bckEntry) const
 {
 	if (isEmpty())
+	{
+		frntEntry = bckEntry = nullptr;
 		return false;
-
+	}
 	frntEntry = frontPtr->getItem();
 	bckEntry = backPtr->getItem();
 	return true;

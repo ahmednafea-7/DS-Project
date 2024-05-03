@@ -166,11 +166,13 @@ Output: The front of the queue.
 */
 
 template <typename T>
-bool LinkedQueue<T>:: peek(T& frntEntry) const 
+bool LinkedQueue<T>::peek(T& frntEntry) const
 {
-	if(isEmpty())
+	if (isEmpty())
+	{
+		frntEntry = nullptr;
 		return false;
-
+    }
 	frntEntry = frontPtr->getItem();
 	return true;
 

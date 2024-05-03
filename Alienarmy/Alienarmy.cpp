@@ -20,6 +20,7 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 	return false;
 }
 
+
 void Alienarmy::PrintAlien()
 {
 	cout << "=========== Alive Alien Units ===========" << endl;
@@ -38,6 +39,16 @@ void Alienarmy::PrintAlien()
 	}
 	cout << '\b' << '\b' << "  ";
 	cout << "]" << endl;
+}
+void Alienarmy::attack()
+{
+	Aliensoldier* AS = new Aliensoldier;
+	AS_list.peek(AS);
+	if (AS)
+		AS->attack();
+	else
+		cout << "NO AS";
+	cout << endl;
 }
 //Remove unit takes Unitarmy pointer as a reference for the Alien drone to take the Backptr drone 
 //Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U) 
@@ -69,6 +80,10 @@ void Alienarmy::PrintAlien()
 //	}
 //	return nullptr;
 //}
+
+
+
+
 
 LinkedQueue<Aliensoldier*>& Alienarmy::getAS_List()
 {

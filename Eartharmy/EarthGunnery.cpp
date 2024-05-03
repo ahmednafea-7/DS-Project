@@ -16,7 +16,6 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
     Unitarmy* U1;
     Unitarmy* U2;
     Unitarmy* am;
-    int counter = 0;
     if (gameptr && gameptr->GetMode())
         cout << "EG " << GetID() << " shots [ ";
     for (int i = 0; i < AttackCapacity / 2; i++)
@@ -46,7 +45,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
 
     AlienDrone* ad1 = new AlienDrone;
     AlienDrone* ad2 = new AlienDrone;
-    int c = AttackCapacity;
+    int c = AttackCapacity/2;
     for (int i = AttackCapacity / 2; i < AttackCapacity;i++)
     {
         gameptr->getAlienarmy()->getAD_List().dequeue(ad1, ad2);
@@ -71,6 +70,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
             if (gameptr && gameptr->GetMode())
                 cout << ad2->GetID() << " ,";
             ad2->SetHealth(ad2->GetHealth() - CalcDmg(ad2));
+            c++;
             ad2->SetTa(gameptr->getTimestep());
             if (ad2->GetHealth() == 0)
             {
@@ -80,7 +80,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
             else
                 Temp_list.enqueue(ad2);
         }
-    }
+    }//
     if (gameptr && gameptr->GetMode())
         cout << '\b' << " ]";
     while (Temp_list.dequeue(U2))

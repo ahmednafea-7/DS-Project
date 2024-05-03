@@ -9,7 +9,7 @@ int main()
 	int x;
 	random_device rd;
 	uniform_int_distribution<int> random(1, 100);
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 20; i++)
 		g1.Simulate();
 
 	//for (int i = 0; i < 5; i++)

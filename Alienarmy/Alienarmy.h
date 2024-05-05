@@ -20,6 +20,7 @@ class Alienarmy
 	int AMcount = 0;
 public:
 	bool AddUnit(Unitarmy* unit);;
+	int GetAmCount();
 	void PrintAlien();
 	void attack();
 	//Unitarmy* RemoveUnit(string type, Unitarmy*& U);

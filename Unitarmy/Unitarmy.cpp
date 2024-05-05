@@ -37,9 +37,13 @@ void Unitarmy::Setinfo(int TD)
 }
 int Unitarmy::CalcDmg(Unitarmy* U)
 {
-	//int dmg = (Power * ((float)Health / 100)) / sqrt(U->GetHealth());
-	
-	return (Power * ((float)Health / 100)) / sqrt(U->GetHealth());
+	int dmg = (Power * ((float)Health / 100)) / sqrt(U->GetHealth());
+	if (dmg < 5)
+		dmg *= 2;
+	else if (dmg > 80)
+		dmg = 80;
+
+	return dmg;
 }
 
 int Unitarmy::GetID() const { return ID; }

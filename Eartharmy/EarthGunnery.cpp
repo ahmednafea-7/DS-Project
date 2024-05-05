@@ -12,13 +12,22 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
 {
     //Attacking Alien Monsters
     LinkedQueue<Unitarmy*>Temp_list;
-    Unitarmy* U1;
-    Unitarmy* U2;
-    Unitarmy* am;
+    Unitarmy* U;
+    Alienmonster* am;
+    AlienDrone* ad1 = new AlienDrone;
+    AlienDrone* ad2 = new AlienDrone;
+
     if (gameptr && gameptr->GetMode())
         cout << "EG " << GetID() << " shots [ ";
-    for (int i = 0; i < AttackCapacity / 2; i++)
+
+    int c = 0;
+
+    while (c < AttackCapacity)
     {
+        if (c == AttackCapacity || (gameptr->getAlienarmy()->GetAmCount() == 0 && gameptr->getAlienarmy()->getAD_List().isEmpty()))
+            break;
+        // for (int i = 0; i < AttackCapacity / 2; i++)
+         //{
         am = gameptr->getAlienarmy()->PickAm();
         if (am)
         {
@@ -26,6 +35,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
                 cout << am->GetID() << " ,";
             am->SetHealth(am->GetHealth() - CalcDmg(am));
             am->SetTa(gameptr->getTimestep());
+            c++;
             if (am->GetHealth() == 0)
             {
                 am->Setinfo(gameptr->getTimestep());
@@ -34,57 +44,56 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
             else
                 Temp_list.enqueue(am);
         }
-    }
-    while (Temp_list.dequeue(U1))
-    {
-        gameptr->getAlienarmy()->AddUnit(U1);
-    }
+        // }
+        if (c == AttackCapacity || (gameptr->getAlienarmy()->GetAmCount() == 0 && gameptr->getAlienarmy()->getAD_List().isEmpty()))
+            break;
 
-    //Attacking Alien Drones
+        //Attacking Alien Drones
 
-    AlienDrone* ad1 = new AlienDrone;
-    AlienDrone* ad2 = new AlienDrone;
-    int c = AttackCapacity/2;
-    for (int i = AttackCapacity / 2; i < AttackCapacity;i++)
-    {
-        gameptr->getAlienarmy()->getAD_List().dequeue(ad1, ad2);
+        //for (int i = c; i < AttackCapacity; i++)
+        //{
+            gameptr->getAlienarmy()->getAD_List().dequeue(ad1, ad2);
 
-        if (ad1)
-        {
-            if (gameptr && gameptr->GetMode())
-                cout << ad1->GetID() << " ,";
-            ad1->SetHealth(ad1->GetHealth() - CalcDmg(ad1));
-            c++;
-            ad1->SetTa(gameptr->getTimestep());
-            if (ad1->GetHealth() == 0)
+            if (ad1 && c+1 < AttackCapacity)
             {
-                ad1->Setinfo(gameptr->getTimestep());
-                gameptr->Kill(ad1);
+                if (gameptr && gameptr->GetMode())
+                    cout << ad1->GetID() << " ,";
+                ad1->SetHealth(ad1->GetHealth() - CalcDmg(ad1));
+                c++;
+                ad1->SetTa(gameptr->getTimestep());
+                if (ad1->GetHealth() == 0)
+                {
+                    ad1->Setinfo(gameptr->getTimestep());
+                    gameptr->Kill(ad1);
+                }
+                else
+                    Temp_list.enqueue(ad1);
             }
-            else
-                Temp_list.enqueue(ad1);
-        }
-        if (ad2 && (c != AttackCapacity))
-        {
-            if (gameptr && gameptr->GetMode())
-                cout << ad2->GetID() << " ,";
-            ad2->SetHealth(ad2->GetHealth() - CalcDmg(ad2));
-            c++;
-            ad2->SetTa(gameptr->getTimestep());
-            if (ad2->GetHealth() == 0)
+            if (ad2 && (c != AttackCapacity))
             {
-                ad2->Setinfo(gameptr->getTimestep());
-                gameptr->Kill(ad2);
+                if (gameptr && gameptr->GetMode())
+                    cout << ad2->GetID() << " ,";
+                ad2->SetHealth(ad2->GetHealth() - CalcDmg(ad2));
+                c++;
+                ad2->SetTa(gameptr->getTimestep());
+                if (ad2->GetHealth() == 0)
+                {
+                    ad2->Setinfo(gameptr->getTimestep());
+                    gameptr->Kill(ad2);
+                }
+                else
+                    Temp_list.enqueue(ad2);
             }
-            else
-                Temp_list.enqueue(ad2);
-        }
-    }//
+        //}//
+    }
+
     if (gameptr && gameptr->GetMode())
         cout << '\b' << " ]";
-    while (Temp_list.dequeue(U2))
+
+    //cout << endl << "Testing---------" << endl << "EG Attackcapacity = " << GetAttackcapacity() << endl;
+    while (Temp_list.dequeue(U))
     {
-        gameptr->getAlienarmy()->AddUnit(U2);
+        gameptr->getAlienarmy()->AddUnit(U);
     }
     return;
 }//

@@ -11,13 +11,20 @@ void game::Simulate()
 {
 	cout << "<<<<<<<<<<<<<<<<<<<<<<<<< Current Timestep " << TS <<" >>>>>>>>>>>>>>>>>>>>>>>>>" << endl;
 	Generator.generateUnit();
-	getEartharmy()->printEarth();
-	getAlienarmy()->PrintAlien();
+	if (GetMode())
+	{
+		getEartharmy()->printEarth();
+		getAlienarmy()->PrintAlien();
+	}
 	cout << "=========== Units Attacking at Current Timestep ===========" << endl;
 	getEartharmy()->attack();
 	getAlienarmy()->attack();
-	PrintKilled();
-	cout << endl << endl;
+	if (GetMode())
+	{
+		printUML();
+		PrintKilled();
+		cout << endl << endl;
+	}
 	TS++;
 }
 
@@ -30,6 +37,7 @@ void game::Readinput()
 		myfile >> Earth_per[0];
 		myfile >> Earth_per[1];
 		myfile >> Earth_per[2];
+		myfile >> Earth_per[3];
 		myfile >> Alien_per[0];
 		myfile >> Alien_per[1];
 		myfile >> Alien_per[2];
@@ -58,7 +66,7 @@ void game::Readinput()
 void game::SetRandgen()
 {
 	Generator.setN_Prob(N, Prob);
-	Generator.setE_per(Earth_per[0], Earth_per[1], Earth_per[2]);
+	Generator.setE_per(Earth_per[0], Earth_per[1], Earth_per[2], Earth_per[3]);
 	Generator.setA_per(Alien_per[0], Alien_per[1], Alien_per[2]);
 	Generator.setA_Ranges(Alien_Ranges);
 	Generator.setE_Ranges(Earth_Ranges);
@@ -129,7 +137,7 @@ void game::WriteOutput()
 		Output << "Dd Earth average: " << DdEarth_avg << endl;
 		Output << "Db Earth average: " << DbEarth_avg << endl;
 		Output << "Df/Db % = " << (DfEarth_avg / DbEarth_avg) * 100 << "%";
-		Output << "__ Dd/Db % = " << (DdEarth_avg / DbEarth_avg) * 100 << "%" << endl;
+		Output << "--- Dd/Db % = " << (DdEarth_avg / DbEarth_avg) * 100 << "%" << endl;
 		// continue with other stats
 		Output << "Alien army statistics:- " << endl;
 		Output << "AS total units generated: " << GetCountofUnits()[3] << endl;
@@ -144,7 +152,7 @@ void game::WriteOutput()
 		Output << "Dd Alien average: " << DdAlien_avg << endl;
 		Output << "Db Alien average: " << DbAlien_avg << endl;
 		Output << "Df/Db % = " << (DfAlien_avg / DbAlien_avg) * 100 << "%";
-		Output << "__ Dd/Db % = " << (DdAlien_avg / DbAlien_avg) * 100 << "%" << endl;
+		Output << "--- Dd/Db % = " << (DdAlien_avg / DbAlien_avg) * 100 << "%" << endl;
 	}
 }
 
@@ -169,10 +177,6 @@ void game::WriteOutput()
 //	Killed_list.enqueue(getEartharmy()->RemoveUnit(type));
 //}
 
-LinkedQueue<Unitarmy*>& game::GetTemp()
-{
-	return Temp_list;
-}
 Eartharmy* game::getEartharmy()
 {
 	return &E_Army;
@@ -196,7 +200,15 @@ void game::PrintKilled()
 	cout<<Killed_list.GetCount() << " Killed units ";
 	Killed_list.print();
 }
+void game::printUML() //***
+{
+	cout << endl << "=========== Unit Maintanance Lists ===========" << endl;
 
+	cout << UML1.GetCount() << " ES at UML1 "; UML1.print();
+	cout << endl << UML2.GetCount() << " ET at UML2 "; UML2.print();
+	cout << endl << endl;
+
+}
 void game::SetMode(bool M)
 {
 	Mode = M;
@@ -210,6 +222,28 @@ bool game::GetMode()
 int* game::GetCountofUnits()
 {
 	return Generator.Passtotalcounts();
+}
+
+LinkedQueue<EarthTank*>& game::getUML_2()
+{
+	return UML2;
+	// TODO: insert return statement here
+}
+
+bool game::AddtoUML(Unitarmy* U)
+{
+	if (U->GetType() == "ES")
+		return UML1.enqueue(dynamic_cast<Earthsoldier*>(U), 20 - U->GetHealth());
+	else
+		return UML2.enqueue(dynamic_cast<EarthTank*>(U));
+}
+
+// For Rewan :you can make function (PickUML() to pick a unit from UML 1 or 2 according to the type instead of getters of the lists
+
+priQueue<Earthsoldier*>& game::getUML_1() 
+{
+	return UML1;
+	// TODO: insert return statement here
 }
 
 void game::Kill(Unitarmy* U)

@@ -16,6 +16,9 @@ bool Eartharmy::AddUnit(Unitarmy* unit)
 	{
 		return ET_list.push(dynamic_cast<EarthTank*>(unit));
 	}
+	else if (unit->GetType() == "HU")
+		return HU_list.push(dynamic_cast<HealUnit*>(unit));
+
 	return false;
 }
 Unitarmy* Eartharmy::RemoveUnit(string type)
@@ -48,31 +51,22 @@ void Eartharmy::printEarth()
 
 	cout << ES_list.GetCount() << " ES "; ES_list.print();
 	cout << endl;
-	cout << EG_list.GetCount() << " EG "; EG_list.print();
-	cout << endl;
 	cout << ET_list.GetCount() << " ET "; ET_list.print();
 	cout << endl;
+	cout << EG_list.GetCount() << " EG "; EG_list.print();
+	cout << endl;
+	cout << HU_list.GetCount() << " HU "; HU_list.print();
+	cout << endl << endl;
 }
 
 void Eartharmy::attack()
 {
-
-
-	/*Earthsoldier* ES = new Earthsoldier;
+	Earthsoldier* ES = new Earthsoldier;
 	ES_list.peek(ES);
 	if (ES)
 		ES->attack();
 	else
 		cout << "NO ES";
-	cout << endl;*/
-
-	EarthGunnery* EG = new EarthGunnery;
-	int pri;
-	EG_list.peek(EG, pri);
-	if (EG)
-		EG->attack();
-	else
-		cout << "NO EG";
 	cout << endl;
 
 	EarthTank* ET = new EarthTank;
@@ -82,6 +76,23 @@ void Eartharmy::attack()
 	else
 		cout << "NO ET";
 	cout << endl;
+
+	EarthGunnery* EG = new EarthGunnery;
+	int pri;
+	EG_list.peek(EG, pri);
+	if (EG)
+		EG->attack();
+	else
+		cout << "NO EG";
+	cout << endl << endl;
+	/*HealUnit* HU = new HealUnit;
+	HU_list.peek(HU);
+	if (HU)
+		HU->attack();
+	else
+		cout << "NO HU";
+	cout << endl << endl;
+		*/
 
 }
 LinkedQueue<Earthsoldier*>& Eartharmy::GetESList()

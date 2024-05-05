@@ -6,11 +6,11 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 		return false;
 	if (unit->GetType() == "AS")
 	{
-		return AS_list.enqueue((dynamic_cast<Aliensoldier*>(unit)));
+		return AS_list.enqueue(dynamic_cast<Aliensoldier*>(unit));
 	}
 	else if (unit->GetType() == "AD")
 	{
-		  return AD_list.enqueue((dynamic_cast<AlienDrone*>(unit)));
+		  return AD_list.enqueue(dynamic_cast<AlienDrone*>(unit));
 	}
 	else if (unit->GetType() == "AM")
 	{
@@ -20,25 +20,28 @@ bool Alienarmy::AddUnit(Unitarmy* unit)
 	return false;
 }
 
-
+int Alienarmy::GetAmCount()
+{
+	return AMcount;
+}
 void Alienarmy::PrintAlien()
 {
 	cout << "=========== Alive Alien Units ===========" << endl;
 	cout << AS_list.GetCount() << " AS "; AS_list.print();
 	cout << endl;
-	cout << AD_list.GetCount() << " AD "; AD_list.print();
-	cout << endl;
-	if (AMcount == 0) {
+	if (AMcount == 0)
 		cout << "0" << " AM [ ]" << endl;
-		return;
+	else {
+		cout << AMcount << " AM [  ";
+		for (int i = 0; i < AMcount; i++) {
+			/*if (AM_list[i])*/ // to check if there is a monster in that (no need as there will be no gaps inside the array)
+			cout << AM_list[i]->GetID() << ", ";
+		}
+		cout << '\b' << '\b' << "  ";
+		cout << "]" << endl;
 	}
-	std::cout << AMcount << " AM [  ";
-	for (int i = 0;i < AMcount;i++) {
-		/*if (AM_list[i])*/ // to check if there is a monster in that (no need as there will be no gaps inside the array)
-			std::cout << AM_list[i]->GetID() << ", ";
-	}
-	cout << '\b' << '\b' << "  ";
-	cout << "]" << endl;
+	cout << AD_list.GetCount() << " AD "; AD_list.print();
+	cout << endl << endl;
 }
 void Alienarmy::attack()
 {
@@ -48,6 +51,12 @@ void Alienarmy::attack()
 		AS->attack();
 	else
 		cout << "NO AS";
+	cout << endl;
+
+	if (AMcount)
+		PickAm()->attack();
+	else
+		cout << "NO AM";
 	cout << endl;
 }
 //Remove unit takes Unitarmy pointer as a reference for the Alien drone to take the Backptr drone 

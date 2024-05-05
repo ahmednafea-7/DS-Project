@@ -5,6 +5,14 @@ Earthsoldier::Earthsoldier(int id, int tj, int health, int power, int attackcap,
 {
 
 }
+void Earthsoldier::SetinitialHealth(int health)
+{   
+    initialHealth = health;
+}
+int Earthsoldier::getinitialHealth()
+{
+    return initialHealth;
+}
 void Earthsoldier::attack()
 {
     Unitarmy* U; //  to store temp list units in it

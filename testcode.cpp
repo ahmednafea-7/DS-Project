@@ -11,6 +11,9 @@ int main()
 	uniform_int_distribution<int> random(1, 100);
 	for (int i = 0; i < 20; i++)
 		g1.Simulate();
+	
+
+	g1.WriteOutput();
 
 	//for (int i = 0; i < 5; i++)
 	//{
@@ -26,7 +29,6 @@ int main()
 	//		g1.Simulate();
 	//	}
 	//}
-	g1.WriteOutput();
 	/*for (int i = 0; i < 50; i++) {
 		g1.Simulate();
 		x = random(rd);		

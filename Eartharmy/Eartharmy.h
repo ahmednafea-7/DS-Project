@@ -2,9 +2,11 @@
 #include "Earthsoldier.h"
 #include "EarthGunnery.h"
 #include "EarthTank.h"
+#include "Healunit.h"
 #include "../Queue/LinkedQueue.h"
 #include "../Stack/ArrayStack.h"
 #include "../PriorityQueue/priQueue.h"
+
 
 class Eartharmy
 {
@@ -12,6 +14,7 @@ class Eartharmy
 	LinkedQueue<Earthsoldier*> ES_list;
 	priQueue<EarthGunnery*> EG_list;
 	ArrayStack<EarthTank*> ET_list;
+	ArrayStack<HealUnit*> HU_list;
 
 public:
 	bool AddUnit(Unitarmy* unit);

@@ -14,11 +14,12 @@ void RandGen::setN_Prob(int n, int P)
 	Prob = P;
 }
 
-void RandGen::setE_per(int es, int et, int eg)
+void RandGen::setE_per(int es, int et, int eg,int hu)
 {
 	ES = es;
 	ET = et;
 	EG = eg;
+	HU = hu;
 }
 
 void RandGen::setA_per(int as, int am, int ad)
@@ -50,30 +51,38 @@ void RandGen::generateUnit()
 	
 	std::random_device rd;
 	std::uniform_int_distribution<int> random(1, 100);
-	int A = random(rd); // for Eartharmy
-	int A2 = random(rd); // for the Alienarmy
+	int A1 = random(rd); // for Eartharmy
+	int A2 = random(rd); // for Alienarmy, may edit that to be one number for both armies
 	int B;
 	int power;
 	int Health;
 	int Attackcap;
-	if (A < Prob)
+	if (A1 < Prob)
 	{
 		for (int i = 0; i < N; i++) {
 			power = gen_random(E_PowerRa[0], E_PowerRa[1]);
 			Health = gen_random(E_HealthRa[0], E_HealthRa[1]);
 			Attackcap = gen_random(E_AttackcapRa[0], E_AttackcapRa[1]);
 			B = random(rd);// the time joined given to units is the time step they were added to the list
-			if (B < ES) { // as there is no battle logic in this phase
-				gameptr->getEartharmy()->AddUnit(new Earthsoldier(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
+			if (B < ES) { 
+				Earthsoldier* es = new Earthsoldier(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr);
+				gameptr->getEartharmy()->AddUnit(es);
+				es->SetinitialHealth(Health);
 				Totalunits[0]++;
 			}
 			else if (B < ES + ET) {
-				gameptr->getEartharmy()->AddUnit(new EarthTank(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
+				EarthTank* et = new EarthTank(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr);
+				gameptr->getEartharmy()->AddUnit(et);
+				et->SetinitialHealth(Health);
 				Totalunits[1]++;
 			}
-			else {
+			else if (B < ES + ET + EG) {
 				gameptr->getEartharmy()->AddUnit(new EarthGunnery(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
 				Totalunits[2]++;
+			}
+			else
+			{
+				gameptr->getEartharmy()->AddUnit(new HealUnit(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
 			}
 			}
 	}

@@ -21,6 +21,7 @@ void Aliensoldier::attack()
 			if (gameptr && gameptr->GetMode())
 				cout << es->GetID() << " ,";
 			es->SetHealth(es->GetHealth() - CalcDmg(es));
+			//cout << "Health after shot" << es->GetHealth() << " Initial health = " << es->getinitialHealth() << endl; to test initial health
 			es->SetTa(gameptr->getTimestep());
 			if (es->GetHealth() == 0)
 			{

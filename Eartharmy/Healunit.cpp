@@ -6,6 +6,11 @@ HealUnit::HealUnit(int id, int tj, int health, int power, int capacity, game* gp
 	
 }
 
+bool HealUnit::IsInfected() const
+{
+	return false;
+}
+
 void HealUnit::attack() // heal //***
 {
 //    Unitarmy* UA;

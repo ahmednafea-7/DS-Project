@@ -1,9 +1,12 @@
 ﻿#include "Earthsoldier.h"
 #include "../Game/game.h"
 
-Earthsoldier::Earthsoldier(int id, int tj, int health, int power, int attackcap, game* gptr ,string type):Unitarmy(id, tj, health, power, attackcap, type , gptr)
-{
 
+int Earthsoldier::Infected_Count = 0;
+
+Earthsoldier::Earthsoldier(int id, int tj, int health, int power, int attackcap, game* gptr ,string type, bool infected):Unitarmy(id, tj, health, power, attackcap, type , gptr)
+{
+    Infected = infected;
 }
 void Earthsoldier::SetinitialHealth(int health)
 {   
@@ -12,6 +15,22 @@ void Earthsoldier::SetinitialHealth(int health)
 int Earthsoldier::getinitialHealth()
 {
     return initialHealth;
+}
+void Earthsoldier::SetInfected(bool infected)
+{
+    Infected = infected;
+}
+bool Earthsoldier::IsInfected() const
+{
+    return Infected;
+}
+void Earthsoldier::SetInfCount(int count)
+{
+    Infected_Count = count;
+}
+int Earthsoldier::GetInfCount()
+{
+    return Infected_Count;
 }
 void Earthsoldier::attack()
 {
@@ -25,7 +44,7 @@ void Earthsoldier::attack()
     for (int i = 0; i < AttackCapacity; i++)
     {
        gameptr->getAlienarmy()->getAS_List().dequeue(as);
-       if (as)
+       if (as&&!IsInfected())
        {
            if (gameptr && gameptr->GetMode())
                cout << as->GetID() << " ,";
@@ -41,7 +60,11 @@ void Earthsoldier::attack()
        }
     }
     if (gameptr && gameptr->GetMode())
-    cout << '\b' << " ]";
+        cout << '\b' << " ]" << endl;
+
+
+   
+
    /* cout << endl << "---------------This is for testing------------";
     cout << endl << " Temp list:";
     Temp_list.print();
@@ -50,6 +73,44 @@ void Earthsoldier::attack()
     while (Temp_list.dequeue(U))
     {
      gameptr->getAlienarmy()->AddUnit(U);
+    }
+
+    return;
+}
+
+void Earthsoldier::InfAttack()
+{
+    Unitarmy* U; //  to store temp list units in it
+    LinkedQueue<Unitarmy*> Temp_list; // to store units shot but not killed
+    Earthsoldier* es = new Earthsoldier;
+    if (gameptr && gameptr->GetMode())
+        cout << "Infected ES !!" << GetID() << " shots [ ";
+    for (int i = 0; i < AttackCapacity; i++)
+    {
+        gameptr->getEartharmy()->GetESList().dequeue(es);
+        if (es)
+        {
+            if (gameptr && gameptr->GetMode())
+                cout << es->GetID() << " ,";
+            es->SetHealth(es->GetHealth() - CalcDmg(es));
+            es->SetTa(gameptr->getTimestep());
+            if (es->GetHealth() == 0)
+            {
+                es->Setinfo(gameptr->getTimestep());
+                if (es->IsInfected())
+                    es->Infected_Count--;
+                gameptr->Kill(es);
+            }
+            else
+                Temp_list.enqueue(es);
+        }
+    }
+    if (gameptr && gameptr->GetMode())
+        cout << '\b' << " ]";
+
+    while (Temp_list.dequeue(U))
+    {
+        gameptr->getEartharmy()->AddUnit(U);
     }
 
     return;

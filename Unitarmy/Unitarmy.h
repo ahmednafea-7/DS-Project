@@ -14,6 +14,7 @@ protected:
 	int Health, Power, AttackCapacity;// att. cap. is the maximum no. of units could be attacked at 1 time step
 	string Type;
 	int Df,Dd,Db; // First attack delay, Destruction delay, battle time
+	bool Infected = false;
 public:
 	Unitarmy(int id, int tj, int health , int power , int attackcap , string type, game* Gptr = nullptr);
 	void SetID(int id);
@@ -32,12 +33,16 @@ public:
 	int GetDf();
 	int GetDd();
 	int GetDb();
+	virtual bool IsInfected()const = 0;
 	string GetType() const;
 	virtual void attack() = 0;
 	~Unitarmy();
 };
 inline ostream& operator<<(ostream& os, const Unitarmy& U)
 {
-	os << U.GetID() << " , ";
+	if (U.IsInfected())
+		os << "$" << U.GetID() << " , ";
+	else
+		os<<U.GetType() << U.GetID() << " , ";
 	return os;
 }

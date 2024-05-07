@@ -9,3 +9,8 @@ void AlienDrone::attack()
 {
     return ;
 }
+
+bool AlienDrone::IsInfected() const
+{
+    return false;
+}

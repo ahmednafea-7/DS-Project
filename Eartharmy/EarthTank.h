@@ -11,6 +11,7 @@ public:
 	int getinitialHealth();
 	void attack();
 	static bool Cond;
+	virtual bool IsInfected() const;
 };
 inline ostream& operator<<(ostream& os,const EarthTank& et) 
 {

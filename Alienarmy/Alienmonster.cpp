@@ -1,9 +1,13 @@
 #include"Alienmonster.h"
 #include"../Game/game.h"
 
-Alienmonster::Alienmonster(int id, int tj, int health, int power, int attackcap,game* gptr, string type) :Unitarmy(id, tj, health, power, attackcap, type, gptr)
+Alienmonster::Alienmonster(int id, int tj, int health, int power, int attackcap,game* gptr, string type,int infp) :Unitarmy(id, tj, health, power, attackcap, type, gptr)
 {
-
+	Infect_Prob = infp;
+}
+bool Alienmonster::IsInfected() const
+{
+	return false;
 }
 void Alienmonster::attack()
 {
@@ -23,7 +27,7 @@ void Alienmonster::attack()
 		if (et)
 		{
 			if (gameptr && gameptr->GetMode())
-				cout << et->GetID() << " ,";
+				cout<<et->GetType() << et->GetID() << " ,";
 			et->SetHealth(et->GetHealth() - CalcDmg(et));
 			et->SetTa(gameptr->getTimestep());
 			c++;
@@ -42,14 +46,28 @@ void Alienmonster::attack()
 		gameptr->getEartharmy()->GetESList().dequeue(es);
 		if (es)
 		{
+			std::random_device rd;
+			std::uniform_int_distribution<int> random(1, 100);
+			int Rand_Inf = random(rd);
+
 			if (gameptr && gameptr->GetMode())
-				cout << es->GetID() << " ,";
+				cout<< es->GetType() << *es<< " ,";
 			es->SetHealth(es->GetHealth() - CalcDmg(es));
+			if (Rand_Inf < Infect_Prob)
+			{
+				if (!es->IsInfected())
+				{
+					es->SetInfected(true);
+					es->Infected_Count++;
+				}
+			}
 			es->SetTa(gameptr->getTimestep());
 			c++;
 			if (es->GetHealth() == 0)
 			{
 				es->Setinfo(gameptr->getTimestep());
+				if (es->IsInfected())
+					es->Infected_Count--;
 				gameptr->Kill(es);
 			}
 			else

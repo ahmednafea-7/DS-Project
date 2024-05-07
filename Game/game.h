@@ -18,9 +18,10 @@ class game
 	LinkedQueue<EarthTank*> UML2;
 	int TS = 1; //Time step counter
 	int N; //No. of army units generated
-	int Earth_per[4];//Percentages of units for  Eartharmy in order(ES,ET,EG)
+	int Earth_per[4];//Percentages of units for  Eartharmy in order(ES,ET,EG,HU)
 	int Alien_per[3]; // Percentages of units for alienarmy in order(AS,AM,AD)
 	int Prob; // used by randgen
+	int Infect_Prob; 
 	int Earth_Ranges[6],Alien_Ranges[6]; // Ranges for unit power, health , attack capacity
 	bool Mode = true; // True means Interactive, false means Silent mode
 	void Readinput();

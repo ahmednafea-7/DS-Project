@@ -5,6 +5,7 @@
 #include<iostream>
 #include <fstream>
 #include <string>
+#include <conio.h>
 
 using namespace std;
 
@@ -28,8 +29,9 @@ class game
 public:
 	void WriteOutput();
 	game();
+	//char CheckUserinput();
+	bool fight(); // generates units,makes the armies attack each other , print and move to next time step
 	void Simulate();//it calls the Random generator then print the armies' lists and the killed list then increment timestep
-	//void Pick_Kill(string type); // Remove the unit from its list and add it to killed list
 	void Kill(Unitarmy* U); //add  to killed list
 	Eartharmy* getEartharmy();
 	Alienarmy* getAlienarmy();

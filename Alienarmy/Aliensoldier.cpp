@@ -28,12 +28,16 @@ void Aliensoldier::attack()
 				es->Setinfo(gameptr->getTimestep());
 				gameptr->Kill(es);
 			}
+			else if (es->GetHealth() < (0.2 * es->getinitialHealth()))
+			{
+				gameptr->AddtoUML(es);
+			}
 			else
 				Temp_list.enqueue(es);
 		}
 	}
 	if (gameptr && gameptr->GetMode())
-		cout << '\b' << "]";
+		cout << '\b' << "]" <<endl;
 	/* cout << endl << "---------------This is for testing------------";
 	cout << endl << " Temp list:";
 	Temp_list.print();

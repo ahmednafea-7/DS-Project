@@ -49,15 +49,32 @@ void Alienarmy::attack()
 	AS_list.peek(AS);
 	if (AS)
 		AS->attack();
-	else
-		cout << "NO AS";
-	cout << endl;
+	/*else
+		cout << "NO AS";*/
 
 	if (AMcount)
 		PickAm()->attack();
+	/*else
+		cout << "NO AM";*/
+	AlienDrone* AD1 = new AlienDrone;
+	AlienDrone* AD2 = new AlienDrone;
+
+	AD_list.peek(AD1, AD2);
+	if (AD1 && AD2)
+		AD1->attack(AD2);
+	/*else
+		cout << "NO AD";*/
+}
+bool Alienarmy::isDefeated()
+{
+	if (GetAmCount() == 0 && AD_list.isEmpty() && AS_list.isEmpty())
+		return true;
 	else
-		cout << "NO AM";
-	cout << endl;
+		return false;
+}
+int Alienarmy::getTotalUnits()
+{
+	return AS_list.GetCount()+ AMcount+ AD_list.GetCount();
 }
 //Remove unit takes Unitarmy pointer as a reference for the Alien drone to take the Backptr drone 
 //Unitarmy* Alienarmy::RemoveUnit(string type, Unitarmy*& U) 

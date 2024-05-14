@@ -6,14 +6,26 @@ using namespace std;
 int main()
 {
 	game g1;
-	int x;
-	random_device rd;
-	uniform_int_distribution<int> random(1, 100);
-	for (int i = 0; i < 20; i++)
-		g1.Simulate();
-	
+	/*random_device rd;
+	uniform_int_distribution<int> random(1, 100);*/
+	//for (int i = 0; i < 20; i++)
+	char key;
 
-	g1.WriteOutput();
+	//std::cout << "Press any key to continue(f to finish the battle): ";
+
+	//while (true) {
+	//	if (_kbhit()) { // Check if a key is pressed
+	//		key = _getch(); // Get the pressed key
+	//		std::cout << "\nKey pressed: " << key << std::endl;
+	//		if (key == 'q') // Quit if 'q' is pressed
+	//			break;
+	//	}
+	//}
+	g1.Simulate();
+	/*if (g1.GetMode() == false) {
+		
+	}*/
+
 
 	//for (int i = 0; i < 5; i++)
 	//{

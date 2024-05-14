@@ -32,6 +32,10 @@ void Alienmonster::attack()
 				et->Setinfo(gameptr->getTimestep());
 				gameptr->Kill(et);
 			}
+			else if (et->GetHealth() < (0.2 * et->getinitialHealth()))
+			{
+				gameptr->AddtoUML(et);
+			}
 			else
 				Temp_list.enqueue(et);
 		}
@@ -52,13 +56,17 @@ void Alienmonster::attack()
 				es->Setinfo(gameptr->getTimestep());
 				gameptr->Kill(es);
 			}
+			else if (es->GetHealth() < (0.2 * es->getinitialHealth()))
+			{
+				gameptr->AddtoUML(es);
+			}
 			else
 				Temp_list.enqueue(es);
 		}
 	}// 2nd for loop to attack ET using the remaining attack capacity
 
 	if (gameptr && gameptr->GetMode())
-		cout << '\b' << " ]";
+		cout << '\b' << " ]" << endl;
 
 	//cout << endl << "Testing---------" << endl << "EG Attackcapacity = " << GetAttackcapacity() << endl;
 	while (Temp_list.dequeue(U)) // to empty templist

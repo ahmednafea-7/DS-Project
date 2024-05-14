@@ -10,14 +10,14 @@ class HealUnit :public Unitarmy
 private:
     //int Power;    // Power of the Healing Unit (in % -> 5 == 5%)->5% is the percentage of its generation
     //int Capacity; //Attackcapacity is Number of units it can heal in a single timestep ////// no need for another capacity
-
+    static int Totalhealed; // total number of units healed
 public:
     HealUnit(int id = 0, int tj = 0, int health = 0, int power = 0, int attackcap = 0, game* gptr = nullptr, string type = "HU");
     //HealUnit(int power, int capacity);
     //void healUnits(Unitarmy* unitList[], int listSize);
-
+    int CalcHealing(Unitarmy* U);
     void attack(); // heal
-
+    static int getTotalhealed();
     ~HealUnit();
 };
 

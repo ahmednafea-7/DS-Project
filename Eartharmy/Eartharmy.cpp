@@ -65,35 +65,41 @@ void Eartharmy::attack()
 	ES_list.peek(ES);
 	if (ES)
 		ES->attack();
-	else
-		cout << "NO ES";
-	cout << endl;
+	//else
+	//	cout << "NO ES";
 
 	EarthTank* ET = new EarthTank;
 	ET_list.peek(ET);
 	if (ET)
 		ET->attack();
-	else
-		cout << "NO ET";
-	cout << endl;
+	/*else
+		cout << "NO ET";*/
 
 	EarthGunnery* EG = new EarthGunnery;
 	int pri;
 	EG_list.peek(EG, pri);
 	if (EG)
 		EG->attack();
-	else
-		cout << "NO EG";
-	cout << endl << endl;
-	/*HealUnit* HU = new HealUnit;
+	/*else
+		cout << "NO EG";*/
+	HealUnit* HU = new HealUnit;
 	HU_list.peek(HU);
 	if (HU)
 		HU->attack();
 	else
-		cout << "NO HU";
-	cout << endl << endl;
-		*/
+		cout << endl;
 
+}
+bool Eartharmy::isDefeated()
+{
+	if (ES_list.isEmpty() && EG_list.isEmpty() && ET_list.isEmpty())
+		return true;
+	
+	return false;
+}
+int Eartharmy::getTotalUnits()
+{
+	return ES_list.GetCount() + ET_list.GetCount() + EG_list.GetCount();
 }
 LinkedQueue<Earthsoldier*>& Eartharmy::GetESList()
 {
@@ -106,4 +112,8 @@ priQueue<EarthGunnery*>& Eartharmy::GetEGList()
 ArrayStack<EarthTank*>& Eartharmy::GetETList()
 {
 	return ET_list;
+}
+ArrayStack<HealUnit*>& Eartharmy::GetHUList()
+{
+	return HU_list;
 }

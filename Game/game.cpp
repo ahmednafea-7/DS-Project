@@ -1,5 +1,6 @@
 #include "game.h"
-
+#include "stdlib.h"
+#include "windows.h"
 game::game():Generator(this)
 {
 	Readinput();
@@ -7,18 +8,89 @@ game::game():Generator(this)
 	//WriteOutput();
 }
 
-void game::Simulate()
+//char game::CheckUserinput()
+//{
+//	std::cout << "Press any key to move to next timestep(f to finish the battle): ";
+//	/*std::cin >> key;
+//	return key;*/
+//	char key;
+//	//if (_kbhit())
+//	//{ // Check if a key is pressed
+//	//	key = _getch(); // Get the pressed key
+//	//	std::cout << "\nKey pressed: " << key << std::endl;
+//	//	return key;
+//	//}
+//	//char key;
+//	//std::cout << "Press Enter key to continue: ";
+//
+//	//// Wait for the Enter key to be pressed
+//	while (true) {
+//		std::cin.get(key);
+//		if(key == 'f')
+//		{
+//			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), 'f'); // Clear input buffer
+//			return 'f';
+//			break;
+//		}
+//		if (key == '\n') {
+//			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear input buffer
+//			return key;
+//			break;
+//		}
+//	}
+//}
+
+bool game::fight()
 {
-	cout << "<<<<<<<<<<<<<<<<<<<<<<<<< Current Timestep " << TS <<" >>>>>>>>>>>>>>>>>>>>>>>>>" << endl;
+	if (GetMode())
+	cout << "<<<<<<<<<<<<<<<<<<<<<<<<< Current Timestep " << TS << " >>>>>>>>>>>>>>>>>>>>>>>>>" << endl;
 	Generator.generateUnit();
 	if (GetMode())
 	{
 		getEartharmy()->printEarth();
 		getAlienarmy()->PrintAlien();
 	}
+	if (GetMode())
 	cout << "=========== Units Attacking at Current Timestep ===========" << endl;
 	getEartharmy()->attack();
+	if (TS > 40 && getAlienarmy()->isDefeated())
+	{
+		if (GetMode())
+		{
+			printUML();
+			PrintKilled();
+			cout << endl << endl;
+			cout << endl << "Earth army wins !";
+		}
+		return false;
+	}
 	getAlienarmy()->attack();
+	if (TS > 40 && getEartharmy()->isDefeated())
+	{
+		if (GetMode())
+		{
+			printUML();
+			PrintKilled();
+			cout << endl << endl;
+			cout << endl << "Alien army wins !";
+		}
+		return false;
+	}
+	if (TS > 500)
+	{
+		if (GetMode())
+		{
+			printUML();
+			PrintKilled();
+			cout << endl << endl;
+		}
+		if (getEartharmy()->getTotalUnits() > getAlienarmy()->getTotalUnits() && GetMode())
+			cout << endl << "Earth army has more alive units, if battle continues it will win";
+		else if(GetMode())
+			cout << endl << "Alien army has more alive units, if battle continues it will win";
+
+		return false;
+	}
 	if (GetMode())
 	{
 		printUML();
@@ -26,10 +98,78 @@ void game::Simulate()
 		cout << endl << endl;
 	}
 	TS++;
+	//cin.get();
+	return true;
+}
+
+void game::Simulate()
+{
+	cout << "Enter 'Y' for Interactive mode and 'N' for silent mode" << endl;
+	char interactive;
+	cin.get(interactive);
+	if (interactive == 'Y' || interactive == 'y')
+		Mode = true;
+	else if (interactive == 'N' || interactive == 'n')
+		Mode = false;
+
+	if(!GetMode())
+	{
+		while(fight())
+		{
+		}
+		//system("cls");
+		cout << "Silent Mode" << endl << "Simulation starts";
+		for (int i = 0; i < 3; i++) {
+			Sleep(500);
+			cout << ".";
+		}
+		cout << endl;
+		WriteOutput();
+		cout << "Simulation ends,Outputfile is created" << endl;
+		return;
+	}
+	bool finished;
+	for (int i = 0; i < 40; i++) {
+		finished = fight();
+	}
+	char key;
+	while (finished)
+	{
+		finished = fight();
+		if (!finished)
+			break;
+		cout << "Press Enter key to move to next timestep(f to finish the battle): ";
+		cin.get(key);
+		cout << endl;
+		if (key == 'f')
+		{
+			while (true)
+			{
+				if (!finished) {
+					cout << endl;
+					break;
+				}
+				finished = fight();
+			}
+		}
+	}
+	WriteOutput();
 }
 
 void game::Readinput()
 {
+	/*ifstream myfile;
+	cout << "Enter the simulation mode you want: ";
+		int mode;
+		cin >> mode;
+		switch(mode) {
+		case 1:
+			myfile.open("inputfile.txt");
+			break;
+		case 2:
+			myfile.open("inputfile1.txt");
+			break;
+		};*/
 	ifstream myfile("inputfile.txt");
 	if (myfile.is_open())
 	{
@@ -84,6 +224,15 @@ void game::WriteOutput()
 		int EarthKilledSum[3] = { 0,0,0 };// Total killed ES,ET,EG
 		int AlienKilledSum[3] = { 0,0,0 }; //Total killed AS,AM,AD
 		Unitarmy* U;
+		if (getAlienarmy()->isDefeated())
+			Output << "Earth Army wins!";
+		else if(getEartharmy()->isDefeated())
+			Output << "Alien Army wins!";
+		else if (getEartharmy()->getTotalUnits() > getAlienarmy()->getTotalUnits())
+			Output << "Earth army has more alive units, if battle continues,probably it will win";
+		else
+			Output << "Alien army has more alive units, if battle continues,probably it will win";
+		Output << endl;
 		while(Killed_list.dequeue(U))
 		{
 			if (U->GetID() < 1000) {
@@ -133,6 +282,7 @@ void game::WriteOutput()
 		Output << "for ES: " << 100 * (float)EarthKilledSum[0] / (float)GetCountofUnits()[0] << "%" << endl;
 		Output << "for ET: " << 100 * (float)EarthKilledSum[1] / (float)GetCountofUnits()[1] << "%" << endl;
 		Output << "for EG: " << 100 * (float)EarthKilledSum[2] / (float)GetCountofUnits()[2] << "%" << endl;
+		Output << "Percentages of total units healed: " << 100 * (float(HealUnit::getTotalhealed()) / getEartharmy()->getTotalUnits()) << "%" << endl;
 		Output << "Df Earth average: " << DfEarth_avg << endl;
 		Output << "Dd Earth average: " << DdEarth_avg << endl;
 		Output << "Db Earth average: " << DbEarth_avg << endl;
@@ -227,15 +377,16 @@ int* game::GetCountofUnits()
 LinkedQueue<EarthTank*>& game::getUML_2()
 {
 	return UML2;
-	// TODO: insert return statement here
 }
 
 bool game::AddtoUML(Unitarmy* U)
 {
 	if (U->GetType() == "ES")
 		return UML1.enqueue(dynamic_cast<Earthsoldier*>(U), 20 - U->GetHealth());
-	else
+	else if (U->GetType() == "ET")
 		return UML2.enqueue(dynamic_cast<EarthTank*>(U));
+	else
+		return false;
 }
 
 // For Rewan :you can make function (PickUML() to pick a unit from UML 1 or 2 according to the type instead of getters of the lists
@@ -243,7 +394,6 @@ bool game::AddtoUML(Unitarmy* U)
 priQueue<Earthsoldier*>& game::getUML_1() 
 {
 	return UML1;
-	// TODO: insert return statement here
 }
 
 void game::Kill(Unitarmy* U)

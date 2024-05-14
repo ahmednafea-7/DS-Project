@@ -41,7 +41,7 @@ void Earthsoldier::attack()
        }
     }
     if (gameptr && gameptr->GetMode())
-    cout << '\b' << " ]";
+    cout << '\b' << " ]" << endl;
    /* cout << endl << "---------------This is for testing------------";
     cout << endl << " Temp list:";
     Temp_list.print();
@@ -53,4 +53,12 @@ void Earthsoldier::attack()
     }
 
     return;
+}
+void Earthsoldier::setUML_Tj(int tj)
+{
+    UML_Tj = tj;
+}
+int Earthsoldier::getUML_Tj()
+{
+    return UML_Tj;
 }

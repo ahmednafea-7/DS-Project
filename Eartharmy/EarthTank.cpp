@@ -97,14 +97,21 @@ void EarthTank::attack()
     }
 
     if (gameptr && gameptr->GetMode())
-        cout << '\b' << " ]";
+        cout << '\b' << " ]" << endl;
     while (Temp_list.dequeue(U))
     {
         gameptr->getAlienarmy()->AddUnit(U);
     }
     return;
 }
-
+void EarthTank::setUML_Tj(int tj)
+{
+    UML_Tj = tj;
+}
+int EarthTank::getUML_Tj()
+{
+    return UML_Tj;
+}
 
 // if (es<0.3 as)
 //     tank attack as & monsters

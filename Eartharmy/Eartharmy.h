@@ -21,8 +21,10 @@ public:
 	Unitarmy* RemoveUnit(string type);
 	void printEarth();
 	void attack();
+	bool isDefeated();
+	int getTotalUnits();
 	LinkedQueue<Earthsoldier*>& GetESList();
 	priQueue<EarthGunnery*>& GetEGList();
 	ArrayStack<EarthTank*>& GetETList();
-
+	ArrayStack<HealUnit*>& GetHUList(); /**/
 };

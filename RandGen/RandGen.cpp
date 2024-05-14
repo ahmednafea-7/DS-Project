@@ -82,7 +82,7 @@ void RandGen::generateUnit()
 			}
 			else
 			{
-				gameptr->getEartharmy()->AddUnit(new HealUnit(Earth_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
+				gameptr->getEartharmy()->AddUnit(new HealUnit(Earth_id++, gameptr->getTimestep(), Health, power/2, Attackcap, gameptr));
 			}
 			}
 	}

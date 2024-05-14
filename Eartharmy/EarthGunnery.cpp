@@ -88,7 +88,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
     }
 
     if (gameptr && gameptr->GetMode())
-        cout << '\b' << " ]";
+        cout << '\b' << " ]" << endl;
 
     //cout << endl << "Testing---------" << endl << "EG Attackcapacity = " << GetAttackcapacity() << endl;
     while (Temp_list.dequeue(U))

@@ -23,6 +23,8 @@ public:
 	int GetAmCount();
 	void PrintAlien();
 	void attack();
+	bool isDefeated();
+	int getTotalUnits();
 	//Unitarmy* RemoveUnit(string type, Unitarmy*& U);
 	LinkedQueue<Aliensoldier*>& getAS_List();
 	DoubleQueue<AlienDrone*>& getAD_List();

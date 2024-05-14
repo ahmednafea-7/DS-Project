@@ -16,6 +16,7 @@ void Alienmonster::attack()
 	Earthsoldier* es = new Earthsoldier; // to attack ES
 	EarthTank* et = new EarthTank; // to attack ET
 	int c = 0;
+	int y;
 	if (gameptr && gameptr->GetMode())
 		cout << "AM " << GetID() << " attacks [ ";
 	//for (int i = 0; i < AttackCapacity / 2; i++)
@@ -60,10 +61,11 @@ void Alienmonster::attack()
 			es->SetHealth(es->GetHealth() - CalcDmg(es));
 			if (Rand_Inf < Infect_Prob)
 			{
-				if (!es->IsInfected())
+				if (!es->IsInfected() && !es->IsImmune())
 				{
 					es->SetInfected(true);
-					es->Infected_Count++;
+					y = es->GetInfCount();
+					es->SetInfCount(++y);
 				}
 			}
 			es->SetTa(gameptr->getTimestep());
@@ -72,7 +74,10 @@ void Alienmonster::attack()
 			{
 				es->Setinfo(gameptr->getTimestep());
 				if (es->IsInfected())
-					es->Infected_Count--;
+				{
+					y = es->GetInfCount();
+					es->SetInfCount(--y);
+				}
 				gameptr->Kill(es);
 			}
 			else if (es->GetHealth() < (0.2 * es->getinitialHealth()))

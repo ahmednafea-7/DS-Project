@@ -53,7 +53,7 @@ void Eartharmy::printEarth()
 	cout << endl;
 	Earthsoldier* es = new Earthsoldier;
 	if (ES_list.peek(es))
-		cout << "TESTING>>>>> Infection percentage" << es->Infected_Count << "/" << ES_list.GetCount() << "=" << ((double(es->Infected_Count)) / double(ES_list.GetCount()))*100 <<"%" << endl; // for testing
+		cout << "TESTING>>>>> Infection percentage" << es->GetInfCount() << "/" << ES_list.GetCount() << "=" << ((double(es->GetInfCount())) / double(ES_list.GetCount()))*100 <<"%" << endl; // for testing
 	cout << ET_list.GetCount() << " ET "; ET_list.print();
 	cout << endl;
 	cout << EG_list.GetCount() << " EG "; EG_list.print();

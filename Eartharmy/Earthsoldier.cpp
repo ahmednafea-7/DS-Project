@@ -4,8 +4,9 @@
 
 int Earthsoldier::Infected_Count = 0;
 
-Earthsoldier::Earthsoldier(int id, int tj, int health, int power, int attackcap, game* gptr ,string type, bool infected):Unitarmy(id, tj, health, power, attackcap, type , gptr)
+Earthsoldier::Earthsoldier(int id, int tj, int health, int power, int attackcap, game* gptr ,string type, bool infected,bool immune):Unitarmy(id, tj, health, power, attackcap, type , gptr)
 {
+    Immune = immune;
     Infected = infected;
 }
 void Earthsoldier::SetinitialHealth(int health)
@@ -20,9 +21,17 @@ void Earthsoldier::SetInfected(bool infected)
 {
     Infected = infected;
 }
+void Earthsoldier::SetImmune(bool immune)
+{
+    Immune = immune;
+}
 bool Earthsoldier::IsInfected() const
 {
     return Infected;
+}
+bool Earthsoldier::IsImmune()
+{
+    return Immune;
 }
 void Earthsoldier::SetInfCount(int count)
 {
@@ -32,6 +41,7 @@ int Earthsoldier::GetInfCount()
 {
     return Infected_Count;
 }
+
 void Earthsoldier::attack()
 {
     Unitarmy* U; //  to store temp list units in it
@@ -98,7 +108,10 @@ void Earthsoldier::InfAttack()
             {
                 es->Setinfo(gameptr->getTimestep());
                 if (es->IsInfected())
-                    es->Infected_Count--;
+                {
+                    int y = es->GetInfCount();
+                    es->SetInfCount(--y);
+                }
                 gameptr->Kill(es);
             }
             else

@@ -23,7 +23,7 @@ void Aliensoldier::attack()
 		if (es)
 		{
 			if (gameptr && gameptr->GetMode())
-				cout << *es << " ,";
+				cout << *es << "";
 			es->SetHealth(es->GetHealth() - CalcDmg(es));
 			//cout << "Health after shot" << es->GetHealth() << " Initial health = " << es->getinitialHealth() << endl; to test initial health
 			es->SetTa(gameptr->getTimestep());
@@ -31,7 +31,10 @@ void Aliensoldier::attack()
 			{
 				es->Setinfo(gameptr->getTimestep());
 				if (es->IsInfected())
-					es->Infected_Count--;
+				{
+					int y = es->GetInfCount();
+					es->SetInfCount(--y);
+				}
 				gameptr->Kill(es);
 			}
 			else if (es->GetHealth() < (0.2 * es->getinitialHealth()))

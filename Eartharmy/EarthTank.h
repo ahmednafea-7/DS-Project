@@ -14,6 +14,7 @@ public:
 	void setUML_Tj(int tj); /***/
 	int getUML_Tj(); /***/
 	static bool Cond;
+	virtual bool IsInfected() const;
 };
 inline ostream& operator<<(ostream& os,const EarthTank& et) 
 {

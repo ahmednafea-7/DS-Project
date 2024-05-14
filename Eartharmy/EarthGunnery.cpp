@@ -8,6 +8,10 @@ int EarthGunnery::GetPri()
 {
     return Pri;
 }
+bool EarthGunnery::IsInfected() const
+{
+    return false;
+}
 void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then attacks drones in pairs "If there is only 1 Drone exist, Pick it and attack"
 {
     //Attacking Alien Monsters
@@ -32,7 +36,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
         if (am)
         {
             if (gameptr && gameptr->GetMode())
-                cout << am->GetID() << " ,";
+                cout<<am->GetType() << am->GetID() << " ,";
             am->SetHealth(am->GetHealth() - CalcDmg(am));
             am->SetTa(gameptr->getTimestep());
             c++;
@@ -57,7 +61,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
             if (ad1 && c+1 < AttackCapacity)
             {
                 if (gameptr && gameptr->GetMode())
-                    cout << ad1->GetID() << " ,";
+                    cout<<ad1->GetType() << ad1->GetID() << " ,";
                 ad1->SetHealth(ad1->GetHealth() - CalcDmg(ad1));
                 c++;
                 ad1->SetTa(gameptr->getTimestep());
@@ -72,7 +76,7 @@ void EarthGunnery::attack() //Earth Gunnery Attacks Monsters randomly, Then atta
             if (ad2 && (c != AttackCapacity))
             {
                 if (gameptr && gameptr->GetMode())
-                    cout << ad2->GetID() << " ,";
+                    cout<<ad2->GetType() << ad2->GetID() << " ,";
                 ad2->SetHealth(ad2->GetHealth() - CalcDmg(ad2));
                 c++;
                 ad2->SetTa(gameptr->getTimestep());

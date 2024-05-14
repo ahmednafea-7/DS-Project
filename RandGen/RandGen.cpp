@@ -8,10 +8,11 @@ RandGen::RandGen(game* gptr)
 	}
 }
 
-void RandGen::setN_Prob(int n, int P)
+void RandGen::setN_Prob(int n, int P,int Inf)
 {
 	N = n;
 	Prob = P;
+	Infect_Prob = Inf;
 }
 
 void RandGen::setE_per(int es, int et, int eg,int hu)
@@ -98,7 +99,7 @@ void RandGen::generateUnit()
 			Totalunits[3]++;
 		}
 		else if (B < AS + AM) {
-			gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr));
+			gameptr->getAlienarmy()->AddUnit(new Alienmonster(Alien_id++, gameptr->getTimestep(), Health, power, Attackcap, gameptr,"AM", Infect_Prob));
 			Totalunits[4]++;
 		}
 		else {

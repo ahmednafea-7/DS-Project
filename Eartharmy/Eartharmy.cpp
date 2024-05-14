@@ -51,6 +51,9 @@ void Eartharmy::printEarth()
 
 	cout << ES_list.GetCount() << " ES "; ES_list.print();
 	cout << endl;
+	Earthsoldier* es = new Earthsoldier;
+	if (ES_list.peek(es))
+		cout << "TESTING>>>>> Infection percentage" << es->Infected_Count << "/" << ES_list.GetCount() << "=" << ((double(es->Infected_Count)) / double(ES_list.GetCount()))*100 <<"%" << endl; // for testing
 	cout << ET_list.GetCount() << " ET "; ET_list.print();
 	cout << endl;
 	cout << EG_list.GetCount() << " EG "; EG_list.print();
@@ -63,8 +66,14 @@ void Eartharmy::attack()
 {
 	Earthsoldier* ES = new Earthsoldier;
 	ES_list.peek(ES);
-	if (ES)
+	if (ES&& !ES->IsInfected())
 		ES->attack();
+	else if (ES && ES->IsInfected())
+	{
+		ES_list.dequeue(ES);
+		ES->InfAttack();
+		ES_list.enqueue(ES);
+    }
 	//else
 	//	cout << "NO ES";
 
@@ -86,8 +95,8 @@ void Eartharmy::attack()
 	HU_list.peek(HU);
 	if (HU)
 		HU->attack();
-	else
-		cout << endl;
+	/*else
+		cout << endl;*/
 
 }
 bool Eartharmy::isDefeated()

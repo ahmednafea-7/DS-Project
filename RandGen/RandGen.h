@@ -13,6 +13,7 @@ class RandGen
 	int ES, ET, EG, HU; // Earth units percentages
 	int AS, AM, AD; // Alien units percentages
 	int Prob;
+	int Infect_Prob;
 	int E_PowerRa[2], E_HealthRa[2], E_AttackcapRa[2];//Ranges for earth army
 	int A_PowerRa[2], A_HealthRa[2], A_AttackcapRa[2];//Ranges for Alien army
 	int Timestep;
@@ -25,7 +26,7 @@ class RandGen
 	int* Totalunits = new int[6]; // total units at each list in order (ES,ET,EG,AS,AM,AD)
 public:
 	RandGen(game* gptr);
-	void setN_Prob(int n, int P);  // sets N and Prob
+	void setN_Prob(int n, int P,int Inf);  // sets N and Prob
 	void setE_per(int es, int et, int eg,int hu); // set earth units' percentages
 	void setA_per(int as, int am, int ad); // set Alien units' percentages
 	void setE_Ranges(int* Eranges);// Power, int* Health, int* Attackcap);

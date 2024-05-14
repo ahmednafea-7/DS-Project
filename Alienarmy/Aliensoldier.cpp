@@ -5,6 +5,10 @@ Aliensoldier::Aliensoldier(int id, int tj, int health, int power, int attackcap,
 {
 
 }
+bool Aliensoldier::IsInfected() const
+{
+	return false;
+}
 void Aliensoldier::attack()
 {
 	Unitarmy* U;  // used to store temp list in it
@@ -19,17 +23,20 @@ void Aliensoldier::attack()
 		if (es)
 		{
 			if (gameptr && gameptr->GetMode())
-				cout << es->GetID() << " ,";
+				cout << *es << " ,";
 			es->SetHealth(es->GetHealth() - CalcDmg(es));
 			//cout << "Health after shot" << es->GetHealth() << " Initial health = " << es->getinitialHealth() << endl; to test initial health
 			es->SetTa(gameptr->getTimestep());
 			if (es->GetHealth() == 0)
 			{
 				es->Setinfo(gameptr->getTimestep());
+				if (es->IsInfected())
+					es->Infected_Count--;
 				gameptr->Kill(es);
 			}
 			else if (es->GetHealth() < (0.2 * es->getinitialHealth()))
 			{
+				es->setUML_Tj(gameptr->getTimestep());
 				gameptr->AddtoUML(es);
 			}
 			else

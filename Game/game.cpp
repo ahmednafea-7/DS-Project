@@ -182,6 +182,7 @@ void game::Readinput()
 		myfile >> Alien_per[1];
 		myfile >> Alien_per[2];
 		myfile >> Prob;
+		myfile >> Infect_Prob;
 		myfile >> Earth_Ranges[0];
 		myfile.ignore(); // to ignore the -
 		myfile >> Earth_Ranges[1];
@@ -205,7 +206,7 @@ void game::Readinput()
 }
 void game::SetRandgen()
 {
-	Generator.setN_Prob(N, Prob);
+	Generator.setN_Prob(N, Prob,Infect_Prob);
 	Generator.setE_per(Earth_per[0], Earth_per[1], Earth_per[2], Earth_per[3]);
 	Generator.setA_per(Alien_per[0], Alien_per[1], Alien_per[2]);
 	Generator.setA_Ranges(Alien_Ranges);

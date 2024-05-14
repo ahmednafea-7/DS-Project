@@ -15,6 +15,8 @@ public:
     HealUnit(int id = 0, int tj = 0, int health = 0, int power = 0, int attackcap = 0, game* gptr = nullptr, string type = "HU");
     //HealUnit(int power, int capacity);
     //void healUnits(Unitarmy* unitList[], int listSize);
+    virtual bool IsInfected()const;
+
     int CalcHealing(Unitarmy* U);
     void attack(); // heal
     static int getTotalhealed();

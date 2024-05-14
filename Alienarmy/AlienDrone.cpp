@@ -30,7 +30,7 @@ void AlienDrone::attack(AlienDrone* ad1)
 		if (et)
 		{
 			if (gameptr && gameptr->GetMode())
-				cout << et->GetType() << *et << " ,";
+				cout << et->GetType() << et->GetID() << " ,";
 			et->SetHealth(et->GetHealth() - CalcDmg(et) - ad1->CalcDmg(et));
 			et->SetTa(gameptr->getTimestep());
 			c++;
@@ -38,6 +38,11 @@ void AlienDrone::attack(AlienDrone* ad1)
 			{
 				et->Setinfo(gameptr->getTimestep());
 				gameptr->Kill(et);
+			}
+			else if (et->GetHealth() < (0.2 * et->getinitialHealth()))
+			{
+				et->setUML_Tj(gameptr->getTimestep());
+				gameptr->AddtoUML(et);
 			}
 			else
 				Temp_list.enqueue(et);
@@ -50,7 +55,7 @@ void AlienDrone::attack(AlienDrone* ad1)
 		if (eg)
 		{
 			if (gameptr && gameptr->GetMode())
-				cout << eg->GetID() << " ,";
+				cout << eg->GetType() << eg->GetID() << " ,";
 			eg->SetHealth(eg->GetHealth() - CalcDmg(eg) - ad1->CalcDmg(eg));
 			eg->SetTa(gameptr->getTimestep());
 			c++;
@@ -73,4 +78,9 @@ void AlienDrone::attack(AlienDrone* ad1)
 		gameptr->getEartharmy()->AddUnit(U);
 	}
 	return;
+}
+
+bool AlienDrone::IsInfected() const
+{
+    return false;
 }

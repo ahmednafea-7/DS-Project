@@ -16,6 +16,11 @@ int HealUnit::CalcHealing(Unitarmy* U)
     return Heal;
 }
 
+bool HealUnit::IsInfected() const
+{
+	return false;
+}
+
 void HealUnit::attack() // heal //***
 {
     Earthsoldier* es;
@@ -50,12 +55,12 @@ void HealUnit::attack() // heal //***
 
         //Earthsoldier* es = dynamic_cast<Earthsoldier*>(UA);
         if (es) {
-            cout << "Health before healing :" << es->GetHealth() << endl; // this is for testing
+            //cout << "Health before healing :" << es->GetHealth() << endl; // this is for testing
             es->SetHealth(es->GetHealth() + CalcHealing(es));  //(GetPower() * (float(GetHealth()) / 100)) / sqrt(es->GetHealth()));
             //gameptr->getEartharmy()->AddUnit(es);
             capacity++;
             Totalhealed++;
-            cout << "Health After healing :" << es->GetHealth() << endl; // this is for testing
+           // cout << "Health After healing :" << es->GetHealth() << endl; // this is for testing
             if (gameptr->getTimestep() - es->getUML_Tj() > 10) //dead
                 gameptr->Kill(es);
             else if (es->GetHealth() <= (0.2 * es->getinitialHealth()))
@@ -83,12 +88,12 @@ void HealUnit::attack() // heal //***
         if (gameptr && gameptr->GetMode())
         cout << et->GetID() << ",";
         if (et) {
-            cout << "Health before healing :" << et->GetHealth() << endl; // this is for testing
+            //cout << "Health before healing :" << et->GetHealth() << endl; // this is for testing
             et->SetHealth(et->GetHealth() + CalcHealing(et));//(GetPower() * (float(GetHealth()) / 100)) / sqrt(et->GetHealth()));
             //gameptr->getEartharmy()->AddUnit(es);
             Totalhealed++;
             capacity++;
-            cout << "Health After healing :" << et->GetHealth() << endl; // this is for testing
+            //cout << "Health After healing :" << et->GetHealth() << endl; // this is for testing
 
             if (gameptr->getTimestep() - et->getUML_Tj() > 10) //dead
                 gameptr->Kill(et);

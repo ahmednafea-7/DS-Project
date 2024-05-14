@@ -10,6 +10,10 @@ void EarthTank::SetinitialHealth(int health)
 {
     initialHealth = health;
 }
+bool EarthTank::IsInfected() const
+{
+    return false;
+}
 int EarthTank::getinitialHealth()
 {
     return initialHealth;
@@ -63,7 +67,7 @@ void EarthTank::attack()
                 if (as)
                 {
                     if (gameptr && gameptr->GetMode())
-                        cout << as->GetID() << " ,";
+                        cout<<as->GetType() << as->GetID() << " ,";
                     as->SetHealth(as->GetHealth() - CalcDmg(as));
                     c++;
                     as->SetTa(gameptr->getTimestep());
@@ -83,7 +87,7 @@ void EarthTank::attack()
         if (am)
         {
             if (gameptr && gameptr->GetMode())
-                cout << am->GetID() << " ,";
+                cout<<am->GetType() << am->GetID() << " ,";
             am->SetHealth(am->GetHealth() - CalcDmg(am));
             am->SetTa(gameptr->getTimestep());
             if (am->GetHealth() == 0)

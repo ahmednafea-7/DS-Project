@@ -5,7 +5,6 @@ game::game():Generator(this)
 {
 	Readinput();
 	SetRandgen();
-	//WriteOutput();
 }
 
 //char game::CheckUserinput()

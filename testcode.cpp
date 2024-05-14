@@ -23,6 +23,7 @@ int main()
 	/*random_device rd;
 	uniform_int_distribution<int> random(1, 100);*/
 	//for (int i = 0; i < 20; i++)
+	char key;
 
 	//std::cout << "Press any key to continue(f to finish the battle): ";
 
@@ -34,6 +35,7 @@ int main()
 	//			break;
 	//	}
 	//}
+	g1.Simulate();
 	/*if (g1.GetMode() == false) {
 		
 	}*/
